@@ -1,0 +1,24 @@
+.. vim: set sw=2 ts=2 tw=80 et si:
+
+1. Grundlagen
+=============
+
+Monotone als Versionsverwaltungssystem hält verschiedene Revisionen von Dateien
+bereit. Da ist zum einen die aktuelle Version, die ich im Workspace bearbeite
+und die jeweils mit der Vorgänger- und Nachfolgerversion verketteten Versionen
+im Repository.
+
+Da Monotone eine verteiltes Versionsverwaltungssystem ist, gibt es nicht nur ein
+Repository sondern mehrere, üblicherweise eins auf dem lokalen Rechner welches
+im Workspace referenziert wird und weitere Repositories auf anderen Rechnern,
+die mit dem lokalen abgeglichen werden.
+
+Wie bereit erwähnt sind Dateien im Repository jeweils mit ihrer Vorgänger- und
+Nachfolgerversion (soweit vorhanden) verknüpft. Dabei ist es möglich, dass eine
+bestimmte Version keinen Vorgänger hat (es ist die erste eingecheckte Version
+dieser Datei), einen Vorgänger (die Datei wurde ausgecheckt, geändert,
+eingecheckt) oder mehrere (die Datei ist aus der Vereinigung verschiedener
+älterer Versionen entstanden). Ebenso ist es möglich, dass eine Datei keinen
+Nachfolger hat (es ist die letzte eingecheckte Version), einen Nachfolger, oder
+mehrere (die Version wurde mehrfach ausgecheckt, verschieden editiert und wieder
+eingecheckt.
