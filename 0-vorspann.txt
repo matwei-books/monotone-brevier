@@ -1,8 +1,8 @@
 
 .. vim: set sw=2 ts=2 tw=80 et si:
 
-========================================================
-Monotone - Ein Brevier über verteilte Versionsverwaltung
-========================================================
+=======================================================
+Monotone - Ein Brevier für verteilte Versionsverwaltung
+=======================================================
 
 .. contents:: Inhaltsverzeichnis

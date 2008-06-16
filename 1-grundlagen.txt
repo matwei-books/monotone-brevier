@@ -18,8 +18,8 @@ Wie bereit erwähnt sind Dateien im Repository jeweils mit ihrer Vorgänger- und
 Nachfolgerversion (soweit vorhanden) verknüpft. Dabei ist es möglich, dass eine
 bestimmte Version keinen Vorgänger hat (es ist die erste eingecheckte Version
 dieser Datei), einen Vorgänger (die Datei wurde ausgecheckt, geändert,
-eingecheckt) oder mehrere (die Datei ist aus der Vereinigung verschiedener
-älterer Versionen entstanden). Ebenso ist es möglich, dass eine Datei keinen
+eingecheckt) oder mehrere (die Version ist aus der Vereinigung verschiedener
+älterer Versionen entstanden). Ebenso ist es möglich, dass eine Version keinen
 Nachfolger hat (es ist die letzte eingecheckte Version), einen Nachfolger, oder
 mehrere (die Version wurde mehrfach ausgecheckt, verschieden editiert und wieder
 eingecheckt.
@@ -36,12 +36,12 @@ oder in einem entfernten Repository.
    :scale: 50
    :align: center
 
-Mit den Monotone-Kommandos setup, checkout, revert und update werden Dateien aus
-dem lokalen Repository in mein Arbeitsverzeichnis befördert. Mit commit geht es
-aus dem Arbeitsverzeichnis in das lokale Repository.
+Mit den Monotone-Kommandos ``setup``, ``checkout``, ``revert`` und ``update``
+werden Dateien aus dem lokalen Repository in mein Arbeitsverzeichnis befördert.
+Mit ``commit`` geht es aus dem Arbeitsverzeichnis in das lokale Repository.
 
-Mit dem Monotone-Kommando pull holt man Daten aus einem entfernten Repository in
-das lokale, mit push schiebt man Daten aus dem lokalen Repository in das
-entfernte. Sync schließlich gleicht die Unterschiede zwischen lokalem und
-entfernten Repository aus, d.h. lokale Änderungen werden in das entfernte
-Repository übernommen und umgekehrt.
+Mit dem Monotone-Kommando ``pull`` holt man Daten aus einem entfernten
+Repository in das lokale, mit ``push`` schiebt man Daten aus dem lokalen
+Repository in das entfernte. ``sync`` schließlich gleicht die Unterschiede
+zwischen lokalem und entfernten Repository aus, d.h. lokale Änderungen werden
+in das entfernte Repository übernommen und umgekehrt.
