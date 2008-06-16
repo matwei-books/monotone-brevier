@@ -1,0 +1,17 @@
+
+.. vim: set sw=2 ts=2 tw=80 et si:
+
+2. In Gang kommen
+=================
+
+Um Dateien mit Monotone zu verwalten muß ich als allererstes ein lokales
+Repository anlegen. Prinzipiell kann man ein Repository für mehrere oder alle
+Projekte verwenden, ich ziehe in den meisten Fällen ein Repository für ein
+Projekt vor. Das lokale Repository lege ich mit folgendem Befehl an::
+
+
+$ mtn --db ~/A/monotone/projekt.mtn db init
+
+
+Die Datenbank könnte irgendwo abgelegt werden, bei mir landen alle im
+Verzeichnis *~/A/monotone*.

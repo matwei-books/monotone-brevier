@@ -1,12 +1,13 @@
+
 .. vim: set sw=2 ts=2 tw=80 et si:
 
 1. Grundlagen
 =============
 
-Monotone als Versionsverwaltungssystem hält verschiedene Revisionen von Dateien
-bereit. Da ist zum einen die aktuelle Version, die ich im Workspace bearbeite
-und die jeweils mit der Vorgänger- und Nachfolgerversion verketteten Versionen
-im Repository.
+Monotone als Versionsverwaltungssystem hält für mich verschiedene Arbeitsstände
+von Dateien, die ich bearbeite, bereit. Da ist zum einen die aktuelle Version
+im Workspace und die jeweils mit der Vorgänger- und Nachfolgerversion verketteten
+Versionen im Repository.
 
 Da Monotone eine verteiltes Versionsverwaltungssystem ist, gibt es nicht nur ein
 Repository sondern mehrere, üblicherweise eins auf dem lokalen Rechner welches
@@ -22,3 +23,25 @@ eingecheckt) oder mehrere (die Datei ist aus der Vereinigung verschiedener
 Nachfolger hat (es ist die letzte eingecheckte Version), einen Nachfolger, oder
 mehrere (die Version wurde mehrfach ausgecheckt, verschieden editiert und wieder
 eingecheckt.
+
+1.1 Wo sind meine Dateien
+-------------------------
+
+Die Daten unter der Versionsverwaltung von Monotone können sich an verschiedenen
+Orten befinden, insbesondere im Arbeitsverzeichnis, in einem lokalen Repository
+oder in einem entfernten Repository.
+
+.. image:: img/wo-sind-die-daten.png
+   :alt: Wo sind die Daten?
+   :scale: 50
+   :align: center
+
+Mit den Monotone-Kommandos setup, checkout, revert und update werden Dateien aus
+dem lokalen Repository in mein Arbeitsverzeichnis befördert. Mit commit geht es
+aus dem Arbeitsverzeichnis in das lokale Repository.
+
+Mit dem Monotone-Kommando pull holt man Daten aus einem entfernten Repository in
+das lokale, mit push schiebt man Daten aus dem lokalen Repository in das
+entfernte. Sync schließlich gleicht die Unterschiede zwischen lokalem und
+entfernten Repository aus, d.h. lokale Änderungen werden in das entfernte
+Repository übernommen und umgekehrt.
