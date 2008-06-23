@@ -4,14 +4,53 @@
 2. In Gang kommen
 =================
 
+Um mit Monotone zu arbeiten benötige ich zumindest ein lokales Repository und
+einen Schlüssel, mit dem ich die abgespeicherten Daten signieren kann. Damit
+kann ich mir ein neues Projekt in einem Arbeitsverzeichnis einrichten oder
+eventuell vorhandene Daten auschecken.
+
+2.1. Ein lokales Repository anlegen
+-----------------------------------
+
 Um Dateien mit Monotone zu verwalten muß ich als allererstes ein lokales
 Repository anlegen. Prinzipiell kann man ein Repository für mehrere oder alle
 Projekte verwenden, ich ziehe in den meisten Fällen ein Repository für ein
 Projekt vor. Das lokale Repository lege ich mit folgendem Befehl an::
 
 
-$ mtn --db ~/A/monotone/projekt.mtn db init
+ $ mtn --db ~/A/monotone/projekt.mtn db init
 
 
 Die Datenbank könnte irgendwo abgelegt werden, bei mir landen alle im
 Verzeichnis *~/A/monotone*.
+
+2.2. Persönliche Schlüssel erzeugen
+-----------------------------------
+
+Mit meinen persönlichen Schlüsseln signiere ich alle Daten, die ich im
+Repository einspeichere sowie alle Tags die ich vergebe. Über diesen Schlüssel
+werden auch die Zugriffsrechte auf entfernte Repositories eingestellt::
+
+
+ $ mtn genkey mathias@weidner.in-bad-schmiedeberg.de
+
+Um das Kennwort für den Schlüssel nicht jedesmal eingeben zu müssen kann ich
+(unter UNIX, mit installiertem ssh_agent) den Schlüssel zur Verwaltung an
+ssh_agent übergeben::
+
+ $ mtn ssh_agent_export ~/.ssh/id_monotone
+ $ chmod 600 ~/.ssh/id_monotone
+ $ ssh-agent /bin/bash
+ $ ssh-add ~/.ssh/id_monotone
+
+Alternativ (und weniger sicher) kann ich das Kennwort in einen Hook in meiner
+.montonerc-Datei eintragen::
+
+
+ $ mkdir ~/.monotone
+ $ cat >> ~/.monotone/.monotonerc
+ function get_passphrase(keypair_id)
+     return "jimsekret"
+ end
+ ^D
+
