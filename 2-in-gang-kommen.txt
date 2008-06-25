@@ -1,13 +1,12 @@
 
-.. vim: set sw=2 ts=2 tw=80 et si:
+.. vim: set sw=2 ts=2 tw=78 et si:
 
 2. In Gang kommen
 =================
 
-Um mit Monotone zu arbeiten benötige ich zumindest ein lokales Repository und
-einen Schlüssel, mit dem ich die abgespeicherten Daten signieren kann. Damit
-kann ich mir ein neues Projekt in einem Arbeitsverzeichnis einrichten oder
-eventuell vorhandene Daten auschecken.
+Um mit Monotone zu arbeiten benötige ich noch ein lokales Repository,
+einen Schlüssel um die abgespeicherten Daten zu signieren und einen
+Arbeitsbereich, dessen Inhalt von Monotone verfolgt wird.
 
 2.1. Ein lokales Repository anlegen
 -----------------------------------
@@ -44,7 +43,7 @@ ssh_agent übergeben::
  $ ssh-add ~/.ssh/id_monotone
 
 Alternativ (und weniger sicher) kann ich das Kennwort in einen Hook in meiner
-.montonerc-Datei eintragen::
+.monotonerc-Datei eintragen::
 
 
  $ mkdir ~/.monotone
@@ -54,3 +53,53 @@ Alternativ (und weniger sicher) kann ich das Kennwort in einen Hook in meiner
  end
  ^D
 
+2.3. Einen Arbeitsbereich anlegen
+---------------------------------
+
+Einen Arbeitsbereich (workspace) kann ich anlegen indem ich einen vorhandenen
+Zweig aus einem lokalen Repository auschecke (``mtn checkout``) oder indem ich
+einen neuen Arbeitsbereich aufsetze (``mtn setup``). So lege ich einen neuen
+Arbeitsbereich an::
+
+ $ mkdir -p ~/P/projekt
+ $ cd ~/P/projekt
+ $ mtn --db ~/A/monotone/projekt.mtn \
+       setup --branch projekt.branch
+
+Damit habe ich meinen Arbeitsbereich. Monotone kann nun im lokalen Repository
+*~/A/monotone/projekt.mtn* Dateien aus dem Verzeichnis *~/P/projekt/* im Zweig
+*projekt.branch* verwalten. Von sich aus tut es das allerdings nicht. Damit
+Monotone den aktuellen Stand einer Datei im lokalen Repository verwaltet, muss
+ich ihm die Datei allerdings vorher bekannt machen.
+
+2.4. Dateien hinzufügen / umbenennen / entfernen
+------------------------------------------------
+
+Dateien im Arbeitsbereich, die von Monotone verwaltet werden sollen, kann ich
+ihm mit ``mtn add`` bekannt machen. Mit ``mtn drop`` schließe ich eine Datei
+von der weiteren Verwaltung durch Monotone aus (ältere Versionen bleiben im
+Repository erhalten und zugänglich). Wenn ich eine Datei umbenennen oder in ein
+anderes Verzeichnis verschieben und dabei ihre Versionsgeschichte erhalten
+möchte, verwende ich ``mtn rename``.
+
+Welche Dateien Monotone verwaltet (kennt), zeigt mir das Kommando ``mtn list
+known`` im Arbeitsbereich. Dem entsprechend zeigt ``mtn list unknown`` die
+Dateien im Arbeitsbereich, die Monotone nicht kennt (nicht verwaltet).
+Schließlich zeigt ``mtn list ignored`` die Dateien, die Monotone gar nicht
+kennen will. Diese letzte Liste kann ich mit einer Datei namens *.mtn-ignore*
+im Arbeitsbereich beeinflussen.
+Damit kann ich die Dateien, deren Änderungen ich nicht verfolgen will,
+ausschließen und schließlich mit ``mtn add --unknown`` alle anderen Dateien
+mit einem Mal unter Versionsverwaltung stellen.
+Natürlich kann ich auch *.mtn-ignore* mit Monotone verwalten.
+
+2.5. Änderungen bestätigen
+--------------------------
+
+Monotone merkt sich nahezu beliebig viele Zwischenstände der von ihm
+verwalteten Dateien, aber nur auf Aufforderung mit ``mtn commit``. Dieser
+Befehl verlangt eine Notiz, die die damit erzeugte Revision beschreibt. Diese
+Notiz kann ich mit der Option ``--message`` auf der Kommandozeile mitgeben.
+Ansonsten öffnet Monotone einen Dateieditor mit dem man die Notiz in aller
+Sorgfalt erstellen kann. Erst dann wird der momentane Stand aller verwalteten
+Dateien im lokalen Repository zwischengespeichert.
