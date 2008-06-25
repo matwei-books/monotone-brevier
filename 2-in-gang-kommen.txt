@@ -4,24 +4,23 @@
 2. In Gang kommen
 =================
 
-Um mit Monotone zu arbeiten benötige ich noch ein lokales Repository,
+Um mit Monotone zu arbeiten benötige ich ein lokales Repository,
 einen Schlüssel um die abgespeicherten Daten zu signieren und einen
 Arbeitsbereich, dessen Inhalt von Monotone verfolgt wird.
 
 2.1. Ein lokales Repository anlegen
 -----------------------------------
 
-Um Dateien mit Monotone zu verwalten muß ich als allererstes ein lokales
+Um Dateien mit Monotone zu verwalten muß ich ein lokales
 Repository anlegen. Prinzipiell kann man ein Repository für mehrere oder alle
 Projekte verwenden, ich ziehe in den meisten Fällen ein Repository für ein
-Projekt vor. Das lokale Repository lege ich mit folgendem Befehl an::
-
+Projekt vor. Das lokale Repository [#databaselocation]_ lege ich mit folgendem
+Befehl an::
 
  $ mtn --db ~/A/monotone/projekt.mtn db init
 
-
-Die Datenbank könnte irgendwo abgelegt werden, bei mir landen alle im
-Verzeichnis *~/A/monotone*.
+.. [#databaselocation] Die Datenbank könnte irgendwo abgelegt werden, bei mir
+   landen alle im Verzeichnis *~/A/monotone*.
 
 2.2. Persönliche Schlüssel erzeugen
 -----------------------------------
@@ -42,8 +41,8 @@ ssh_agent übergeben::
  $ ssh-agent /bin/bash
  $ ssh-add ~/.ssh/id_monotone
 
-Alternativ (und weniger sicher) kann ich das Kennwort in einen Hook in meiner
-.monotonerc-Datei eintragen::
+Alternativ (und weniger sicher) kann ich das Kennwort in einen Hook in der
+Datei *.monotonerc* [#monotonerc]_ eintragen::
 
 
  $ mkdir ~/.monotone
@@ -52,6 +51,11 @@ Alternativ (und weniger sicher) kann ich das Kennwort in einen Hook in meiner
      return "jimsekret"
  end
  ^D
+
+.. [#monotonerc] Die Datei *.monotonerc* bzw. Ihr Äquivalent unter MS Windows
+   ist üblicherweise im Verzeichnis *~/.monotone/* bzw. unter MS Windows etwa
+   bei *C:/Dokumente und Einstellungen/Name/Anwendungsdaten/monotone/* zu
+   finden.
 
 2.3. Einen Arbeitsbereich anlegen
 ---------------------------------
@@ -66,11 +70,11 @@ Arbeitsbereich an::
  $ mtn --db ~/A/monotone/projekt.mtn \
        setup --branch projekt.branch
 
-Damit habe ich meinen Arbeitsbereich. Monotone kann nun im lokalen Repository
+Monotone kann nun im lokalen Repository
 *~/A/monotone/projekt.mtn* Dateien aus dem Verzeichnis *~/P/projekt/* im Zweig
 *projekt.branch* verwalten. Von sich aus tut es das allerdings nicht. Damit
 Monotone den aktuellen Stand einer Datei im lokalen Repository verwaltet, muss
-ich ihm die Datei allerdings vorher bekannt machen.
+ich ihm die Datei vorher bekannt machen.
 
 2.4. Dateien hinzufügen / umbenennen / entfernen
 ------------------------------------------------
@@ -90,15 +94,16 @@ kennen will. Diese letzte Liste kann ich mit einer Datei namens *.mtn-ignore*
 im Arbeitsbereich beeinflussen.
 Damit kann ich die Dateien, deren Änderungen ich nicht verfolgen will,
 ausschließen und schließlich mit ``mtn add --unknown`` alle anderen Dateien
-mit einem Mal unter Versionsverwaltung stellen.
-Natürlich kann ich auch *.mtn-ignore* mit Monotone verwalten.
+mit einem Mal unter Versionsverwaltung stellen [#mtnignore]_.
+
+.. [#mtnignore] Natürlich kann ich auch *.mtn-ignore* mit Monotone verwalten.
 
 2.5. Änderungen bestätigen
 --------------------------
 
 Monotone merkt sich nahezu beliebig viele Zwischenstände der von ihm
 verwalteten Dateien, aber nur auf Aufforderung mit ``mtn commit``. Dieser
-Befehl verlangt eine Notiz, die die damit erzeugte Revision beschreibt. Diese
+Befehl verlangt eine Notiz, die die damit erzeugte Revision beschreibt. Die
 Notiz kann ich mit der Option ``--message`` auf der Kommandozeile mitgeben.
 Ansonsten öffnet Monotone einen Dateieditor mit dem man die Notiz in aller
 Sorgfalt erstellen kann. Erst dann wird der momentane Stand aller verwalteten
