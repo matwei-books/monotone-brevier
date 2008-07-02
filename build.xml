@@ -1,0 +1,37 @@
+<!-- vim: set ts=4 sw=4 tw=78 et si: -->
+<project name="monotone-brevier" default="pdf">
+
+    <property name="basename" value="monotone-brevier" />
+
+    <target name="clean"
+            description="Clean up workspace">
+        <delete includeemptydirs="true" failonerror="false">
+            <fileset dir="." includes="*.aux,*.log,*.out" />
+        </delete>
+    </target> <!-- clean -->
+
+    <target name="completetext"
+            description="Complete ReStructured text">
+        <concat destfile="${basename}.rst">
+            <fileset dir="." includes="*.txt" />
+        </concat>
+    </target> <!-- completetext -->
+
+    <target name="texsource"
+            depends="completetext"
+            description="TeX-Source for further processing">
+        <apply executable="rst2latex"
+               output="${basename}.tex">
+            <filelist dir="." files="${basename}.rst" />
+        </apply>
+    </target> <!-- texsource -->
+
+    <target name="pdf"
+            depends="texsource"
+            description="PDF file of the text">
+        <apply executable="pdflatex">
+            <filelist dir="." files="${basename}.tex" />
+        </apply>
+    </target> <!-- pdf -->
+
+</project>
