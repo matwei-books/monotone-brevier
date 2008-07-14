@@ -1,0 +1,30 @@
+
+.. vim: set sw=2 ts=2 tw=78 et si:
+
+3. Datensicherung
+=================
+
+Zum Schutz vor Datenverlust muss ich im wesentlichen zwei Dinge sichern. Das
+Monotone Repository mit den verschiedenen Versionen meiner Daten und meinen
+privaten sowie öffentlichen Schlüssel. Die Schlüssel benötige ich um neue
+Revisionen abzuspeichern oder eventuell für den Zugriff auf entfernte
+Repositories.
+
+3.1. Lokale Datensicherung
+--------------------------
+
+Um mein Repository zu sichern reicht es, die Datenbankdatei auf ein geeignetes
+Sicherunsmedium zu kopieren. Zu Wiederherstellen kopiere ich die Datei zurück
+und kann vom Stand der letzten Sicherung aus weiterarbeiten.
+
+Meine Monotone-Schlüssel finde ich unter UNIX/Linux im Verzeichnis
+*~/.monotone/keys/*.
+
+3.2. Datensicherung über Netz
+-----------------------------
+
+Eine elegante Art die Daten zu sichern besteht darin, sie mit einem entfernten
+Repository zu synchronisieren. Falls meine lokale Datenbank verloren geht,
+kann ich sie aus dem entfernten Repository wieder neu erzeugen indem ich eine
+leere Datenbank anlege und z.B. mit ``mtn pull`` alle Revisionen von der
+entfernten Datenbank einlese.
