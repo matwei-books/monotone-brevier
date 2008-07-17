@@ -1,0 +1,42 @@
+
+.. vim: set sw=2 ts=2 tw=80 et si:
+
+4. Zusammenarbeit
+=================
+
+Wenn ich mit mehreren zusammen an einem Projekt arbeite, hat es sich für uns
+bewährt, wenn wir einen Hauptzweig für die Entwicklung nehmen, in dem die
+jeweils letzte lauffähige Version geführt wird, sowie für jeden Entwickler einen
+eigenen Zweig, in dem er seine Änderungen in aller Ruhe entwickeln kann und bei
+Erreichen eines stabilen Standes diesen mit dem Hauptzweig abgleicht.
+
+Ein anderes Modell wäre z.B. das nur einer der Entwickler Änderungen in den
+Hauptzweig übernimmt und dazu vorher seinen Zweig mit den Änderungen der anderen
+Entwickler aktualisiert.
+
+Wenn ein Stand erreicht ist, der eingefroren und veröffentlicht werden soll,
+erzeuge ich einen neuen Zweig in dem nur noch Fehlerkorrekturen für diesen
+veröffentlichten Stand gesammelt werden.
+
+4.1. Organisation
+-----------------
+
+.. TODO Bild mit Zweigstruktur
+
+4.2. Mehr Netzwerk
+------------------
+
+Wenn mehrere an einem Projekt arbeiten, insbesondere wenn diese räumlich oder
+zeitlich getrennt sind, ist es praktisch ein Repository zu haben, das immer über
+das Netz zu erreichen ist. Dann kann dieses wie ein zentrales Repository
+verwendet werden und der Abgleich zwischen den Entwicklern darüber erfolgen.
+Wenn dieses Repository einmal nicht zu erreichen ist, ist immer noch der direkte
+Abgleich zwischen den Entwicklern möglich.
+
+Dieser Server benötigt keine extra Datensicherung, da alle Versionen, die er
+enthält auch auf den Rechnern der Entwickler vorhanden sind. Lediglich der
+private Schlüssel dieses Servers sollte gesichert sein, um den Server im Falle
+eines Ausfalls schnell wieder in Betrieb nehmen zu können.
+
+4.3. Zugriffsrechte
+-------------------
