@@ -4,39 +4,40 @@
 4. Zusammenarbeit
 =================
 
-Wenn ich mit mehreren zusammen an einem Projekt arbeite, hat es sich für uns
+Wenn ich mit mehreren zusammen an einem Projekt arbeite, hat es sich
 bewährt, wenn wir einen Hauptzweig für die Entwicklung nehmen, in dem die
 jeweils letzte lauffähige Version geführt wird, sowie für jeden Entwickler einen
 eigenen Zweig, in dem er seine Änderungen in aller Ruhe entwickeln kann und bei
 Erreichen eines stabilen Standes diesen mit dem Hauptzweig abgleicht.
 
-Ein anderes Modell wäre z.B. das nur einer der Entwickler Änderungen in den
-Hauptzweig übernimmt und dazu vorher seinen Zweig mit den Änderungen der anderen
-Entwickler aktualisiert.
+Ein anderes Modell wäre z.B. das nur einer der Entwickler Änderungen mit dem
+Hauptzweig abgleicht und dazu vorher seinen Zweig mit den Änderungen der
+anderen Entwickler aktualisiert.
 
 Wenn ein Stand erreicht ist, der eingefroren und veröffentlicht werden soll,
-erzeuge ich einen neuen Zweig in dem nur noch Fehlerkorrekturen für diesen
-veröffentlichten Stand gesammelt werden.
+marikiere ich diese Revision mit einem *version tag* und erzeuge einen neuen
+Zweig, in dem nur noch Fehlerkorrekturen für diesen veröffentlichten Stand
+gesammelt werden.
 
-4.1. Organisation
------------------
+.. image:: img/version-tags.png
+   :alt: Versionsmarkierung
+   :scale: 50
+   :align: center
 
-.. TODO Bild mit Zweigstruktur
-
-4.2. Mehr Netzwerk
+4.1. Netzwerk
 ------------------
 
-Wenn mehrere an einem Projekt arbeiten, insbesondere wenn diese räumlich oder
-zeitlich getrennt sind, ist es praktisch ein Repository zu haben, das immer über
-das Netz zu erreichen ist. Dann kann dieses wie ein zentrales Repository
-verwendet werden und der Abgleich zwischen den Entwicklern darüber erfolgen.
-Wenn dieses Repository einmal nicht zu erreichen ist, ist immer noch der direkte
-Abgleich zwischen den Entwicklern möglich.
+Wenn mehrere Leute an einem Projekt arbeiten, insbesondere wenn die Mitarbeiter
+räumlich oder zeitlich getrennt sind, ist es praktisch ein Repository zu haben,
+das immer über das Netz zu erreichen ist. Dann kann dieses wie ein zentrales
+Repository verwendet werden und der Abgleich zwischen den Entwicklern darüber
+erfolgen.  Ist dieses Repository einmal nicht zu erreichen, ist immer noch der
+direkte Abgleich zwischen den Entwicklern möglich.
 
-Dieser Server benötigt keine extra Datensicherung, da alle Versionen, die er
+Der Server benötigt keine extra Datensicherung, da alle Versionen, die er
 enthält auch auf den Rechnern der Entwickler vorhanden sind. Lediglich der
 private Schlüssel dieses Servers sollte gesichert sein, um den Server im Falle
 eines Ausfalls schnell wieder in Betrieb nehmen zu können.
 
-4.3. Zugriffsrechte
+4.2. Zugriffsrechte
 -------------------

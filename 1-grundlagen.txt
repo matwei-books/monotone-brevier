@@ -14,7 +14,7 @@ Repository sondern mehrere, üblicherweise eins auf dem lokalen Rechner welches
 im Workspace referenziert wird und weitere Repositories auf anderen Rechnern,
 die mit dem lokalen abgeglichen werden.
 
-Wie bereit erwähnt sind Dateien im Repository jeweils mit ihrer Vorgänger- und
+Die Dateien sind im Repository jeweils mit ihrer Vorgänger- und
 Nachfolgerversion (soweit vorhanden) verknüpft. Dabei ist es möglich, dass eine
 bestimmte Version keinen Vorgänger hat (es ist die erste eingecheckte Version
 dieser Datei), einen Vorgänger (die Datei wurde ausgecheckt, geändert,
@@ -45,3 +45,6 @@ Repository in das lokale, mit ``push`` schiebt man Daten aus dem lokalen
 Repository in das entfernte. ``sync`` schließlich gleicht die Unterschiede
 zwischen lokalem und entfernten Repository aus, d.h. lokale Änderungen werden
 in das entfernte Repository übernommen und umgekehrt.
+
+Für ``pull`` wird kein Schlüssel benötigt, damit ist ein anonymer Download
+möglich.

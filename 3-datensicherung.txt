@@ -17,8 +17,12 @@ Um mein Repository zu sichern reicht es, die Datenbankdatei auf ein geeignetes
 Sicherunsmedium zu kopieren. Zu Wiederherstellen kopiere ich die Datei zurück
 und kann vom Stand der letzten Sicherung aus weiterarbeiten.
 
-Meine Monotone-Schlüssel finde ich unter UNIX/Linux im Verzeichnis
-*~/.monotone/keys/*.
+Meinen öffentlichen Schlüssel bekomme ich aus der Datenbank mit
+
+ $ mtn pubkey mathias@weidner.in-bad-schmiedeberg.de
+
+Den privaten Monotone-Schlüssel finde ich unter UNIX/Linux im Verzeichnis
+*~/.monotone/keys/* [#monotonerc]_.
 
 3.2. Datensicherung über Netz
 -----------------------------

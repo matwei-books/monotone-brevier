@@ -17,10 +17,19 @@ Projekte verwenden, ich ziehe in den meisten Fällen ein Repository für ein
 Projekt vor. Das lokale Repository [#databaselocation]_ lege ich mit folgendem
 Befehl an::
 
- $ mtn --db ~/A/monotone/projekt.mtn db init
+ $ mtn --db projekt.mtn db init
 
 .. [#databaselocation] Die Datenbank könnte irgendwo abgelegt werden, bei mir
    landen alle im Verzeichnis *~/A/monotone*.
+
+Alternativ kann ich mein lokales Repository gleich beim ersten Holen der
+Revisionen von einem entfernten Repository anlegen::
+
+ $ mtn --new-db --db project.mtn server branchwildcard
+
+Hierbei ist *project.mtn* der Name der neuen Datenbankdatei, *server* die
+Adresse des entfernten Repository und *branchwildcard* die Beschreibung der
+Zweige, die ich laden will.
 
 2.2. Persönliche Schlüssel erzeugen
 -----------------------------------
@@ -41,6 +50,9 @@ ssh_agent übergeben::
  $ ssh-agent /bin/bash
  $ ssh-add ~/.ssh/id_monotone
 
+Anschließend brauche ich den Monotone-Schlüssel nur noch einmal während der
+Sitzung eingeben.
+
 Alternativ (und weniger sicher) kann ich das Kennwort in einen Hook in der
 Datei *.monotonerc* [#monotonerc]_ eintragen::
 
@@ -55,7 +67,8 @@ Datei *.monotonerc* [#monotonerc]_ eintragen::
 .. [#monotonerc] Die Datei *.monotonerc* bzw. Ihr Äquivalent unter MS Windows
    ist üblicherweise im Verzeichnis *~/.monotone/* bzw. unter MS Windows etwa
    bei *C:/Dokumente und Einstellungen/Name/Anwendungsdaten/monotone/* zu
-   finden.
+   finden. Hier gibt es auch ein Unterverzeichnis */keys/*, in dem die
+   Monotone bekannten Schlüssel gespeichert sind.
 
 2.3. Einen Arbeitsbereich anlegen
 ---------------------------------
@@ -91,10 +104,10 @@ known`` im Arbeitsbereich. Dem entsprechend zeigt ``mtn list unknown`` die
 Dateien im Arbeitsbereich, die Monotone nicht kennt (nicht verwaltet).
 Schließlich zeigt ``mtn list ignored`` die Dateien, die Monotone gar nicht
 kennen will. Diese letzte Liste kann ich mit einer Datei namens *.mtn-ignore*
-im Arbeitsbereich beeinflussen.
+im Arbeitsbereich beeinflussen [#mtnignore]_.
 Damit kann ich die Dateien, deren Änderungen ich nicht verfolgen will,
 ausschließen und schließlich mit ``mtn add --unknown`` alle anderen Dateien
-mit einem Mal unter Versionsverwaltung stellen [#mtnignore]_.
+mit einem Mal unter Versionsverwaltung stellen.
 
 .. [#mtnignore] Natürlich kann ich auch *.mtn-ignore* mit Monotone verwalten.
 
@@ -108,3 +121,13 @@ Notiz kann ich mit der Option ``--message`` auf der Kommandozeile mitgeben.
 Ansonsten öffnet Monotone einen Dateieditor mit dem man die Notiz in aller
 Sorgfalt erstellen kann. Erst dann wird der momentane Stand aller verwalteten
 Dateien im lokalen Repository zwischengespeichert.
+
+2.6. Unterschiedliche Änderungen zusammenführen
+-----------------------------------------------
+
+Wenn in einem Zweig verschiedene Änderungen von einem oder mehreren
+Entwicklern bestätigt wurden, kann es passieren, dass es mehrere letzte Stände
+gibt. Diese führe ich mit ``mtn merge`` zusammen.
+
+Möchte ich hingegen die Änderungen in einem Zweiges auf einen anderen Zweig
+anwenden, verwendet man ``mtn propagate``.
