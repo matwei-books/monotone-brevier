@@ -5,4 +5,8 @@
 Monotone - Ein Brevier für verteilte Versionsverwaltung
 =======================================================
 
+-----------------
+Stand: 2009-06-12
+-----------------
+
 .. contents:: Inhaltsverzeichnis
