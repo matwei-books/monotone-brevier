@@ -4,7 +4,7 @@
 2. In Gang kommen
 =================
 
-Um mit Monotone zu arbeiten benötige ich ein lokales Repository,
+Um mit Monotone zu arbeiten benötige ich mindestens ein lokales Repository,
 einen Schlüssel um die abgespeicherten Daten zu signieren und einen
 Arbeitsbereich, dessen Inhalt von Monotone verfolgt wird.
 
@@ -54,7 +54,7 @@ Anschließend brauche ich den Monotone-Schlüssel nur noch einmal während der
 Sitzung eingeben.
 
 Alternativ (und weniger sicher) kann ich das Kennwort in einen Hook in der
-Datei *.monotonerc* [#monotonerc]_ eintragen::
+Datei *.monotonerc* [#monotonerc]_ eintragen [#windowspassphrase]_::
 
 
  $ mkdir ~/.monotone
@@ -64,11 +64,23 @@ Datei *.monotonerc* [#monotonerc]_ eintragen::
  end
  ^D
 
+Den öffentlichen Schlüssel benötige ich um Änderungen von anderen Entwicklern
+zu überprüfen und um Zugriffsrechte für Repositories festzulegen. Um an den
+öffentlichen Schlüssel zu kommen gebe ich das folgende ein::
+
+ $ mtn pubkey mathias@weidner.in-bad-schmiedeberg.de
+
+Mit diesem Befehl gibt monotone den öffentlichen Schlüssel so in Textform aus,
+das er in andere Datenbanken mit ``mtn read`` eingelesen werden kann.
+
 .. [#monotonerc] Die Datei *.monotonerc* bzw. Ihr Äquivalent unter MS Windows
    ist üblicherweise im Verzeichnis *~/.monotone/* bzw. unter MS Windows etwa
    bei *C:/Dokumente und Einstellungen/Name/Anwendungsdaten/monotone/* zu
    finden. Hier gibt es auch ein Unterverzeichnis */keys/*, in dem die
    Monotone bekannten Schlüssel gespeichert sind.
+
+.. [#windowspassphrase] Soweit mir bekannt, ist das die einzige Möglichkeit
+   unter MS Windows.
 
 2.3. Einen Arbeitsbereich anlegen
 ---------------------------------
@@ -122,12 +134,54 @@ Ansonsten öffnet Monotone einen Dateieditor mit dem man die Notiz in aller
 Sorgfalt erstellen kann. Erst dann wird der momentane Stand aller verwalteten
 Dateien im lokalen Repository zwischengespeichert.
 
-2.6. Unterschiedliche Änderungen zusammenführen
------------------------------------------------
+2.6. Zweige
+-----------
+
+Zu Beginn der Arbeit an einem Projekt bilden die verschiedenen Versionen
+meiner Dateien einen geraden unverzweigten gerichteten Graphen, der jeweils
+vom Vorgänger zum Nachfolger in einer Kette geht. Man spricht hier auch vom
+Versionsstamm.
+
+Wenn ich bereits einen oder mehrere Stände des Projekts veröffentlicht habe,
+wird es früher oder später passieren, das ich einen Fehler in einer schon
+veröffentlichten Version bereinigen muss, die weit hinten in der Versionskette
+liegt. Das ist ein guter Moment um einen neuen Zweig im Repository zu starten,
+der genau bei der veröffentlichten Version vom Stamm abzweigt. Monotone pflegt
+für mich diesen alternativen Entwicklungszweig im selben Repository und
+bezieht unabhängig von den Änderungen im Hauptstamm alle Änderungen in diesem
+Zweig auf die Version mit der er gestartet wurde.
+
+Ein anderer Grund, einen neuen Zweig einzurichten, wäre z.B. um ein neues
+Feature auszuprobieren, für das bei der Entwicklung im Hauptstamm keine Zeit
+ist.
+
+2.7. Änderungen zusammenführen
+------------------------------
 
 Wenn in einem Zweig verschiedene Änderungen von einem oder mehreren
 Entwicklern bestätigt wurden, kann es passieren, dass es mehrere letzte Stände
-gibt. Diese führe ich mit ``mtn merge`` zusammen.
+gibt. Diese führe ich mit ``mtn merge`` zusammen. Nach der nächsten
+Synchronistation der Repositories haben alle wieder den gleichen Stand.
 
-Möchte ich hingegen die Änderungen in einem Zweiges auf einen anderen Zweig
-anwenden, verwendet man ``mtn propagate``.
+Möchte ich hingegen die Änderungen von einem Zweiges auf einen anderen Zweig
+anwenden, verwende ich ``mtn propagate``.
+
+2.8. Versionen kennzeichnen
+---------------------------
+
+Ein Problem bei Monotone ist für uns Menschen einen bestimmten Revisionsstand
+zu identifizieren, da bei Monotone jede Revision nach dem kryptographischen
+Schlüssel (SHA1) der Datei benannt ist, die den Stand ausmacht.
+
+Wenn ich weiss, das ich einen bestimmten Revisionsstand später wieder erkennen
+will, z.B. weil ich diese Revision veröffentliche, dann
+markiere ich diese Revision mit einem *version tag*.
+
+.. image:: img/version-tags.png
+   :alt: Versionsmarkierung
+   :scale: 50
+   :align: center
+
+Um einen Stand zu markieren, bestätige ich die letzten Änderungen mit ``mtn
+commit``, informiere mich über die aktuelle Version mit ``mtn head`` und
+markiere diesen Stand mit ``mtn tag <revision> <tag>``.

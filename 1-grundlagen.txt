@@ -5,16 +5,19 @@
 =============
 
 Monotone als Versionsverwaltungssystem hält für mich verschiedene Arbeitsstände
-von Dateien, die ich bearbeite, bereit. Da ist zum einen die aktuelle Version
-im Arbeitsbereich und die jeweils mit der Vorgänger- und Nachfolgerversion
-verketteten Versionen im Repository.
+von Dateien, die ich bearbeite, bereit. Da sind zum einen die aktuellen
+Versionen im Arbeitsbereich und die jeweils mit der Vorgänger- und
+Nachfolgerversion verketteten Versionen im Repository.
 
+Das Repository ist dabei die Stelle, an der Buch geführt wird über alle von mir
+bestätigten Änderungen an den Dateien im Arbeitsbereich. Bei Monotone ist das
+Repository eine SQLight-Datenbank.
 Da Monotone eine verteiltes Versionsverwaltungssystem ist, gibt es nicht nur ein
 Repository sondern mehrere, üblicherweise eins auf dem lokalen Rechner welches
 im Workspace referenziert wird und weitere Repositories auf anderen Rechnern,
 die mit dem lokalen abgeglichen werden.
 
-Die Dateien sind im Repository jeweils mit ihrer Vorgänger- und
+Eine Datei ist im Repository jeweils mit ihrer Vorgänger- und
 Nachfolgerversion (soweit vorhanden) verknüpft. Dabei ist es möglich, dass eine
 bestimmte Version keinen Vorgänger hat (es ist die erste eingecheckte Version
 dieser Datei), einen Vorgänger (die Datei wurde ausgecheckt, geändert,
@@ -23,6 +26,18 @@ eingecheckt) oder mehrere (die Version ist aus der Vereinigung verschiedener
 Nachfolger hat (es ist die letzte eingecheckte Version), einen Nachfolger, oder
 mehrere (die Version wurde mehrfach ausgecheckt, verschieden editiert und wieder
 eingecheckt).
+
+Um einen bestimmten Stand verschiedener Dateien, sozusagen einen Schnappschuss,
+im Repository festzuhalten,
+verwendet Monotone sogenannte Manifest-Dateien. Das sind Textdateien, die
+strukturiert aber für Menschen lesbar sind und jeweils einen relativen Pfad
+von der Wurzel
+des Arbeitsbereiches zur Datei und die Version für jede Datei festhalten. Diese
+Manifest-Dateien werden selbst wiederum ebenfalls im Monotone-Repository
+verwaltet.
+
+Alle im Repository verwalteten Daten werden mit kryptographischen Schlüsseln
+signiert und dadurch gegen Veränderung gesichert.
 
 1.1 Wo sind meine Dateien
 -------------------------
@@ -38,7 +53,8 @@ oder in einem entfernten Repository.
 
 Mit den Monotone-Kommandos ``setup``, ``checkout``, ``revert`` und ``update``
 werden Dateien aus dem lokalen Repository in mein Arbeitsverzeichnis befördert.
-Mit ``commit`` geht es aus dem Arbeitsverzeichnis in das lokale Repository.
+Mit ``commit`` werden Änderungen im Arbeitsverzeichnis in das lokale Repository
+übernommen.
 
 Mit dem Monotone-Kommando ``pull`` holt man Daten aus einem entfernten
 Repository in das lokale, mit ``push`` schiebt man Daten aus dem lokalen

@@ -19,11 +19,6 @@ marikiere ich diese Revision mit einem *version tag* und erzeuge einen neuen
 Zweig, in dem nur noch Fehlerkorrekturen für diesen veröffentlichten Stand
 gesammelt werden.
 
-.. image:: img/version-tags.png
-   :alt: Versionsmarkierung
-   :scale: 50
-   :align: center
-
 4.1. Netzwerk
 ------------------
 
@@ -41,3 +36,42 @@ eines Ausfalls schnell wieder in Betrieb nehmen zu können.
 
 4.2. Zugriffsrechte
 -------------------
+
+Bei Monotone ist es viel wichtige, was aus einer einem Repository herauskommt,
+als was hinein geht. Der Austausch über Netzwerk ist eine einfache Kommunikation
+von Fakten (Dateiinhalte und Revisionen) und Zusicherungen über deren Wert (die
+Zertifikate, mit denen diese signiert sind). Diese Zusicherungen müssen nicht
+notwendigerweise geglaubt werden, im Abschnitt Vertrauensgrundlagen wird näher
+darauf eingegangen. Es gibt einfache einfache Steuerungsmöglichkeiten für den
+grundlegenden Zugriff auf die Datenbank, alles darüber hinausgehende sollte über
+Vertrauensverhältnisse geregelt werden.
+
+Konkret kann man Leserechte für den Zugriff über das Netz in der Datei
+~/.monotone/read-permissions vergeben und Schreibrechte dementsprechend in der
+Datei ~/.monotone/write-permissions. Während die Leserechte auf bestimmte Zweige
+beschränkt werden können, werden Schreibrechte für die ganze Datenbank vergeben.
+
+Ein Beispiel für die Datei read-permissions könnte so aussehen::
+
+  pattern "de.in-bad-schmiedeberg.public.*"
+  allow "*"
+  continue "true"
+
+  pattern "*"
+  allow "mathias@weidner.in-bad-schmiedeberg.de"
+
+Dies würde aller Welt Lesezugriff auf alle Zweige erlauben, die mit
+"de.in-bad-schmiedeberg.public." anfangen und mir Zugriff auf alle Zweige.
+
+Die Datei write-permissions enthält lediglich eine Aufzählung von zugelassenen
+Schlüsseln, einen pro Zeile::
+
+  mathias@weidner.in-bad-schmiedeberg.de
+
+Damit der entsprechende Schlüssel anerkannt wird, muss er vorher mit ``mtn
+pubkey`` extrahiert und dann mit ``mtn read`` importiert werden.
+
+4.3. Vertrauensgrundlagen
+-------------------------
+
+.. siehe http://monotone.ca//wiki/TrustFoundations/
