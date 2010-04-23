@@ -1,15 +1,15 @@
 
 .. vim: set sw=2 ts=2 tw=78 et si:
 
-2. In Gang kommen
-=================
+In Gang kommen
+==============
 
 Um mit Monotone zu arbeiten benötige ich mindestens ein lokales Repository,
 einen Schlüssel um die abgespeicherten Daten zu signieren und einen
 Arbeitsbereich, dessen Inhalt von Monotone verfolgt wird.
 
-2.1. Ein lokales Repository anlegen
------------------------------------
+Ein lokales Repository anlegen
+------------------------------
 
 Um Dateien mit Monotone zu verwalten muß ich ein lokales
 Repository anlegen. Prinzipiell kann man ein Repository für mehrere oder alle
@@ -31,8 +31,8 @@ Hierbei ist *project.mtn* der Name der neuen Datenbankdatei, *server* die
 Adresse des entfernten Repository und *branchwildcard* die Beschreibung der
 Zweige, die ich laden will.
 
-2.2. Persönliche Schlüssel erzeugen
------------------------------------
+Persönliche Schlüssel erzeugen
+------------------------------
 
 Mit meinen persönlichen Schlüsseln signiere ich alle Daten, die ich im
 Repository einspeichere sowie alle Tags die ich vergebe. Über diesen Schlüssel
@@ -82,8 +82,8 @@ das er in andere Datenbanken mit ``mtn read`` eingelesen werden kann.
 .. [#windowspassphrase] Soweit mir bekannt, ist das die einzige Möglichkeit
    unter MS Windows.
 
-2.3. Einen Arbeitsbereich anlegen
----------------------------------
+Einen Arbeitsbereich anlegen
+----------------------------
 
 Einen Arbeitsbereich (workspace) kann ich anlegen indem ich einen vorhandenen
 Zweig aus einem lokalen Repository auschecke (``mtn checkout``) oder indem ich
@@ -101,8 +101,8 @@ Monotone kann nun im lokalen Repository
 Monotone den aktuellen Stand einer Datei im lokalen Repository verwaltet, muss
 ich ihm die Datei vorher bekannt machen.
 
-2.4. Dateien hinzufügen / umbenennen / entfernen
-------------------------------------------------
+Dateien hinzufügen / umbenennen / entfernen
+-------------------------------------------
 
 Dateien im Arbeitsbereich, die von Monotone verwaltet werden sollen, kann ich
 ihm mit ``mtn add`` bekannt machen. Mit ``mtn drop`` schließe ich eine Datei
@@ -123,8 +123,8 @@ mit einem Mal unter Versionsverwaltung stellen.
 
 .. [#mtnignore] Natürlich kann ich auch *.mtn-ignore* mit Monotone verwalten.
 
-2.5. Änderungen bestätigen
---------------------------
+Änderungen bestätigen
+---------------------
 
 Monotone merkt sich nahezu beliebig viele Zwischenstände der von ihm
 verwalteten Dateien, aber nur auf Aufforderung mit ``mtn commit``. Dieser
@@ -134,8 +134,8 @@ Ansonsten öffnet Monotone einen Dateieditor mit dem man die Notiz in aller
 Sorgfalt erstellen kann. Erst dann wird der momentane Stand aller verwalteten
 Dateien im lokalen Repository zwischengespeichert.
 
-2.6. Zweige
------------
+Zweige
+------
 
 Zu Beginn der Arbeit an einem Projekt bilden die verschiedenen Versionen
 meiner Dateien einen geraden unverzweigten gerichteten Graphen, der jeweils
@@ -155,8 +155,23 @@ Ein anderer Grund, einen neuen Zweig einzurichten, wäre z.B. um ein neues
 Feature auszuprobieren, für das bei der Entwicklung im Hauptstamm keine Zeit
 ist.
 
-2.7. Änderungen zusammenführen
-------------------------------
+Der einfachste Weg, einen neuen Zweig anzulegen, ist den Namen des neuen
+Zweiges beim Commit anzugeben::
+
+ $ mtn --branch trunk.neuerzweig commit
+
+Alternativ kann man den neuen Zweig schon vor dem nächsten Commit anlegen::
+
+ $ mtn cert h: branch trunk.neuerzweig
+ $ mtn update --branch trunk.neuerzweig
+
+Obwohl das etwas aufwendiger ist, hat es doch den Vorteil, das man später beim
+Commit nicht mehr daran denken muss, den Zweig anzugeben, da die Dateien in
+meinem Arbeitsverzeichnis nun bereits zum neuen Zweig gehören und
+``mtn commit`` automatisch in diesem aktualisiert.
+
+Änderungen zusammenführen
+-------------------------
 
 Wenn in einem Zweig verschiedene Änderungen von einem oder mehreren
 Entwicklern bestätigt wurden, kann es passieren, dass es mehrere letzte Stände
@@ -166,8 +181,8 @@ Synchronistation der Repositories haben alle wieder den gleichen Stand.
 Möchte ich hingegen die Änderungen von einem Zweiges auf einen anderen Zweig
 anwenden, verwende ich ``mtn propagate``.
 
-2.8. Versionen kennzeichnen
----------------------------
+Versionen kennzeichnen
+----------------------
 
 Ein Problem bei Monotone ist für uns Menschen einen bestimmten Revisionsstand
 zu identifizieren, da bei Monotone jede Revision nach dem kryptographischen

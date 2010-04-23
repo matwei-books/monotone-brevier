@@ -1,0 +1,58 @@
+
+.. vim: set sw=2 ts=2 tw=78 et si:
+
+Anhang
+======
+
+Workflow
+--------
+
+Neuen Zweig auschecken
+......................
+
+Mit einem lokalen Repository für alle meine Zweige::
+
+ $ mtn --db alles.mtn pull
+ $ mtn --db alles.mtn co -branch trunk
+
+oder mit einem neuen lokalen Repository::
+
+ $ mtn --db ticketnr.mtn db init
+ $ mtn --db ticketnr.mtn pull remotehost --branch trunk
+ $ mtn --db ticketnr.mtn co --branch trunk .
+
+Umstellen auf den neuen Zweig::
+
+ $ mtn cert h: branch trunk.ticketnr
+ $ mtn update --branch trunk.ticketnr
+
+Arbeit am Problem
+.................
+::
+
+ - arbeite so gut es irgend geht
+ $ mtn list unknown
+ $ mtn add | move | remove
+ $ mtn status | diff
+ $ mtn commit -m "detaillierte Beschreibung"
+ - mach weiter, bis alles erledigt ist
+
+Änderungen veröffentlichen
+..........................
+::
+
+ $ mtn pull
+ $ mtn propagate trunk trunk.ticketnr
+
+ - Konflikte und Probleme beseitigen
+
+ $ mtn propagate trunk.ticketnr trunk
+ $ mtn sync
+
+Falls jemand anders inzwischen Änderungen veröffentlicht hat::
+
+ $ mtn merge trunk
+
+ - Konflikte und Probleme beseitigen
+
+ $ mtn sync

@@ -1,8 +1,8 @@
 
 .. vim: set sw=2 ts=2 tw=80 et si:
 
-1. Grundlagen
-=============
+Grundlagen
+==========
 
 Monotone als Versionsverwaltungssystem hält für mich verschiedene Arbeitsstände
 von Dateien, die ich bearbeite, bereit. Da sind zum einen die aktuellen
@@ -39,8 +39,8 @@ verwaltet.
 Alle im Repository verwalteten Daten werden mit kryptographischen Schlüsseln
 signiert und dadurch gegen Veränderung gesichert.
 
-1.1 Wo sind meine Dateien
--------------------------
+Wo sind meine Dateien
+---------------------
 
 Die Daten, die von Monotone verwaltet werden, können sich an verschiedenen
 Orten befinden, insbesondere im Arbeitsverzeichnis, in einem lokalen Repository

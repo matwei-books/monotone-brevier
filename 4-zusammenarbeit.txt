@@ -1,26 +1,121 @@
 
-.. vim: set sw=2 ts=2 tw=80 et si:
+.. vim: set sw=2 ts=2 tw=78 et si:
 
-4. Zusammenarbeit
-=================
+Tag für Tag
+===========
 
-Wenn ich mit mehreren zusammen an einem Projekt arbeite, hat es sich
-bewährt, wenn wir einen Hauptzweig für die Entwicklung nehmen, in dem die
-jeweils letzte lauffähige Version geführt wird, sowie für jeden Entwickler einen
-eigenen Zweig, in dem er seine Änderungen in aller Ruhe entwickeln kann und bei
-Erreichen eines stabilen Standes diesen mit dem Hauptzweig abgleicht.
+Workflow
+--------
+
+Bei der täglichen Arbeit mit Monotone (oder auch anderen VCS) gibt es etliche
+mögliche Workflows um die Änderungen im Code zu verwalten.
+
+Einer davon ist, im Hauptprojektzweig (Trunk) nur umfangreiche Änderungen wie
+z.B. neue Features oder Bugfixes zu führen und für die detaillierten
+Änderungen (die eigentliche Arbeit an den Features oder Bugfixes) jeweils
+eigene Zweige zu nehmen. Verwendet man eine Fehlerdatenbank oder ein
+Ticketsystem, so kann mann den Namen für die Arbeitszweige daraus ableiten
+(z.B. die Fehler- oder Ticketnummer).
+
+Daraus ergibt sich folgender grundlegender Ablauf für jedes Ticket, jeden
+Fehler:
+
+ 1. Checkout mit neuem Zweig
+ 2. Arbeit am Problem mit vielen Commits
+ 3. Merge des neuen Zweigs mit Trunk
+
+Diese drei Abläufe sehen im Einzelnen wie folgt aus.
+
+Checkout mit neuem Zweig
+........................
+
+Entweder ich halte alle von mir bearbeiteten Tickets in demselben lokalen
+Repository::
+
+ $ mtn --db alles.mtn pull
+ $ mtn --db alles.mtn co -branch trunk
+
+oder ich nehme jedesmal ein frisches und checke den aktuellen Stand aus::
+
+ $ mtn --db ticketnr.mtn db init
+ $ mtn --db ticketnr.mtn pull remotehost --branch trunk
+ $ mtn --db ticketnr.mtn co --branch trunk .
+
+Als nächstes stelle ich auf den neuen Zweig um::
+
+ $ mtn cert h: branch trunk.ticketnr
+ $ mtn update --branch trunk.ticketnr
+
+Damit bin ich bereit für die
+
+Arbeit am Problem mit vielen Commits
+....................................
+
+ 1. Arbeit am Problem
+ 2. mtn list unknown
+ 3. mtn add | move | remove
+ 4. mtn status | diff
+ 5. mtn commit -m "detaillierte Beschreibung"
+ 6. wieder von vorn, bis das Problem gelöst ist
+
+Wenn alle Tests in dem neuen Zweig fehlerfrei durchlaufen, bin ich soweit, die
+Änderungen wieder im Hauptzweig einzupflegen.
+
+Merge des neuen Zweigs mit Trunk
+................................
+
+Je nachdem, wieviel Leute am Projekt mitarbeiten, ist die Wahrscheinlichkeit
+dafür, dass inzwischen andere Änderungen in trunk eingepflegt wurden hoch oder
+niedrig. Darum hole ich als erstes den aktuellen Stand von trunk in mein
+lokales Repository und spiele etwaige Änderungen von trunk in meinen Zweig
+ein::
+
+ $ mtn pull
+ $ mtn propagate trunk trunk.ticketnr
+
+Damit habe ich die Chance mögliche Konflikte in meinem Zweig aufzulösen ohne
+den Hauptzweig mit Zwischenständen zu belasten.
+
+Ich lasse nochmal alle Tests durchlaufen. Bei Fehlern kehre ich zurück zur
+Arbeit am Problem in meinem Zweig. Ging alles gut, schiebe ich meine
+Änderungen in den Hauptzweig und veröffentliche sie [#mtnsync]_::
+
+ $ mtn propagate trunk.ticketnr trunk
+ $ mtn sync
+
+.. [#mtnsync] Mit ``mtn sync`` veröffentliche ich meine Änderungen im
+   entfernten Repository und hole mir gleichzeitig die Änderungen, die dort
+   von anderen veröffentlicht wurden.
+
+Wenn zwischen dem ``mtn pull`` und dem ``mtn sync`` niemand anders Änderungen
+in den Hauptzweig eingespielt hat, bin ich fertig.
+
+In dem wahrscheinlich eher seltenen Fall, dass jemand in der Zwischenzeit
+wieder eine neue Version in Trunk eingespielt hat, haben wir nun vieleicht
+zwei oder mehr Kopfversionen im Hauptzweig. Diese vereinige ich in meinem
+lokalen Repository mit::
+
+ $ mtn merge trunk
+
+Dabei löse ich eventuell auftretende Konflikte und lasse nochmal alle Tests
+durchlaufen. Bei Problemen propagiere ich den letzten Stand des Hauptzweiges
+nochmal in meinen Problemzweig und kehre zurück zur Arbeit am Problem.
+
+Ging alles gut, veröffentliche ich die Änderungen::
+
+ $ mtn sync
 
 Ein anderes Modell wäre z.B. das nur einer der Entwickler Änderungen mit dem
 Hauptzweig abgleicht und dazu vorher seinen Zweig mit den Änderungen der
 anderen Entwickler aktualisiert.
 
 Wenn ein Stand erreicht ist, der eingefroren und veröffentlicht werden soll,
-marikiere ich diese Revision mit einem *version tag* und erzeuge einen neuen
+markiere ich diese Revision mit einem *version tag* und erzeuge einen neuen
 Zweig, in dem nur noch Fehlerkorrekturen für diesen veröffentlichten Stand
 gesammelt werden.
 
-4.1. Netzwerk
-------------------
+Netzwerk
+--------
 
 Wenn mehrere Leute an einem Projekt arbeiten, insbesondere wenn die Mitarbeiter
 räumlich oder zeitlich getrennt sind, ist es praktisch ein Repository zu haben,
@@ -34,8 +129,8 @@ enthält auch auf den Rechnern der Entwickler vorhanden sind. Lediglich der
 private Schlüssel dieses Servers sollte gesichert sein, um den Server im Falle
 eines Ausfalls schnell wieder in Betrieb nehmen zu können.
 
-4.2. Zugriffsrechte
--------------------
+Zugriffsrechte
+--------------
 
 Bei Monotone ist es viel wichtige, was aus einer einem Repository herauskommt,
 als was hinein geht. Der Austausch über Netzwerk ist eine einfache Kommunikation
@@ -71,7 +166,7 @@ Schlüsseln, einen pro Zeile::
 Damit der entsprechende Schlüssel anerkannt wird, muss er vorher mit ``mtn
 pubkey`` extrahiert und dann mit ``mtn read`` importiert werden.
 
-4.3. Vertrauensgrundlagen
--------------------------
+Vertrauensgrundlagen
+--------------------
 
-.. siehe http://monotone.ca//wiki/TrustFoundations/
+siehe http://monotone.ca//wiki/TrustFoundations/
