@@ -13,7 +13,8 @@ IMAGES = img/version-tags.png \
 #R2LFLAGS = -iutf8 -lde --documentoptions=10pt,a5paper,english
 R2LFLAGS = \
  --documentclass=scrbook \
- --documentoptions=9pt,a5paper,english --use-latex-toc
+ --documentoptions=9pt,a5paper,english --use-latex-toc \
+ --hyperlink-color=black
 
 all: $(OUTNAME).pdf
 
