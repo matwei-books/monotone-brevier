@@ -1,0 +1,115 @@
+
+.. vim: set sw=2 ts=2 tw=78 et si:
+
+Installation
+============
+
+Bevor es losgehen kann, müssen wir uns das Programm beschaffen, was nicht sehr
+schwierig ist. Die neueste Version bekommt man von http://www.monotone.ca/.
+Die Beispiele sind alle mit Version 1.0 getestet.
+
+Debian GNU/Linux und Ubuntu Linux
+---------------------------------
+
+Prinzipiell kann man Monotone bei Debian GNU/Linux mit dem Befehl ``apt-get``
+installieren. In der momentan stabilen Version von Debian (6.0 Squeeze) wird
+dann aber Version 0.48 von Monotone installiert, in der aktuellen LTS-Version
+von Ubuntu (10.04 Lucid Lynx) gar 0.45, so dass ich hier die
+Installation aus den Programmquellen beschreibe.
+
+Zuerst müssen wir ein paar notwendige Programme und Bibiliotheken
+installieren, die für die Übersetzung von Monotone benötigt werden::
+
+ $ sudo apt-get install autoconf automake bzip2 gettext g++   \
+                        libboost-dev libz-dev libbotan1.8-dev \
+                        libsqlite3-dev libpcre3-dev           \
+                        liblua5.1-0-dev libidn11-dev          \
+                        libgmp3-dev libbz2-dev stow texinfo
+
+Als nächstes holen wir uns die Programmquellen und entpacken diese::
+
+ $ wget http://www.monotone.ca/downloads/1.0/monotone-1.0.tar.bz2
+ $ tar xjf monotone-1.0.tar.bz2
+
+Wir begeben uns in das entpackte Verzeichnis mit den Programmquellen und
+konfigurieren Monotone für unseren Rechner mit ``configure``. Wenn wir nichts
+angeben, wird Monotone nach I</usr/local/bin> installiert. Ich installiere
+selbstkompilierte Software aber lieber nicht direkt dorthin, sondern gehe
+einen kleinen Umweg mit dem Programm ``stow``, der es mir erleichtert
+selbstkompilierte Software selektiv zu entfernen, oder zwischen verschiedenen
+Versionen umzuschalten::
+
+ $ cd monotone-1.0
+ $ ./configure --prefix=/usr/local/stow/monotone-1.0
+ $ make
+ $ make check
+ $ sudo make install
+ $ sudo stow -d /usr/local/stow -v monotone-1.0
+
+Nun ist Monotone unter I</usr/local/stow/monotone-1.0> installiert und in
+I</usr/local/bin>, I</usr/local/etc> und I</usr/local/share> gibt es
+symbolische Links dorthin. Wir können monotone direkt aufrufen::
+
+ $ mtn --version
+
+Microsoft Windows
+-----------------
+
+Für Microsoft Windows gibt es einen Installer, der die Installation
+vereinfacht.
+
+.. image:: img/win-setup-1.png
+   :alt: Windows Installer
+   :scale: 25
+   :align: center
+
+Zunächst akzeptieren wir die Lizenzerklärung (GPL, GNU General Public License)
+und dann geht es los.
+
+.. image:: img/win-setup-2.png
+   :alt: Lizenz akzeptieren
+   :scale: 25
+   :align: center
+
+Wir wählen das Installationsverzeichnis und können hier noch nachschauen, ob
+dort ausreichend Platz verfügbar ist.
+
+.. image:: img/win-setup-3.png
+   :alt: Installationsverzeichnis auswählen
+   :scale: 25
+   :align: center
+
+Dann können wir den Folder im Startmenü benennen, bzw. entscheiden, ob wir
+überhaupt einen wollen.
+
+.. image:: img/win-setup-4.png
+   :alt: Startmenüeinstellungen
+   :scale: 25
+   :align: center
+
+Danach markieren wir, dass monotone zum Suchpfad hinzugefügt wird und
+entscheiden, ob wir die Dokumentation gleich oder später (bzw. gar nicht)
+sehen wollen.
+
+.. image:: img/win-setup-5.png
+   :alt: Suchpfad und Dokumentation
+   :scale: 25
+   :align: center
+
+Schließlich werden uns alle ausgewählten Optionen noch einmal angezeigt und
+dann geht es los.
+
+.. image:: img/win-setup-6.png
+   :alt: alle gesetzten Optionen
+   :scale: 25
+   :align: center
+
+Wenn am Ende dieses Dialogfenster erscheint, haben wir Monotone auf dem
+Windowsrechner installiert.
+Bis hierhin funktionierte alles ohne Tastatureingaben.
+
+.. image:: img/win-setup-7.png
+   :alt: Installation beendet
+   :scale: 25
+   :align: center
+

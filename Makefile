@@ -1,7 +1,8 @@
 OUTNAME = monotone-brevier
 
-SOURCES = 0-vorspann.txt \
- 1-grundlagen.txt \
+SOURCES = 00-vorspann.txt \
+          10-grundlagen.txt \
+	  15-installation.txt \
  2-in-gang-kommen.txt \
  4-zusammenarbeit.txt \
  3-datensicherung.txt \
