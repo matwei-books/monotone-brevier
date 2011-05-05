@@ -1,0 +1,88 @@
+
+.. vim: set sw=2 ts=2 tw=78 et si:
+
+Verteilt über das Netz
+======================
+
+Vorbereiten
+-----------
+
+Alle im Repository abgelegten Daten werden mit kryptographischen Schlüsseln
+signiert. Das ist ein grundlegendes Element dieses Versionsverwaltungssystems.
+Wenn ich gemeinsam mit anderen arbeiten will, muss ich deren Schlüssel kennen
+und akzeptieren genauso wie sie meinen Schlüssel kennen und akzeptieren
+müssen. Der erste Schritt zur Zusammenarbeit ist daher der Austausch der
+Schlüssel::
+
+ $ mtn pubkey mathias@weidner.in-bad-schmiedeberg.de > mathias.pubkey
+
+Für meinen eigenen Schlüssel muss ich dabei keine Datenbank angeben. Ich kann
+diesen Schlüssel nun an alle Mitarbeiter schicken, die mir ihre öffentliche
+Schlüssel senden und meinen Schlüssel importieren::
+
+ $ mtn --db lokales/repository.mtn read < mathias.pubkey
+
+Beim Import muss immer eine Datenbank angegeben werden, weil das Vertrauen
+gegenüber fremden Schlüsseln immer projektbezogen ist. Nun kennt Monotone also
+die Schlüssel aller Beteiligten, das reicht aber noch nicht ganz.
+
+Damit der Monotone-Server Daten, die mit anderen (wenn auch bekannten)
+Schlüsseln signiert wurden akzeptiert, muss ich diesen Schlüsseln noch ein
+paar Rechte einräumen::
+
+ $ cat >> ~/.monotone/read-permissions <<EOT
+ pattern "*"
+ allow "mathias@weidner.in-bad-schmiedeberg.de"
+ EOT
+
+Damit wird dem Schlüssel mathias@weidner.in-bad-schmiedeberg.de erlaubt, alle
+Zweige in dem betreffenden Repository zu lesen, d.h. in ein anderes Repository
+zu kopieren (z.B. mit ``mtn pull``).
+
+Außerdem brauche ich noch Schreibzugriff, damit ich meine Daten in das
+Repository schicken kann (``mtn push`` bzw. ``mtn sync``)::
+
+ $ cat >> ~/.monotone/write-permissions <<EOT
+ mathias@weidner.in-bad-schmiedeberg.de
+ EOT
+
+Bei den Schreibrechten wird nicht nach Zweig unterschieden.
+
+Damit haben haben wir die Vorbereitungen abgeschlossen und können einen
+Monotone Server starten, mit dem die anderen Mitarbeiter ihre Repositories
+synchronisieren können.
+
+Abgleich über Netz
+------------------
+
+Dieser Teil ist nun wieder sehr simpel. Damit andere sich mit meinem
+Monotone-Repository abgleichen können, starte ich den Server wie folgt::
+
+ $ mtn --db lokales/repository.mtn serve
+
+Damit lauscht Monotone am TCP Port 4691 und bietet alles aus der Datenbank
+``lokales/repository.mtn`` entsprechend den in den Dateien
+``read-permissions`` und ``write-permissions`` eingestellten Regeln an.
+
+Um sich Daten von diesem Server zu holen, gibt man ein::
+
+ $ mtn --db anderes/repository.mtn pull rechner.von.mathias "*"
+
+Wenn man schon einen eigenen, eventuell geänderten Stand hat, will man eher
+beide Repositories auf den gleichen Stand bringen::
+
+ $ mtn --db anderes/repository.mtn sync rechner.von.mathias "*"
+ 
+bzw.
+
+ $ mtn --db anderes/repository.mtn sync
+
+Der zweite Aufruf ist möglich, wenn bereits einmal mit dem Rechner
+synchronisiert wurde und dieser als ``default-server`` in der Datenbank
+vermerkt ist (siehe ``mtn list vars``).
+
+Wenn ich nur Änderungen auf den Server schieben will, nehme ich::
+
+ $ mtn --db anderes/repository.mtn push
+
+Die Anmerkungen wie zu ``mtn sync`` gelten auch hier.
