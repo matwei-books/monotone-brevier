@@ -61,12 +61,15 @@ Monotone-Repository abgleichen können, starte ich den Server wie folgt::
  $ mtn --db lokales/repository.mtn serve
 
 Damit lauscht Monotone am TCP Port 4691 und bietet alles aus der Datenbank
-``lokales/repository.mtn`` entsprechend den in den Dateien
+``lokales/repository.mtn`` entsprechend den in den beiden Dateien
 ``read-permissions`` und ``write-permissions`` eingestellten Regeln an.
 
 Um sich Daten von diesem Server zu holen, gibt man ein::
 
  $ mtn --db anderes/repository.mtn pull rechner.von.mathias "*"
+
+Dabei kann man statt ``"*"`` auch direkt den Namen des Zweigs angeben oder ein
+geeignetes Muster, dass alle gewünschten Zweige erfasst.
 
 Wenn man schon einen eigenen, eventuell geänderten Stand hat, will man eher
 beide Repositories auf den gleichen Stand bringen::
@@ -86,3 +89,65 @@ Wenn ich nur Änderungen auf den Server schieben will, nehme ich::
  $ mtn --db anderes/repository.mtn push
 
 Die Anmerkungen wie zu ``mtn sync`` gelten auch hier.
+
+Zentraler Server
+----------------
+
+Ein Grundprinzip von verteilten Versionsverwaltungssystemen wie Monotone ist
+das, das ein zentraler Server nicht nötig ist.
+
+Wenn mehrere Leute an einem Projekt arbeiten, insbesondere wenn die Mitarbeiter
+räumlich oder zeitlich getrennt sind, ist es trotzdem praktisch ein Repository
+zu haben, das immer an der gleichen Stelle über das Netz zu erreichen ist.
+Dann wird dieses wie ein zentrales Repository verwendet und der Abgleich
+zwischen den Entwicklern kann darüber erfolgen.  Ist der zentrale Server einmal
+nicht zu erreichen, ist immer noch der direkte Abgleich zwischen den
+Entwicklern möglich.
+
+Ein weiterer Vorteil eines zentralen Servers ist der, dass man zum
+Synchronisieren nur noch ``mtn sync`` eingeben muss und den Servernamen und
+Zweig weglassen kann, wenn die betreffenden Variablen in der Datenbank richtig
+eingestellt sind. Konkret sind das die Variablen ``database: default-server``
+und ``database: default-include-pattern``. Diese sehen bei mir für dieses
+Projekt zur Zeit so aus::
+
+ $ mtn list vars
+ database: default-exclude-pattern 
+ database: default-include-pattern net.mamawe.text.monotone\-brevier
+ database: default-server monotone.mamawe.net
+ known-servers: monotone.mamawe.net b1c3782090a03536fc21f9ff43528ede44e1d63a
+
+Die Variable ``known-servers: monotone.mamawe.net`` enthält den Schlüssel, für
+den Monotone-Server. Dieser Schlüssel wird nicht für das Signieren der Dateien
+im Repository sondern nur für die Kommunikation mit dem Server verwendet.
+Falls sich der Schlüssel auf dem Server ändert, teilt mir das Monotone bei der
+nächsten Verbindungsaufnahme mit. Damit ist die Gefahr geringer, dass ich mit
+dem falschen Server synchronisiere.
+
+Unter Debian GNU/Linux gibt es ein Paket ``monotone-server``, welches Scripts
+enthält, die das Aufsetzen eines Monotone-Servers vereinfachen.
+
+Der Server benötigt keine eigene Datensicherung, da alle Versionen, die er
+enthält auch auf den Rechnern der Entwickler vorhanden sind. Bei einem Ausfall
+kann ein neues Repository jederzeit aus einem der anderen Repositories,
+welches alle Zweige und die letzten Änderungen enthält, neu aufgesetzt werden.
+Lediglich der private Schlüssel für den Server sollte an einem sicheren Ort
+verwahrt werden, damit beim Neuaufsetzen mit dem gleichen Schlüssel
+weitergearbeitet werden kann und die beteiligten Entwickler keine Meldung über
+geänderte Serverschlüssel bei der Synchronisation bekommen.
+
+Anonymer Download
+-----------------
+
+Insbesondere bei Open Source Entwicklungen möchte man ein Repository gern zum
+einfachen Download der Quellen freigeben. Das wird in der Datei
+``read-permissions``  eingestellt::
+
+ $ cat >> ~/.monotone/read-permissions <<EOT
+ pattern "net.mamawe"
+ allow "*"
+ continue "true"
+
+ pattern "*"
+ allow "mathias@weidner.in-bad-schmiedeberg.de"
+ EOT

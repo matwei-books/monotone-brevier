@@ -114,21 +114,6 @@ markiere ich diese Revision mit einem *version tag* und erzeuge einen neuen
 Zweig, in dem nur noch Fehlerkorrekturen für diesen veröffentlichten Stand
 gesammelt werden.
 
-Netzwerk
---------
-
-Wenn mehrere Leute an einem Projekt arbeiten, insbesondere wenn die Mitarbeiter
-räumlich oder zeitlich getrennt sind, ist es praktisch ein Repository zu haben,
-das immer über das Netz zu erreichen ist. Dann kann dieses wie ein zentrales
-Repository verwendet werden und der Abgleich zwischen den Entwicklern darüber
-erfolgen.  Ist dieses Repository einmal nicht zu erreichen, ist immer noch der
-direkte Abgleich zwischen den Entwicklern möglich.
-
-Der Server benötigt keine extra Datensicherung, da alle Versionen, die er
-enthält auch auf den Rechnern der Entwickler vorhanden sind. Lediglich der
-private Schlüssel dieses Servers sollte gesichert sein, um den Server im Falle
-eines Ausfalls schnell wieder in Betrieb nehmen zu können.
-
 Zugriffsrechte
 --------------
 
