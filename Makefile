@@ -5,9 +5,9 @@ SOURCES = 00-vorspann.txt \
 	  15-installation.txt \
           20-in-gang-kommen.txt \
           30-networking.txt \
- 4-zusammenarbeit.txt \
- 3-datensicherung.txt \
- A1-workflow.txt \
+          40-zusammenarbeit.txt \
+          50-datensicherung.txt \
+          A1-workflow.txt \
 #
 IMAGES = img/version-tags.png \
  img/wo-sind-die-daten.png

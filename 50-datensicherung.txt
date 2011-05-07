@@ -1,0 +1,89 @@
+
+.. vim: set sw=2 ts=2 tw=78 et si:
+
+Datensicherung
+==============
+
+Bei der Datensicherung sind zwei Dinge wesentlich. Zum einen die Daten selbst
+mit ihrer Historie, Verknüpfungen und Kommentaren. Zum anderen die Schlüssel,
+mit denen die Daten signiert wurden. Dazu kommen noch die Einstellungen im
+Verzeichnis *~/.monotone/*, wie z.B. read-permissions, write-permissions,
+Lua-Hooks, ...
+
+Im Allgemeinen ist die Sicherung der Daten (nicht der Schlüssel) eher
+unkritisch, wenn mehrere Leute zusammenarbeiten und daher auch mehrere
+verteilte Repositories bestehen. Die letzte Revision der Daten erhält man
+immer automatisch, wenn man mit einem Repository synchronisiert, welches diese
+Revision enthält. Das sollte jedoch nicht als Freibrief verstanden werden, auf
+eine Datensicherung ganz zu verzichten. Wenn jeder sich darauf verlässt, das
+sich jemand anders darum kümmert, ist im schlimmsten Fall keine Sicherung
+verfügbar. Wenn gerade das Repository mit dem letzten Stand verloren geht und
+dieser Stand noch nicht synchronisiert wurde, ist auch dieser verloren.
+
+Die Sicherung der Schlüssel ist aus dem Grunde wichtig, dass bei der normalen
+Arbeit zwar mit dem Namen des Schlüssel (üblicherweise eine E-Mail-Adresse)
+gearbeitet wird, Monotone intern aber immer den Schlüssel selbst verwendet. Es
+kann daher in einer Datenbank immer nur einen Schlüssel mit einem Namen geben.
+Geht dieser Schlüssel verloren, kann man zwar einen neuen Schlüssel anlegen
+und dem neuen Schlüssel die entsprechenden Rechte vergeben, man muss aber
+dafür einen anderen Namen (dann eine andere E-Mail-Adresse) geben.
+
+Lokale Datensicherung
+---------------------
+
+Wenn ich nur lokal arbeite oder mich nur um mein lokales Repository kümmere,
+brauche ich die Datei mit dem privaten Repository, meine privaten Schlüssel
+und eventuell weitere Einstellungen aus *~/.monotone/* (dort befinden sich
+auch die Schlüssel). Wichtig ist, das zum Zeitpunkt der Sicherung das
+Repository nicht verwendet wird.
+
+Zur Wiederherstellung kopiere ich die Dateien wieder an ihren alten Platz und
+kann sofort beim Stand der letzten Sicherung weiterarbeiten.
+
+Datensicherung über Netz
+------------------------
+
+Eine elegante Art die Daten zu sichern besteht darin, sie mit einem entfernten
+Repository zu synchronisieren. Ich überlasse die Verantwortung für die
+Sicherung dann den Betreibern des entfernten Repository.
+
+Auch dann muss ich meine Schlüssel sichern. Einstellungen aus *~/.monotone/*,
+so vorhanden auch.
+
+Zur Wiederherstellung kopiere ich die Schlüssel und Einstellungen wieder nach
+*~/.monotone/*, lege eine leere Datenbank an und hole mir die Daten vom
+Server::
+
+ $ cp -a pfad/zum/backup/.monotone ~/.monotone
+ $ mtn --db lokales_repository.mtn db init
+ $ mtn --db lokales_repository.mtn pull remote.server "muster"
+
+Automatische Sicherung eines Monotone-Servers
+---------------------------------------------
+
+Damit die Sicherung der Daten nicht vergessen wird, kann ich einen
+Monotone-Server in regelmäßigen Abständen sichern. Hier habe ich das Problem,
+dass einerseits beim Sichern kein Prozess auf das Repository zugreifen darf,
+andererseits der Monotone-Server möglichst ständig laufen soll.
+
+Dieses Problem löse ich indem ich ein dediziertes Backup-Repository anlege,
+das ich unmittelbar vor der Sicherung mit dem Monotone-Server synchronisiere
+und dann sichere. Der Nachteil dieses Verfahrens ist, dass ich
+Extra-Speicherplatz für das Backup-Repository benötigt. Dafür kann der
+Monotone-Server ununterbrochen durchlaufen. Es ist auch nicht notwendig, das
+Backup-Repository auf dem gleichen Rechner wie den Server zu betreiben, da
+beide Repositories sowieso über Netz synchronisiert werden.
+
+Wichtig ist, die Konfiguration und Schlüssel des Monotone-Servers zu sichern.
+Diese finden sich bei einem Monotone-Server auf Debian GNU/Linux meist im
+Verzeichnis */etc/monotone/* und in der Datei */etc/default/monotone*. Die
+Schlüssel sind hierbei nicht für die Signatur wichtig, sondern für die
+Absicherung der Kommunikation. Wenn ich bei der Wiederherstellung einen neuen
+Serverschlüssel erzeugen muss, bekommen alle beteiligten eine Meldung, dass
+sich der Serverschlüssel geändert hat. Dann müssen sich von der Authentizität
+des neuen Serverschlüssels überzeugen, den alten verwerfen und den neuen
+akzeptieren.
+
+Zur Wiederherstellung gehe ich vor wie beim lokalen Repository, d.h. ich
+kopiere das Repository und die Konfigurationsdaten an ihren Platz und arbeite
+mit dem Stand der letzten Sicherung weiter.
