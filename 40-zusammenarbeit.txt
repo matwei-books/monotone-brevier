@@ -17,6 +17,11 @@ eigene Zweige zu nehmen. Verwendet man eine Fehlerdatenbank oder ein
 Ticketsystem, so kann mann den Namen für die Arbeitszweige daraus ableiten
 (z.B. die Fehler- oder Ticketnummer).
 
+Dieser Arbeitsablauf ist dem in
+http://nakedstartup.com/2010/04/simple-daily-git-workflow/ beschriebenen
+Workflow für *git* (ein anderes verteiltes Versionskontrollsystem)
+nachempfunden.
+
 Daraus ergibt sich folgender grundlegender Ablauf für jedes Ticket, jeden
 Fehler:
 
@@ -122,7 +127,7 @@ als was hinein geht. Der Austausch über Netzwerk ist eine einfache Kommunikatio
 von Fakten (Dateiinhalte und Revisionen) und Zusicherungen über deren Wert (die
 Zertifikate, mit denen diese signiert sind). Diese Zusicherungen müssen nicht
 notwendigerweise geglaubt werden, im Abschnitt Vertrauensgrundlagen wird näher
-darauf eingegangen. Es gibt einfache einfache Steuerungsmöglichkeiten für den
+darauf eingegangen. Es gibt einfache Steuerungsmöglichkeiten für den
 grundlegenden Zugriff auf die Datenbank, alles darüber hinausgehende sollte über
 Vertrauensverhältnisse geregelt werden.
 

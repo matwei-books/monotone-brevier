@@ -8,6 +8,8 @@ SOURCES = 00-vorspann.txt \
           40-zusammenarbeit.txt \
           50-datensicherung.txt \
           A1-workflow.txt \
+	  A2-referenzen.txt \
+	  A3-tools.txt \
 #
 IMAGES = img/version-tags.png \
  img/wo-sind-die-daten.png

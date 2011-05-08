@@ -1,0 +1,39 @@
+
+.. vim: set sw=2 ts=2 tw=78 et si:
+
+A4 Grafische Oberflächen und andere Programme
+=============================================
+
+Guitone
+-------
+
+Guitone ist eine grafische Benutzeroberfläche für Monotone die insbesondere
+für Anfänger gedacht ist.
+
+Es gibt einen Installer für Microsoft Windows.  Die Installation unter Linux
+ist relativ einfach (Version 1.0rc5 auf Ubuntu)::
+
+ Holen der Quellen von http://guitone.thomaskeller.biz
+
+ $ sudo aptitude install qt4-make libqt4-dev
+ $ tar xzf guitone-1.0rc5.tgz
+ $ cd guitone-1.0rc5
+ $ qmake guitone.pro
+ $ make
+ $ sudo mkdir -p /usr/local/stow/guitone-1.0rc5/bin
+ $ sudo cp bin/guitone /usr/local/stow/guitone-1.0rc5/bin/
+ $ sudo stow -d /usr/local/stow -v guitone-1.0rc5
+ $ guitone
+
+Monotone-viz
+------------
+
+Monotone-viz ist ein Programm zur Visualisierung von Versionsgraphen. Ein Teil
+der Bilder in diesem Text ist mit Monotone-viz erzeugt. Das Programm benötigt
+``dot`` von *GraphViz* und ``Gtk+``.
+
+Die Homepage von Monotone-viz ist http://oandrieu.nerim.net/monotone-viz/.
+
+Bei Debian/Ubuntu kann man Monotone-viz mit der Softwareverwaltung (*apt-get*)
+installieren. Für Windows gibt es ein Zip-Archiv und eine
+Installationsanleitung.
