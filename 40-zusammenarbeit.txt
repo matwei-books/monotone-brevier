@@ -159,4 +159,21 @@ pubkey`` extrahiert und dann mit ``mtn read`` importiert werden.
 Vertrauensgrundlagen
 --------------------
 
+In Monotone wird alles Vertrauen über Zertifikate gehandhabt.
+
+Zertifikate und Revisionen
+..........................
+
+Jede im Repository abgelegte Version wird mit einer kryptographischen
+SHA1-Hash identifiziert, die sowohl den Inhalt als auch ihre ganze Abstammung
+repräsentiert. Diese SHA1-Hash wird Zertifikat (englisch kurz *cert*) genannt.
+
+Die normalen Zertifikate, die mit allen Revisionen einhergehen sind für den
+Autor, den Zweig der Revision und das Änderungsprotokoll (*changelog*)
+
+Das Zweigzertifikat ist das wichtigste für die automatischen Operationen von
+Monotone.
+
+
 siehe http://monotone.ca//wiki/TrustFoundations/
+      http://wiki.monotone.ca/UsingCerts/

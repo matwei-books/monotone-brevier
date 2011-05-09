@@ -1,0 +1,10 @@
+
+.. vim: set sw=2 ts=2 tw=78 et si:
+
+A0 Begriffe
+===========
+
+Zertifikat
+  Jede Revision in Monotone wird über eine kryptographische SHA1-Hash
+  identifiziert, die sowohl den Inhalt der Revision als auch ihre ganze
+  Abstammung repräsentiert.
