@@ -1,7 +1,7 @@
 
 .. vim: set sw=2 ts=2 tw=78 et si:
 
-A3 Weiterführende Informationen
+A2 Weiterführende Informationen
 ===============================
 
 Internet

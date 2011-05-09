@@ -1,7 +1,7 @@
 
 .. vim: set sw=2 ts=2 tw=78 et si:
 
-A4 Grafische Oberflächen und andere Programme
+A3 Grafische Oberflächen und andere Programme
 =============================================
 
 Guitone

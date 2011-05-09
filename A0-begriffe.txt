@@ -4,6 +4,29 @@
 A0 Begriffe
 ===========
 
+Arbeitsbereich
+  Ein Verzeichnis, in dem sich Dateien befinden, die unter Revisionskontrolle
+  stehen, nennt man Arbeitsbereich. Im Arbeitsbereich wird der Inhalt der
+  Dateien unter Revisionskontrolle geändert.
+  Bei Monotone ist ein Arbeitsbereich erkennbar am Unterverzeichnis *_MTN*.
+
+Datenbank
+  Monotone verwendet als lokales Repository eine SQLite-Datenbank. Daher
+  werden die begriffe lokales Repository und Datenbank synonym verwendet.
+
+Schlüssel
+  Monotone verwendet für die Integritätsprüfung Zertifikate, die mit
+  asymmetrischen Schlüsseln der Entwickler signiert werden. Die öffentlichen
+  Schlüssel der Beteiligten werden dabei in den einzelnen Datenbanken mit
+  abgelegt, die privaten Schlüssel werden im Schlüsselspeicher des Benutzers
+  (üblicherweise das Verzeichnis *~/.monotone/keys/*) abgelegt.
+
+Server
+  Ein Monotone-Prozess, der über das Netzwerk angesprochen werden kann. Das
+  kann ein ständig laufender Monotone-Server sein oder eine kurzzeitig mit
+  ``mtn serve`` zum Abgleich bereitgestellte Datenbank auf einer
+  Arbeitsstation.
+
 Zertifikat
   Jede Revision in Monotone wird über eine kryptographische SHA1-Hash
   identifiziert, die sowohl den Inhalt der Revision als auch ihre ganze
