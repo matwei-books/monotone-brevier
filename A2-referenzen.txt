@@ -11,6 +11,11 @@ http://www.monotone.ca/
   Die Homepage von Monotone (englisch), hier findet man fast alles, was man
   braucht.
 
+http://wiki.monotone.ca/
+  Das Wiki zu Monotone. Von dort habe ich sehr viele Anregungen für diesen
+  Text genommen. Einzelne Passagen sind direkte Übersetzungen von
+  Wiki-Artikeln oder Teilen davon.
+
 http://guitone.thomaskeller.biz/
   Die Homepage von Guitone, einem grafischen Frontend für Monotone, das
   insbesondere Anfängern den Einstieg erleichtern dürfte.

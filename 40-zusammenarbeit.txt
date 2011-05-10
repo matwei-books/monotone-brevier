@@ -174,6 +174,33 @@ Autor, den Zweig der Revision und das Änderungsprotokoll (*changelog*)
 Das Zweigzertifikat ist das wichtigste für die automatischen Operationen von
 Monotone.
 
+Vertrauenswürdige Versionen
+...........................
 
-siehe http://monotone.ca//wiki/TrustFoundations/
-      http://wiki.monotone.ca/UsingCerts/
+Jeder Benutzer kann seine eigenen Vorlieben darüber konfigurieren, welchen
+Zertifikaten er vertraut und welchen nicht. Diese Präferenzen können in
+verschiedenen Arbeitsbereichen unterschiedlich sein. So ist es möglich, in
+einem Arbeitsbereich den stabilen Zweig zu verfolgen und in diesem
+Arbeitsbereich zusätzliche Zertifikate von der Qualitätssicherung zu
+verlangen, während ich in einem anderen Arbeitsbereich die aktuellsten
+Entwicklungen im Entwicklerzweig verfolge und Zertifikate von allen bekannten
+Projektentwicklern akzeptiere.
+
+Diese Einstellungen werden über Lua-Hooks realisiert.
+
+Synchronisation, Zusammenführen und Vertrauen
+.............................................
+
+Bei Monotone sind die Synchronisation, das Zusammenführen (Merge) und das
+Aussprechen von Vertrauen voneinander getrennt. Das heißt:
+
+- Bei einer Synchronisation werden lediglich Dateien und Zertifikate
+  ausgetauscht.
+
+- Nach der Synchronisation kann ich entscheiden, was ich mit den neuen
+  Revisionen anfange. Z.B. könnte ich diese mit meiner Arbeit zusammenführen,
+  auschecken oder einfach ignorieren.
+
+- Vertrauen gegenüber den neuen Zertifikaten wird erst geprüft, wenn ich
+  meinen Arbeitsbereich aktualisiere.
+

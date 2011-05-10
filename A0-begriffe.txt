@@ -8,7 +8,15 @@ Arbeitsbereich
   Ein Verzeichnis, in dem sich Dateien befinden, die unter Revisionskontrolle
   stehen, nennt man Arbeitsbereich. Im Arbeitsbereich wird der Inhalt der
   Dateien unter Revisionskontrolle geändert.
-  Bei Monotone ist ein Arbeitsbereich erkennbar am Unterverzeichnis *_MTN*.
+
+  Monotone legt nur ein Unterverzeichnis *_MTN* in der Wurzel des
+  Arbeitsbereiches an. Aus diesem Grund sucht Monotone nach diesem
+  Verzeichnis, für den Fall, dass es in einem anderen Unterverzeichnis
+  aufgerufen wurde. Bevor ein Befehl ausgeführt wird, sucht Monotone im
+  aktuellen und allen übergeordneten Verzeichnissen bis zur Wurzel des
+  Dateisystems nach einem Verzeichnis namens *_MTN*. Diese Suche kann mit der
+  Option ``--root`` eingeschränkt oder mit ``--no-workspace`` ganz unterbunden
+  werden.
 
 Datenbank
   Monotone verwendet als lokales Repository eine SQLite-Datenbank. Daher
