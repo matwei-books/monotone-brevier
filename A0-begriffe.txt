@@ -18,9 +18,60 @@ Arbeitsbereich
   Option ``--root`` eingeschränkt oder mit ``--no-workspace`` ganz unterbunden
   werden.
 
+Branch, Zweig
+  Wenn in einer Versionsgeschichte eine *Gabelung* aufgetreten ist und man
+  beide Enden separat weiter bearbeiten will, kann man einen neuen Branch
+  starten indem man einer der beiden Revisionen mit der Option ``--branch``
+  einen neuen Branchnamen zuweist.
+
+Branchname, Zweigname
+  Der Name eines Zweiges sollte global eindeutig sein, da es ansonsten wenn
+  das Repository mit anderen geteilt wird zu Kollisionen im Namensraum kommt.
+  Zwei verschiedene Projekte mit dem gleichen Namen können nicht in einer
+  Datenbank gespeichert werden.
+
+  Als Standard zur Namensvergabe wird empfohlen den eigenen DNS-Namen
+  umgekehrt voranzustellen. Dieser Text ist z.B. im Monotone-Zweig
+  *net.mamawe.text.monotone-brevier* gespeichert.
+
 Datenbank
   Monotone verwendet als lokales Repository eine SQLite-Datenbank. Daher
   werden die begriffe lokales Repository und Datenbank synonym verwendet.
+
+Fork, Gabelung
+  Im Laufe der Entwicklung folgt normalerweise eine *Revision* auf die andere,
+  wie die Perlen an einer Kette. Nun ist es möglich, dass ausgehend von einer
+  *Revision* (z.B. durch verschiedene Entwickler) verschiedene Änderungen in
+  einem Verzeichnisbaum oder einer Datei gemacht wurden. An dieser Stelle
+  gabelt sich die Revisionsgeschichte und wir haben mehrere letzte Revisionen.
+  Diesen Vorgang nennt man *Fork* bzw. *Gabelung*.
+
+Keystore
+  Monotone arbeitet sehr viel mit Zertifikaten, die mit asymmetrischen
+  Schlüsseln signiert werden. Während die öffentlichen Schlüssel in der
+  Datenbank abgelegt und verteilt werden, liegen die privaten Verschlüssel
+  unter UNIX im Verzeichnis  *~/.monotone/keys* bzw. unter MS Windows
+  etwa im Verzeichnis
+  *C:\Dokumente und Einstellungen\Name\Anwendungsdaten\monotone\keys*.
+
+Manifest
+  Ein Manifest ist eine Textdatei, die die aktuellen Versionen von Dateien
+  eines Verzeichnisbaums und zusätzliche Attribute dieser Dateien erfasst.
+  Siehe auch unter *Version*.
+
+Merge, Zusammenführen
+  Wenn in der Versionsgeschichte ein Fork aufgetreten ist, und die jeweils
+  letzten Revision wieder zusammengeführt werden sollen, nennt man das bei
+  Versionsverwaltungssystemen *Merge*.
+
+  Monotone unterscheidet dabei den *Merge* innerhalb eines Zweiges, für den es
+  den Befehl ``mtn merge`` gibt und den *Merge* von einem Zweig zu einem
+  anderen, für den der Befehl ``mtn propagate`` verwendet wird.
+
+Revision
+  Eine Revision umfasst alle Änderungen, die von einer *Version* zur nächsten
+  führen. Die Revision wird als Textdatei in Monotone gepflegt. Siehe auch
+  *Versionsgeschichte*.
 
 Schlüssel
   Monotone verwendet für die Integritätsprüfung Zertifikate, die mit
@@ -28,6 +79,7 @@ Schlüssel
   Schlüssel der Beteiligten werden dabei in den einzelnen Datenbanken mit
   abgelegt, die privaten Schlüssel werden im Schlüsselspeicher des Benutzers
   (üblicherweise das Verzeichnis *~/.monotone/keys/*) abgelegt.
+  Als Verschlüsselungsverfahren verwendet Monotone *RSA*.
 
 Server
   Ein Monotone-Prozess, der über das Netzwerk angesprochen werden kann. Das
@@ -35,7 +87,54 @@ Server
   ``mtn serve`` zum Abgleich bereitgestellte Datenbank auf einer
   Arbeitsstation.
 
+SHA1-Hash
+  In Monotone wird die *SHA1* Funktion verwendet, um eindeutige Bezeichner für
+  bestimmte Versionen von Dateien zu bestimmen. Diese Bezeichner sind 20 Byte
+  lang und werden SHA1-Hash genannt.
+
+Version
+  Bei Monotone wird unterschieden zwischen Versionen von Dateien und Versionen
+  von Verzeichnisbäumen. Generell ist eine Version der Zustand einer Datei oder
+  eines Verzeichnisbaums zwischen zwei Änderungen. Die Version vor einer
+  Änderung wird Elternversion, die Version nach dieser Änderung wird
+  Kindesversion genannt.
+
+  Eine Dateiversion bezieht sich auf den Inhalt der Datei. Um die Dateiversion
+  eindeutig zu referenzieren wird mit der *SHA1* Funktion eine Folge von 20
+  Bytes (genannt Hash) erzeugt, die genau dieser speziellen Version zugeordnet
+  ist.
+
+  Eine Version eines Verzeichnisbaumes wird gebildet, indem zunächst eine
+  spezielle Datei, Manifest genannt, erzeugt wird. Diese Datei enthält eine
+  Liste aller Dateiversionen von Dateien im Verzeichnisbaum und gegebenenfalls
+  weitere Attribute dieser Dateien. Von dieser Datei *Manifest* wird ebenfalls
+  eine SHA1-Hash gebildet.
+
+Versionsgeschichte
+  Die verschiedenen Versionen von Dateien und Verzeichnisbäumen selbst haben
+  keinen Bezug zueinander. D.h. man kann aus den SHA1-Hashes und den
+  Manifest-Dateien nicht erkennen, welche Version von welcher anderen
+  abgeleitet wurde. Um die komplette Versionsgeschichte zu erhalten, wird
+  daher für jede Änderung eine *Revision* gepflegt. Diese enthält das neue
+  Manifest, die vorherige Revision, an die die aktuelle Anschließt und welche
+  Dateiänderungen im einzelnen vorgenommen wurden. Die *Revision* selbst ist
+  auch nur eine Textdatei und wird deshalb ebenfalls über eine SHA1-Hash
+  identifiziert.
+
 Zertifikat
-  Jede Revision in Monotone wird über eine kryptographische SHA1-Hash
-  identifiziert, die sowohl den Inhalt der Revision als auch ihre ganze
-  Abstammung repräsentiert.
+  Jede Revision in Monotone wird über eine SHA1-Hash identifiziert, die sowohl
+  den Inhalt der Revision als auch ihre ganze Abstammung repräsentiert.
+  Wenn man weitere Aussagen zu einer Revision (z.B. den Zeitpunkt der
+  Erstellung der Revision) treffen will, so sind diese zunächst unabhängig von
+  der Revision und leicht änderbar. Um diese zusätzlichen Aussagen zu sichern
+  fügt Monotone einen Schlüssel und eine mit diesem Schlüssel erzeugte
+  Signatur über die zusätzlichen Aussagen an. Diese 4 Elemente (die Revision,
+  die zusätzliche Information, der Schlüssel und die Signatur) zusammen bilden
+  ein Zertifikat.
+
+  Monotone nutzt Zertifikate ausgiebig. Sämtliche zusätzliche Information, die
+  gespeichert, übertragen oder aufgerufen werden soll, wird in Form von
+  Zertifikaten verwendet.
+
+Zweig
+  Siehe *Branch*.

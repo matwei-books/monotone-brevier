@@ -22,10 +22,10 @@ http://guitone.thomaskeller.biz/
 
 http://oandrieu.nerim.net/monotone-viz/
   Die Homepage von Monotone-viz, einem Visualisierungsprogramm für
-  Versionsgraphen.
+  Revisionsgraphen.
 
 http://nakedstartup.com/2010/04/simple-daily-git-workflow/
-  Die Beschreibung eines möglichen Arbeitsablaufs für *git*, die ich als
+  Die Beschreibung eines möglichen Arbeitsablaufs mit *git*, die ich als
   Anregung für diesen Text verarbeitet habe.
 
 http://weidner.in-bad-schmiedeberg.de/computer/rcs/monotone/

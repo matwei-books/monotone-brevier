@@ -39,12 +39,21 @@ verwaltet.
 Alle im Repository verwalteten Daten werden mit kryptographischen Schlüsseln
 signiert und dadurch gegen Veränderung gesichert.
 
-Wo sind meine Dateien
----------------------
+Wo sind meine Daten
+-------------------
 
-Die Daten, die von Monotone verwaltet werden, können sich an verschiedenen
-Orten befinden, insbesondere im Arbeitsverzeichnis, in einem lokalen Repository
-oder in einem entfernten Repository.
+Die Daten, die von Monotone verwaltet werden, befinden sich an vier
+verschiedenen Orten:
+
+- im *Keystore*
+  befinden sich meine privaten Schlüssel
+- im *Arbeitsverzeichnis*
+  sind die Dateien, die ich unmittelbar bearbeite
+- im *lokalen Repository*
+  befinden sich die gespeicherten Revisionen der Dateien
+- in einem *entfernten Repository*
+  sind die Revisionen der von mir und eventuell anderen bearbeiteten Dateien,
+  nachdem mit dem Repository synchronisiert wurde.
 
 .. image:: img/wo-sind-die-daten.png
    :alt: Wo sind die Daten?
