@@ -62,9 +62,24 @@ Manifest
 Merge, Zusammenführen
   Wenn in der Versionsgeschichte ein Fork aufgetreten ist, und die jeweils
   letzten Revision wieder zusammengeführt werden sollen, nennt man das bei
-  Versionsverwaltungssystemen *Merge*.
+  Versionsverwaltungssystemen *Merge*. Monotone führt dabei ein Paar von
+  3-Wege-Zusammenführungen aus. Zum einen auf Revisionsebene um Differenzen
+  im Verzeichnisbaum (z.B. Umbenennungen) aufzulösen, zum anderen zeilenweise
+  für jede geänderte Datei um Unterschiede durch gleichzeitiges Bearbeiten der
+  gleichen Datei aufzulösen.
 
-  Monotone unterscheidet dabei den *Merge* innerhalb eines Zweiges, für den es
+  Die 3-Wege-Zusammenführung ist nicht einfach nur ein Anwenden von Änderungen
+  der einen Seite auf die andere. Zunächst wird der nächste gemeinsame
+  Vorgänger beider Versionen in der Versionsgeschichte gesucht. Dann werden
+  die Änderungen der linken und der rechten Seite von diesem Vorgänger
+  berechnet und die Änderungskoordinaten basierend auf den Änderungen der
+  linken Seite berechnet. Erst dann werden die beiden Versionen verknüpft,
+  wobei identische Änderungen ignoriert werden und widersprechende Änderungen
+  zurückgewiesen werden. Falls es widersprechende Änderungen gab, werden diese
+  an eine benutzerdefinierte (Lua-)Funktion übergeben, die per Default den
+  Editor Emacs im Diff-Modus aufruft.
+
+  Monotone unterscheidet den *Merge* innerhalb eines Zweiges, für den es
   den Befehl ``mtn merge`` gibt und den *Merge* von einem Zweig zu einem
   anderen, für den der Befehl ``mtn propagate`` verwendet wird.
 

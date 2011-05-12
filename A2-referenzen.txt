@@ -7,6 +7,12 @@ A2 Weiterführende Informationen
 Internet
 --------
 
+E-Mail
+  http://lists.nongnu.org/mailman/listinfo/monotone-users
+
+IRC
+  irc.oftc.net #monotone
+
 http://www.monotone.ca/
   Die Homepage von Monotone (englisch), hier findet man fast alles, was man
   braucht.
@@ -19,6 +25,18 @@ http://wiki.monotone.ca/
 http://guitone.thomaskeller.biz/
   Die Homepage von Guitone, einem grafischen Frontend für Monotone, das
   insbesondere Anfängern den Einstieg erleichtern dürfte.
+
+http://diffuse.sourceforge.net/
+  Die Homepage von diffuse, einem Programm zum Vergleichen und Zusammenführen
+  von Dateien.
+
+http://kdiff3.sourceforge.net/
+  Die Homepage von KDiff3, einem Programm zum Vergleichen und Zusammenführen
+  von Dateien.
+
+http://furius.ca/xxdiff/
+  Die Homepage von xxdiff, einem Programm zum Vergleichen und Zusammenführen
+  von Dateien.
 
 http://oandrieu.nerim.net/monotone-viz/
   Die Homepage von Monotone-viz, einem Visualisierungsprogramm für

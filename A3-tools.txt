@@ -25,6 +25,28 @@ ist relativ einfach (Version 1.0rc5 auf Ubuntu)::
  $ sudo stow -d /usr/local/stow -v guitone-1.0rc5
  $ guitone
 
+diffuse
+-------
+
+Diffuse ist ein kleines und einfaches Text-Zusammenführ-Werkzeug geschrieben
+in Python. Mit Diffuse können Sie ganz einfach Änderungen in Ihren Quelltexten
+zusammenführen, bearbeiten und prüfen. Diffuse ist Freie Software.
+
+Die Homepage von diffuse ist http://diffuse.sourceforge.net/.
+
+Das Programm läuft auf allen Betriebssystemen, auf denen *Python* verfügbar
+ist (d.h. UNIX, Mac OS, MS Windows).
+
+KDiff3
+------
+
+KDiff3 ist ein Vergleichs- und Zusammenführ-Programm wie *diffuse* und
+*xxdiff*.
+
+Die Homepage von KDiff3 ist http://kdiff3.sourceforge.net/.
+
+Es gibt Versionen für UNIX, Mac OS X, MS Windows.
+
 Monotone-viz
 ------------
 
@@ -37,3 +59,25 @@ Die Homepage von Monotone-viz ist http://oandrieu.nerim.net/monotone-viz/.
 Bei Debian/Ubuntu kann man Monotone-viz mit der Softwareverwaltung (*apt-get*)
 installieren. Für Windows gibt es ein Zip-Archiv und eine
 Installationsanleitung.
+
+xxdiff
+------
+
+Xxdiff ist ein grafisches Vergleichs- und Merge-Programm für Dateien und
+Verzeichnissen. Dieses Programm wird in der Monotone-FAQ als das beste
+bekannte externe Merge-Programm angegeben.
+
+Die Homepage von xxdiff ist http://furius.ca/xxdiff/.
+
+Bei Debian/Ubuntu kann man xxdiff mit der Softwareverwaltung (*apt-get*)
+installieren.
+
+Für Windows gibt es eine Version über die Homepage. Diese Version hat einige
+Einschränkungen:
+
+  There are some problems with the Windows binary, it 
+  crashes when you display the options dialog.  But other
+  than that it seems most is working.
+
+Hier ist dann möglicherweise eines der anderen Merge-Programme vorzuziehen,
+wie z.B. *diffuse* oder *KDiff3*.
