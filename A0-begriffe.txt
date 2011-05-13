@@ -18,6 +18,10 @@ Arbeitsbereich
   Option ``--root`` eingeschränkt oder mit ``--no-workspace`` ganz unterbunden
   werden.
 
+Benutzerdefinierte Befehle
+  Monotone kann mit eigenen Befehlen erweitert werden. Diese Befehle werden in
+  der Scriptsprache *Lua* definiert.
+
 Branch, Zweig
   Wenn in einer Versionsgeschichte eine *Gabelung* aufgetreten ist und man
   beide Enden separat weiter bearbeiten will, kann man einen neuen Branch
@@ -46,6 +50,12 @@ Fork, Gabelung
   gabelt sich die Revisionsgeschichte und wir haben mehrere letzte Revisionen.
   Diesen Vorgang nennt man *Fork* bzw. *Gabelung*.
 
+Hook
+  *Hooks* sind *Lua* Funktionen, die von Monotone an verschiedenen Stellen
+  aufgerufen werden. Monotone stellt für einige dieser Funktionen
+  Default-Definitionen bereit, für andere liefert es Default-Rückgabewerte.
+  *Hooks* können in *rcfiles* durch eigene Definitionen ersetzt werden.
+
 Keystore
   Monotone arbeitet sehr viel mit Zertifikaten, die mit asymmetrischen
   Schlüsseln signiert werden. Während die öffentlichen Schlüssel in der
@@ -53,6 +63,11 @@ Keystore
   unter UNIX im Verzeichnis  *~/.monotone/keys* bzw. unter MS Windows
   etwa im Verzeichnis
   *C:\Dokumente und Einstellungen\Name\Anwendungsdaten\monotone\keys*.
+
+Lua
+  *Lua* ist eine leichtgewichtige Scriptsprache, die in andere Anwendungen
+  eingebaut werden kann. Monotone enthält einen Interpreter für *Lua*, der für
+  *Hooks* und *benuutzerdefinierte Befehle* verwendet wird.
 
 Manifest
   Ein Manifest ist eine Textdatei, die die aktuellen Versionen von Dateien
@@ -83,6 +98,11 @@ Merge, Zusammenführen
   den Befehl ``mtn merge`` gibt und den *Merge* von einem Zweig zu einem
   anderen, für den der Befehl ``mtn propagate`` verwendet wird.
 
+Rcfiles
+  Monotone kann durch eigene Funktionen in der Scriptsprache *Lua* angepasst
+  und erweitert werden. Diese Funktionen werden in sogenannten *rcfiles*
+  abgelegt, welche bei jedem Start von Monotone eingelesen werden.
+  
 Revision
   Eine Revision umfasst alle Änderungen, die von einer *Version* zur nächsten
   führen. Die Revision wird als Textdatei in Monotone gepflegt. Siehe auch

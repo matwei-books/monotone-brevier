@@ -1,0 +1,86 @@
+
+.. vim: set sw=2 ts=2 tw=78 et si:
+
+Anpassungen und Erweiterungen
+=============================
+
+Monotone nutzt die Programmiersprache *Lua* für Anpassungen und Erweiterungen.
+
+Lua-Funktionen werden in *rcfiles* definiert, die bei jedem Lauf von Monotone
+gelesen werden. Als *rcfiles* werden verwendet:
+
+- *~/.monotone/monotonerc* bzw. *%APPDATA%\monotone\monotonerc*
+  (auf MS Windows)
+- *_MTN/monotonerc* im aktuellen Arbeitsbereich
+- Dateien, die mit ``--rcfile=Dateiname`` in der Kommandozeile angegeben
+  werden
+- alle Dateien in Verzeichnissen, die mit ``--rcfile=Verzeichnisname`` in der
+  Kommandozeile angegeben werden
+
+Die Dateien werden in der Reihenfolge *~/.monotone/monotonerc*,
+*_MTN/monotonerc*, *--rcfile* in der Reihenfolge der Kommandozeile geladen.
+Spätere Definitionen überschreiben dabei frühere.
+
+Lua-Funktionen werden auf zwei Arten in Monotone verwendet. Als *Hooks* und
+als benutzerdefinierte Befehle. Beide Arten werden ausführlich auf der Website
+von Monotone beschrieben.
+
+Lua-Hooks
+---------
+
+*Hooks* sind Lua-Funktionen, die von Monotone an verschiedenen Stellen
+aufgerufen werden. Monotone stellt Default-Definitionen für einige dieser
+Funktionen bereit.
+Für andere Hooks gibt es keine Definitionen, stattdessen wird ein
+Default-Rückgabewert verwendet.
+
+Für eigene Definitionen kann es hilfreich sein, den Code der alten Definition
+zumindest teilweise zu verwenden. Das ist mit *Lua* mit folgendem Code
+möglich::
+
+ do
+     local old_hook = default_hook
+     function default_hook(arg)
+         if not old_hook(arg) then
+             -- do other stuff
+         end
+     end
+ end
+
+Die alte Definition von *default_hook* ist über die Variable *old_hook* nur
+innerhalb des *do* Blocks verfügbar. Global, d.h. für Monotone ist
+*default_hook* jetzt in dieser Funktion definiert.
+
+Benutzerdefinierte Befehle
+--------------------------
+
+Monotone stellt eine Reihe von Hilfsfunktionen zur Verfügung, die nicht im
+Standard-Lua zur Verfügung stehen. Eine dieser Funktionen ist::
+
+ register_command(name, params, abstract, description, function)
+
+Diese Funktion fügt einen Befehl *name* zu den Benutzerbefehlen von Monotone
+hinzu. Wenn dieser registrierte Befehl aufgerufen wird, wird Monotone die mit
+*function* bereitgestellte Definition aufrufen. Diese Funktion würde
+üblicherweise mit ``mtn_automate`` (s.u.) verwenden, um den Aufruf
+abzuarbeiten.  *params* ist eine Zeichenkette mit der Liste der Parameter
+für den Befehl. *abstract* ist eine kurze Beschreibung, *description* eine
+längere Beschreibung des Benutzerbefehls. Bei ``mtn help`` werden *params*,
+*abstract* und *description* ausgegeben.
+
+Eine weitere wichtige Funktion ist::
+
+ mtn_automate(command args... )
+
+Diese Funktion ruft den Befehl ``automate command`` von Monotone mit *args*
+auf. Das Ergebnis ist ein *pair* (Lua), das besteht aus einem Boolean
+(``true`` bei Erfolg) und einer Zeichenkette, die den Inhalt von ``stdout``
+des Aufrufs von ``automate command`` enthält.
+
+Diese Funktion ist nicht für den Gebrauch in normalen Lua-Hooks sondern eher
+für Lua-Funktionen, die mit ``register_command`` registriert wurden.
+
+Beachte, dass Tastatureingaben deaktiviert sind wie bei der
+``--non-interactive`` Option von Monotone. Aktionen, die Operationen mit
+passwortgeschützten Schlüsseln benötigen, werden daher nicht funktionieren, es
+sei denn, dass der ``get_passphrase`` Hook eingrichtet wurde.

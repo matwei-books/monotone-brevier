@@ -34,6 +34,10 @@ http://kdiff3.sourceforge.net/
   Die Homepage von KDiff3, einem Programm zum Vergleichen und Zusammenführen
   von Dateien.
 
+http://www.lua.org/
+  Die Homepage zur Programmiersprache *Lua*, mit der Anpassungen und
+  Erweiterungen für Monotone geschrieben werden können.
+
 http://furius.ca/xxdiff/
   Die Homepage von xxdiff, einem Programm zum Vergleichen und Zusammenführen
   von Dateien.

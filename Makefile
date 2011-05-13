@@ -7,6 +7,7 @@ SOURCES = 00-vorspann.txt \
           30-networking.txt \
           40-zusammenarbeit.txt \
           50-datensicherung.txt \
+          60-lua.txt \
           A0-begriffe.txt \
           A1-workflow.txt \
 	  A2-referenzen.txt \
