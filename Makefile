@@ -19,9 +19,10 @@ IMAGES = img/version-tags.png \
 #R2LFLAGS = -iutf8 -lde --documentoptions=10pt,a5paper,english
 R2LFLAGS = \
  --documentclass=scrbook \
- --documentoptions=9pt,a5paper,english --use-latex-toc \
- --hyperlink-color=black
-
+ --documentoptions=9pt,a5paper,german --use-latex-toc \
+ --hyperlink-color=black \
+ --stylesheet=preamble.tex \
+#
 all: $(OUTNAME).pdf
 
 $(OUTNAME).tex: $(SOURCES) $(IMAGES)
@@ -30,7 +31,7 @@ $(OUTNAME).tex: $(SOURCES) $(IMAGES)
 $(OUTNAME).pdf: $(OUTNAME).tex $(OUTNAME).out
 	pdflatex $(OUTNAME).tex
 
-$(OUTNAME).out: $(OUTNAME).tex
+$(OUTNAME).out: $(OUTNAME).tex preamble.tex
 	pdflatex $<
 
 clean:
