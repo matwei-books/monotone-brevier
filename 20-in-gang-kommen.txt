@@ -22,11 +22,6 @@ Befehl an::
 .. [#databaselocation] Die Datenbank könnte irgendwo abgelegt werden, bei mir
    landen alle im Verzeichnis *~/A/monotone*.
 
-Alternativ kann ich mein lokales Repository gleich beim ersten Holen der
-Revisionen von einem entfernten Repository anlegen::
-
- $ mtn --new-db --db project.mtn server branchwildcard
-
 Hierbei ist *project.mtn* der Name der neuen Datenbankdatei, *server* die
 Adresse des entfernten Repository und *branchwildcard* die Beschreibung der
 Zweige, die ich laden will.

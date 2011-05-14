@@ -19,9 +19,9 @@ IMAGES = img/version-tags.png \
 #R2LFLAGS = -iutf8 -lde --documentoptions=10pt,a5paper,english
 R2LFLAGS = \
  --documentclass=scrbook \
- --documentoptions=9pt,a5paper,german --use-latex-toc \
+ --documentoptions=9pt,a5paper,german,openany --use-latex-toc \
  --hyperlink-color=black \
- --stylesheet=preamble.tex \
+ --stylesheet=lmodern,preamble.tex \
 #
 all: $(OUTNAME).pdf
 

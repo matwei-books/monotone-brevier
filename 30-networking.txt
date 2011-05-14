@@ -14,7 +14,8 @@ und akzeptieren genauso wie sie meinen Schlüssel kennen und akzeptieren
 müssen. Der erste Schritt zur Zusammenarbeit ist daher der Austausch der
 Schlüssel::
 
- $ mtn pubkey mathias@weidner.in-bad-schmiedeberg.de > mathias.pubkey
+ $ mtn pubkey mathias@weidner.in-bad-schmiedeberg.de \
+   > mathias.pubkey
 
 Für meinen eigenen Schlüssel muss ich dabei keine Datenbank angeben. Ich kann
 diesen Schlüssel nun an alle Mitarbeiter schicken, die mir ihre öffentliche
@@ -108,14 +109,13 @@ Ein weiterer Vorteil eines zentralen Servers ist der, dass man zum
 Synchronisieren nur noch ``mtn sync`` eingeben muss und den Servernamen und
 Zweig weglassen kann, wenn die betreffenden Variablen in der Datenbank richtig
 eingestellt sind. Konkret sind das die Variablen ``database: default-server``
-und ``database: default-include-pattern``. Diese sehen bei mir für dieses
-Projekt zur Zeit so aus::
+und ``database: default-include-pattern``. Diese sehen ungefähr so aus::
 
  $ mtn list vars
  database: default-exclude-pattern 
- database: default-include-pattern net.mamawe.text.monotone\-brevier
+ database: default-include-pattern net.mamawe.text.monotone...
  database: default-server monotone.mamawe.net
- known-servers: monotone.mamawe.net b1c3782090a03536fc21f9ff43528ede44e1d63a
+ known-servers: monotone.mamawe.net b1c3782090a03536fc21f9f...
 
 Die Variable ``known-servers: monotone.mamawe.net`` enthält den Schlüssel, für
 den Monotone-Server. Dieser Schlüssel wird nicht für das Signieren der Dateien
