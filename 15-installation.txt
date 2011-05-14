@@ -46,8 +46,8 @@ Versionen umzuschalten::
  $ sudo make install
  $ sudo stow -d /usr/local/stow -v monotone-1.0
 
-Nun ist Monotone unter I</usr/local/stow/monotone-1.0> installiert und in
-I</usr/local/bin>, I</usr/local/etc> und I</usr/local/share> gibt es
+Nun ist Monotone unter */usr/local/stow/monotone-1.0* installiert und in
+*/usr/local/bin*, */usr/local/etc* und */usr/local/share* gibt es
 symbolische Links dorthin. Wir können monotone direkt aufrufen::
 
  $ mtn --version

@@ -9,7 +9,7 @@ Monotone nutzt die Programmiersprache *Lua* für Anpassungen und Erweiterungen.
 Lua-Funktionen werden in *rcfiles* definiert, die bei jedem Lauf von Monotone
 gelesen werden. Als *rcfiles* werden verwendet:
 
-- *~/.monotone/monotonerc* bzw. *%APPDATA%\monotone\monotonerc*
+- *~/.monotone/monotonerc* bzw. *%APPDATA%\\monotone\\monotonerc*
   (auf MS Windows)
 - *_MTN/monotonerc* im aktuellen Arbeitsbereich
 - Dateien, die mit ``--rcfile=Dateiname`` in der Kommandozeile angegeben
