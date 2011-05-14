@@ -66,35 +66,15 @@ vereinfacht.
 Zunächst akzeptieren wir die Lizenzerklärung (GPL, GNU General Public License)
 und dann geht es los.
 
-.. image:: img/win-setup-2.png
-   :alt: Lizenz akzeptieren
-   :scale: 25
-   :align: center
-
 Wir wählen das Installationsverzeichnis und können hier noch nachschauen, ob
 dort ausreichend Platz verfügbar ist.
-
-.. image:: img/win-setup-3.png
-   :alt: Installationsverzeichnis auswählen
-   :scale: 25
-   :align: center
 
 Dann können wir den Folder im Startmenü benennen, bzw. entscheiden, ob wir
 überhaupt einen wollen.
 
-.. image:: img/win-setup-4.png
-   :alt: Startmenüeinstellungen
-   :scale: 25
-   :align: center
-
 Danach markieren wir, dass monotone zum Suchpfad hinzugefügt wird und
 entscheiden, ob wir die Dokumentation gleich oder später (bzw. gar nicht)
 sehen wollen.
-
-.. image:: img/win-setup-5.png
-   :alt: Suchpfad und Dokumentation
-   :scale: 25
-   :align: center
 
 Schließlich werden uns alle ausgewählten Optionen noch einmal angezeigt und
 dann geht es los.
@@ -104,12 +84,10 @@ dann geht es los.
    :scale: 25
    :align: center
 
-Wenn am Ende dieses Dialogfenster erscheint, haben wir Monotone auf dem
+Wenn am Ende das folgende Dialogfenster erscheint, haben wir Monotone auf dem
 Windowsrechner installiert.
-Bis hierhin funktionierte alles ohne Tastatureingaben.
 
 .. image:: img/win-setup-7.png
    :alt: Installation beendet
    :scale: 25
    :align: center
-
