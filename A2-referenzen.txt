@@ -50,6 +50,13 @@ http://nakedstartup.com/2010/04/simple-daily-git-workflow/
   Die Beschreibung eines möglichen Arbeitsablaufs mit *git*, die ich als
   Anregung für diesen Text verarbeitet habe.
 
+http://www.troyhunt.com/2011/05/10-commandments-of-good-source-control.html
+  *The 10 commandments of good source control management* (englisch)
+
+  Das Epigraph über dem Grundlagenkapitel ist von dieser Seite genommen. Auch
+  die meisten der anderen Gebote gehören meiner Meinung nach zu den
+  Grundprinzipien der Arbeit mit Versionsverwaltungssystemen.
+
 http://weidner.in-bad-schmiedeberg.de/computer/rcs/monotone/
   Artikel auf meiner Homepage zu Monotone, z.T. Auszüge und Vorabdrücke aus
   diesem Text.

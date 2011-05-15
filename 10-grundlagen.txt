@@ -4,6 +4,12 @@
 Grundlagen
 ==========
 
+.. epigraph::
+
+   Wenn es nicht in der Versionsverwaltung ist, existiert es nicht.
+
+   -- Troy Hunt
+
 Monotone als Versionsverwaltungssystem hält für mich verschiedene Arbeitsstände
 von Dateien, die ich bearbeite, bereit. Da sind zum einen die aktuellen
 Versionen im Arbeitsbereich und die jeweils mit der Vorgänger- und
