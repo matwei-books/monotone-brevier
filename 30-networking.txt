@@ -151,3 +151,43 @@ einfachen Download der Quellen freigeben. Das wird in der Datei
  pattern "*"
  allow "mathias@weidner.in-bad-schmiedeberg.de"
  EOT
+
+Andere Transportwege
+--------------------
+
+Monotones Datenbanksynchronisation basiert auf einem Protokoll namens
+*netsync*. Normalerweise transportiert Monotone dieses Protokoll über eine
+einfache TCP-Verbindung. Das ist nicht der einzige Transportweg, über den
+Monotone *netsync* verwenden kann. Es ist möglich dieses Protokoll über *SSH*
+oder irgendein Programm, das eine Full-Duplex-Verbindung aufbauen kann, zu
+verwenden.
+
+Wenn Monotone mit dem *pull*, *push* oder *sync* Befehl aufgerufen wird,
+analysiert übergibt es das erste Argument an einen Lua-Hook, der es in einen
+Verbindungsbefehl umwandeln soll. Wenn dieser Hook einen Verbindungsbefehl
+zurückliefert, startet Monotone diesen Befehl lokal und spricht das *netsync*
+Protokoll über die Standardeingabe und -ausgabe des entsprechenden Processes.
+
+Wenn der Lua-Hook keinen Verbindungsbefehl liefert, versucht Monotone das
+erste Argument als TCP-Adresse zu interpretieren (ein Rechnername mit einer
+optionalen Portnummer), baut eine TCP-Verbindung dorthin auf und spricht
+*netsync* über diese Verbindung.
+
+Der Default-Lua-Hook versteht zwei URI-Schemata:
+
+- SSH-URIs in der Form ``ssh://[user@]hostname[:port]/pfad/zur/db.mtn``
+- Datei-URIs in der Form ``file:/pfad/zur/db.mtn``
+
+Bei einer SSH-URI muss das Programm *ssh* lokal im Suchpfad für Programme zu
+finden sein und das Program *mtn* auf dem entfernten Rechner.
+
+Bei einer Datei-URI muss das Programm *mtn* lokal im Suchpfad für Programme zu
+finden sein.
+
+In beiden Fällen wird die Datenbank gesperrt, d.h. man benötigt Schreibrechte
+auf die Datenbank, auch wenn man nur mit *pull* Daten holt und die Datenbank
+nicht dauerhaft modifiziert. Außerdem wird für diese beiden Transporte die
+Default-Authentisierung deaktiviert.
+
+Um weitere Transportwege zu unterstützen, muss man die beiden Lua-Hooks
+``get_netsync_connect_command`` und ``use_transport_auth`` anpassen.

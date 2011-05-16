@@ -127,6 +127,16 @@ SHA1-Hash
   bestimmte Versionen von Dateien zu bestimmen. Diese Bezeichner sind 20 Byte
   lang und werden SHA1-Hash genannt.
 
+URI
+  Uniform Resource Identifier ist ein einheitlicher Bezeichner für Ressourcen
+  mit dem diese unabhängig vom verwendeten Programm oder Betriebssystem
+  benannt werden können. Ein URI besteht aus einem Schema, gefolgt von einem
+  Doppelpunkt gefolgt von den näheren Angaben entsprechend der Schreibweise
+  für das Schema.
+  
+  Monotone versteht von Haus aus die Schemata *ssh* und *file* für die
+  Synchronisation mit anderen Datenbanken.
+
 Version
   Bei Monotone wird unterschieden zwischen Versionen von Dateien und Versionen
   von Verzeichnisbäumen. Generell ist eine Version der Zustand einer Datei oder
