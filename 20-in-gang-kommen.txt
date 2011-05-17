@@ -195,3 +195,45 @@ markiere ich diese Revision mit einem *version tag*.
 Um einen Stand zu markieren, bestätige ich die letzten Änderungen mit ``mtn
 commit``, informiere mich über die aktuelle Version mit ``mtn head`` und
 markiere diesen Stand mit ``mtn tag <revision> <tag>``.
+
+Ein Repository von CVS übernehmen
+---------------------------------
+
+Mitunter habe ich ein älteres Projekt, das ich mit CVS - einem älteren, in
+vielen Jahren bewährten, mittlerweile aber an einige Grenzen stoßendes
+Versionsverwaltungssystem - gepflegt hatte. Nun wäre es einfach, die letzten
+stabilen und Entwicklungsstände zu nehmen und ein neues Repository mit
+Monotone anzufangen.
+
+Hier gibt es einen besseren Weg. Wenn ich Zugriff auf das ganze Repository
+(auf die Dateien, nicht nur ein Netzzugang über den CVS-Server) habe, kann ich
+die komplette Historie des Projektes übernehmen. Das Feature wird zwar auf der
+Homepage von Monotone als "noch etwas unreif" bezeichnet, bei meinen Projekten
+funktionierte es immer recht gut. Das Importieren
+kann allerdings - insbesondere bei größeren Projekten - etwas länger dauern.
+Das ist dem Umstand geschuldet, dass CVS auf Dateibasis arbeitet, d.h. alle
+Versionsinformationen sind immer nur an die betreffende Datei gebunden,
+während Monotone mit Verzeichnisbäumen arbeitet. Um das Manifest für eine
+Revision zu erstellen vergleicht Monotone daher das Commit-Datum und die
+Commit-Notizen aller Dateien. Das ist nicht trivial und braucht etliche
+Rechenzeit. Laut Homepage sind aber schon CVS-Repository in der Größe von etwa
+einem GB erfolgreich importiert worden - meine Projekte waren alle kleiner.
+
+Die Vorgehensweise ist wie folgt::
+
+ $ mtn --db=projekt.mtn db init
+ $ mtn --db=projekt.mtn genkey cvsimport@example.net
+ $ mtn --db=projekt.mtn --branch net.example.abc \
+         cvs_import /usr/local/cvsroot/abc
+ $ mtn --db=projekt.mtn --branch net.example.abc \
+         checkout abc-neu
+
+Als erstes erzeuge ich eine neue Datenbank und einen Schlüssel für den
+CVS-Import. Für den Schlüssel kann ich auch einen vorhandenen nehmen, besser
+aber nicht den, mit dem ich normalerweise Zertifikate signiere, damit die
+Herkunft leichter unterschieden werden kann. Der Monotone-Befehl
+``cvs_import`` liest das Repository ein. Dabei ist */usr/local/cvsroot* das
+Verzeichnis, welches bei CVS in der Umgebungsvariable *$CVSROOT* verwendet wird
+und *abc* der Name des CVS-Projektes, welcher gleichzeitig der Name des
+Unterverzeichnisses unter *$CVSROOT* ist. Nach dem Import von CVS hole ich mir
+den letzten Stand in den Arbeitsbereich *abc-neu*.
