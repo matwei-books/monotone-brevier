@@ -12,6 +12,7 @@ SOURCES = 00-vorspann.txt \
           A1-workflow.txt \
 	  A2-referenzen.txt \
 	  A3-tools.txt \
+	  A4-cvsphrasebook.txt \
 #
 IMAGES = img/version-tags.png \
  img/wo-sind-die-daten.png

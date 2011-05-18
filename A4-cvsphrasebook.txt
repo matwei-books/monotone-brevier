@@ -1,0 +1,225 @@
+
+.. vim: set sw=2 ts=2 tw=78 et si:
+
+A4 CVS Schummelzettel
+=====================
+
+Dieser Anhang ist dem *CVS Phrase Book* aus dem Monotone-Wiki entnommen. Er
+soll insbesondere denen helfen, die bereits mit dem Versionsverwaltungssystem
+CVS gearbeitet haben.
+
+Einen Zweig auschecken
+----------------------
+
+CVS::
+
+ $ CVSROOT=:pserver:cvs.example.net/wobbler
+ $ cvs -d $CVSROOT checkout -r 1.2
+
+Monotone::
+
+ $ mtn --db=/path/to/database.mtn \
+       pull "mtn://monotone.example.net?net.example.wobbler*"
+ $ mtn --db=/path/to/database.mtn \
+       checkout --revision=fe37 wobbler
+
+Vor dem Checkout ist üblicherweise kein Arbeitsbereich vorhanden, so dass man
+die Datenbank bei Monotone benennen muss. Beim Aufruf von Monotone in einem
+Arbeitsbereich ist das nicht mehr notwendig.
+
+Änderungen übergeben
+--------------------
+
+CVS::
+
+ $ cvs commit -m "log message"
+
+Monotone::
+
+ $ mtn commit --message="log message"
+ $ mtn push "mtn://monotone.example.net?net.example.wobbler*"
+
+Änderungen zurücknehmen
+-----------------------
+
+CVS::
+
+ $ cvs update -C file
+
+Monotone::
+
+ $ mtn revert file
+
+Monotone hat einen separaten *revert* Befehl, um lokale Änderungen
+zurückzunehmen und auf den Stand der Basis-Revision zu bringen. Monotone
+besteht auf die Angabe einer Datei oder eines Verzeichnisses. Um alles
+zurückzusetzen, gibt man ``mtn revert .`` ein.
+
+Mit dem *revert* Befehl werden auch gelöschte Dateien wiederhergestellt. Dafür
+gibt es die praktische Option ``--missing``, die genau die fehlenden Dateien
+benennt.
+
+Andere Änderungen importieren
+-----------------------------
+
+CVS::
+
+ $ cvs update -d
+
+Monotone::
+
+ $ mtn pull "mtn://monotone.example.net?net.example.wobbler*"
+ $ mtn merge
+ $ mtn update
+
+Bei Monotone ist die Synchronisierung von der Aktualisierung getrennt. Der
+*merge* Befehl ist nur notwendig, wenn man am neuesten Stand des gesamten
+Revisions-Zweiges interessiert ist. Will man nur Änderungen an der eigenen
+Basis-Revision verfolgen, kann man diesen weglassen. Erst der *update* Befehl
+aktualisiert den eigenen Arbeitsbereich.
+
+Revisionen bezeichnen
+---------------------
+
+CVS::
+
+ $ cvs tag FOO_TAG .
+
+Monotone::
+
+ $ mtn tag h: FOO_TAG
+
+Bei CVS werden Bezeichner (Tags) immer an einzelne Dateien vergeben und man
+erkennt eine über das ganze Repository konsistente Revision am ehesten am
+gleichen Bezeichner der Dateiversionen. Demgegenüber werden alle Änderungen in
+Monotone immer über das ganze Repository erfasst. Von diesen Änderungen sind
+dann einige mit Bezeichnern versehen. Es gibt bei Monotone keine Bezeichner
+nur für einen Teil der Dateien im Repository.
+
+Arbeitsbereich auf eine andere Revision bringen
+-----------------------------------------------
+
+CVS::
+
+ $ cvs update -r FOO_TAG -d
+
+
+Monotone::
+
+ $ mtn update -r 830ac1a5f033825ab364f911608ec294fe37f7bc
+
+oder
+::
+
+ $ mtn update -r t:FOO_TAG
+
+Mit dem Revisions-Parameter verhält sich Monotone ähnlich wie CVS. Ein
+Unterschied ist, dass man direkt von der gewählten Revision aus weiterarbeiten
+und mit *commit* einchecken kann. Das ist insbesondere dann nützlich, wenn man
+nach einer Aktualisierung feststellt, dass die Kopfversion eines Zweiges
+defekt ist. Dann kann man auf eine ältere, funktionierende Funktion
+zurückgehen und normal weiterarbeiten. Später kann man die eigene Arbeit dann
+mit der wieder funktionierenden Kopfversion zusammenführen.
+
+Unterschiede ansehen
+--------------------
+
+CVS::
+
+ $ cvs diff
+ $ cvs diff -r 1.2 -r 1.4 myfile
+
+Monotone::
+
+ $ mtn diff
+ $ mtn diff -r 3e7db -r 278df myfile
+
+Status des Arbeitsbereiches
+---------------------------
+
+CVS::
+
+ $ cvs status
+
+Monotone::
+
+ $ mtn status
+
+Verzeichnisse und Dateien hinzufügen
+------------------------------------
+
+CVS::
+
+ $ cvs add dir
+ $ cvs add dir/subdir
+ $ cvs add dir/subdir/file
+
+Monotone::
+
+ $ mtn add dir/subdir/file
+
+Um eine Datei hinzuzufügen, reicht es, den kompletten Pfad anzugeben.
+Verzeichnisse werden, wenn nötig, automatisch mit aufgenommen.
+
+Verzeichnisse und Dateien entfernen
+-----------------------------------
+
+CVS::
+
+ $ rm file.txt
+ $ cvs remove file
+
+Monotone::
+
+ $ mtn drop file
+
+Mit dem Monotone-Befehl *drop* wird die Datei sowohl aus dem Dateisystem, als
+auch aus dem Manifest entfernt.
+
+Historie ansehen
+----------------
+
+CVS::
+
+ $ cvs log [file]
+
+Monotone::
+
+ $ mtn log [file]
+
+Mit den Optionen ``--from`` und ``--to`` kann eingeschränkt werden, zwischen
+welchen Revisionen die Historie ausgegeben werden soll.
+
+Ein neues Projekt importieren
+-----------------------------
+
+CVS::
+
+ $ cvs import wobbler vendor start
+
+Monotone::
+
+ $ mtn --db=/path/to/database.mtn --branch=net.example.wobbler \
+       setup .
+ $ mtn add -R .
+ $ mtn commit
+
+Der *setup* Befehl verwandelt ein gewöhnliches Verzeichnis in einen
+Monotone-Arbeitsbereich. Danach kann man die Dateien hinzufügen und mit
+*commit* übergeben.
+
+Ein Repository initialisieren
+-----------------------------
+
+CVS::
+
+ $ cvs init -d /path/to/repository
+
+Monotone::
+
+ $ mtn db init --db=/path/to/database.mtn
+
+Monotones lokales Repository ist eine einzelne Datenbankdatei, die nur von mir
+benutzt wird. Diese Datei kann irgendwo angelegt werden (bei mir meist in
+*~/A/monotone/* zum Wiederfinden) und braucht keine Lese- oder Schreibrechte
+für andere.
