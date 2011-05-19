@@ -119,6 +119,42 @@ markiere ich diese Revision mit einem *version tag* und erzeuge einen neuen
 Zweig, in dem nur noch Fehlerkorrekturen für diesen veröffentlichten Stand
 gesammelt werden.
 
+Konflikte beim Zusammenführen
+-----------------------------
+
+Es gibt zwei Möglichkeiten, verschiedene Kopfrevisionen eines Zweiges
+zusammenzuführen. Vor dem Commit der eigenen Änderungen mit ``mtn update`` und
+nach dem Commit mit ``mtn merge``. Bei beiden Varianten verwendet Monotone die
+gleichen Algorithmen zum Zusammenführen. Bei der ersten Variante ist es
+möglich, dass bei einem Konflikt, der nicht gleich manuell gelöst werden kann,
+der Arbeitsbereich einen fehlerhaften Stand hat.
+Die zweite Variante hat demgegenüber den Vorteil, dass man bei Problemen mit
+dem Zusammenführen auf die bestätigte, nicht zusammengeführte Version
+zurückgehen und weiterarbeiten kann. Wenn der Konflikt gelöst ist, kann man
+die Revisionen immer noch zusammenführen.
+
+Konflikte können beim Zusammenführen zweier Revisionen in der Datenbank oder
+beim Zusammenführen im Arbeitsbereich auftreten.
+
+Die Monotone-Befehle *show_conflicts* und *automate show_conflicts* zeigen
+Konflikte, die auftreten, wenn man das Revisionen in der Datenbank (nach
+*commit*) zusammenführen will. Leider können diese Befehle noch nicht die
+Konflikte im Arbeitsbereich auflisten.
+
+.. XXX mtn conflicts untersuchen und beschreiben
+
+Konflikttypen
+.............
+
+- Konflikte im Inhalt von Dateien
+- Doppelte Namen
+- Missing Root
+- Ungültige Namen
+- Endlosschleifen bei Verzeichnissen
+- Verwaiste Knoten
+- Mehrere Namen
+- Attributkonflikte
+
 Zugriffsrechte
 --------------
 
