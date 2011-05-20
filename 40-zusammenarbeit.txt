@@ -147,13 +147,111 @@ Konflikttypen
 .............
 
 - Konflikte im Inhalt von Dateien
+
+  Diese kommen allgemein am häufigsten vor. Sie treten z.B. auf, wenn in einer
+  Datei unterschiedliche Änderungen gegenüber dem gemeinsamen Vorfahren 
+  aufgetreten sind.  Bei Änderungen an verschiedenen Zeilen wird Monotone
+  diese Änderungen intern zusammenführen.
+
+  Falls binäre Dateien betroffen sind, oder die gleiche Zeile auf verschiedene
+  Weise geändert wurde, ruft Monotone den *merge3* Hook auf. In der
+  Default-Implementierung schreibt dieser die verschiedenen Texte in temporäre
+  Dateien und ruft das externe Programm auf, das von der Lua-Funktion
+  *get_preferred_merge3_command()* angegeben wird, um den Konflikt zu lösen.
+
 - Doppelte Namen
+
+  Dieser Konflikt tritt auf, wenn zwei Dateien oder Verzeichnissen in beiden
+  Zusammenführungskandidaten der gleiche Name gegeben wurde. Diese Dateien
+  odeer Verzeichnisse können neu aufgenommen oder in den widersprechenden
+  Namen umbenannt worden sein.
+
+  Die Lösung für diesen Konflikt hängt von den genaueren Umständen ab.
+
+  - Gleiche Datei
+
+    In diesem Fall wird die Datei in einer der Revisionen mit entfernt. Der
+    Monotone-Befehl *conflicts* hilft hierbei.
+
+  - Verschiedene Dateien
+
+    Hier muss die Datei in einer der Revisionen umbenannt werden. Das zieht
+    für gewöhnlich Änderungen in anderen Dateien, die diese Datei
+    referenzieren, nach sich. Auch hier hilft ``mtn conflicts ...``
+
+  - Verzeichnisse
+
+    Auch hier gibt es die beiden Basis-Strategien *Entfernen* und
+    *Umbenennen*. Da beim Entfernen eines Verzeichnisses auch alle Dateien mit
+    entfernt werden müssen, ist es fast immer besser, das Verzeichnis temporär
+    umzubenennen und die darin enthaltenen Dateien einzeln zu betrachten,
+    indem man sie zusammenführt umbenennt oder löscht. Schließlich kann man
+    das temporäre Verzeichnis entfernen. Der Monotone-Befehl *conflicts* kann
+    hierbei aber nicht helfen, das muss man direkt tun.
+
 - Missing Root
+
+  Das tritt eher selten auf. Es passiert, wenn ein
+  Verzeichnis in einer der beiden Revisionen zum Wurzelverzeichnis gemacht
+  wurde und in der anderen Revision gelöscht wurde.
+
+  Dieser Konflikt wird gelöst, in dem in der Revision mit dem geänderten
+  Wurzelverzeichnis ein anderes Verzeichnis zur Wurzel gemacht wird. In der
+  Revision, in der das Verzeichnis gelöscht wurde, kann man nichts machen, da
+  eine Datei oder ein Verzeichnis, welches einmal (im Repository) gelöscht
+  wurde, nicht wiederbelebt werden kann, sondern nur neu angelegt.
+
 - Ungültige Namen
+
+  Monotone reserviert den Namen *_MTN* im Wurzelverzeichnis des
+  Arbeitsbereiches für interne Zwecke und behandelt alle Dateien diesen Namens
+  im Wurzelverzeichnis als illegal für Versionierung.
+
+  In anderen Verzeichnissen im Arbeitsbereich ist der Name legal.
+
 - Endlosschleifen bei Verzeichnissen
+
+  Das tritt auf, wenn in einer Revision ein Verzeichnis unter ein zweites
+  verschoben wurde und in der anderen Revision das zweite unter das erste.
+
+  Das kann einfach gelöst werden, indem eines der Verzeichnisse aus dem
+  anderen heraus verschoben wird.
+
+  Der Monotone-Befehl *conflicts* kann hierbei noch nicht helfen.
+
 - Verwaiste Knoten
+
+  Ein verwaister Knoten tritt auf, wenn in einer Revision ein Verzeichnis
+  gelöscht wurde und in der anderen Revision Dateien oder Verzeichnisse dort
+  neu angelegt oder dahin verschoben wurden.
+
+  Das kann einfach gelöst werden, indem man die verweisten Knoten aus dem
+  gelöschten Verzeichnis woandershin verschiebt oder löscht.
+
+  ``mtn conflicts`` kann hierbei helfen. Falls es sich jedoch bei dem
+  verwaisten Knoten um ein Verzeichnis handelt und dieses gelöscht werden
+  soll, müssen erst der Inhalt des Verzeichnisses gelöscht werden, bevor ``mtn
+  conflicts`` aufgerufen wird.
+
 - Mehrere Namen
+
+  Dieser Konflikt tritt auf, wenn eine Datei in beiden Revisionen in
+  unterschiedliche Namen umbenannt wurde.
+
+  Zur Lösung benennt man die Datei in einer Revision so um, wie sie in der
+  anderen heißt.
+
+  Der Monotone-Befehl *conflicts* kann hierbei noch nicht helfen.
+
 - Attributkonflikte
+
+  Das passiert, wenn die Attribute einer Datei bzw. eines Verzeichnisses in
+  den beiden Revisionen unterschiedlich sind.
+
+  Zur Lösung ändert man die Attribute in einer oder beiden Revisionen so, dass
+  sie gleich sind.
+
+  Der Monotone-Befehl *conflicts* kann hierbei noch nicht helfen.
 
 Zugriffsrechte
 --------------
