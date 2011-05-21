@@ -141,6 +141,11 @@ Konflikte, die auftreten, wenn man das Revisionen in der Datenbank (nach
 *commit*) zusammenführen will. Leider können diese Befehle noch nicht die
 Konflikte im Arbeitsbereich auflisten.
 
+Mit dem Befehl *conflicts* und seinen Unterbefehlen können
+Konfliktlösungen für Monotone vorgegeben werden. Dieser Befehl erfordert einen
+Arbeitsbereich. Die Konfliktlösungen werden in einer Datei gespeichert und
+bei ``mtn merge`` verwendet.
+
 .. XXX mtn conflicts untersuchen und beschreiben
 
 Konflikttypen

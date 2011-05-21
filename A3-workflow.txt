@@ -1,8 +1,11 @@
 
 .. vim: set sw=2 ts=2 tw=78 et si:
 
-A1 Workflow
-===========
+A3 Workflow Schummelzettel
+==========================
+
+Dieser Workflow geht von einem eigenen Zweig pro Fehlerbeseitigung / Ticket
+aus.
 
 Neuen Zweig auschecken
 ----------------------
@@ -31,17 +34,14 @@ Arbeit am Problem
 ::
 
  $ mtn pull
+ $ mtn show_conflicts | conflicts
  $ mtn propagate trunk trunk.ticketnr
-
- - Konflikte und Probleme beseitigen
 
  $ mtn propagate trunk.ticketnr trunk
  $ mtn sync
 
 Falls jemand anders inzwischen Änderungen veröffentlicht hat::
 
+ $ mtn show_conflicts | conflicts
  $ mtn merge trunk
-
- - Konflikte und Probleme beseitigen
-
  $ mtn sync

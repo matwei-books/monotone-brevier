@@ -9,9 +9,9 @@ SOURCES = 00-vorspann.txt \
           50-datensicherung.txt \
           60-lua.txt \
           A0-begriffe.txt \
-          A1-workflow.txt \
-	  A2-referenzen.txt \
-	  A3-tools.txt \
+	  A1-referenzen.txt \
+	  A2-tools.txt \
+          A3-workflow.txt \
 	  A4-cvsphrasebook.txt \
 #
 IMAGES = img/version-tags.png \
