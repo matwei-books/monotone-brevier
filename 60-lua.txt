@@ -84,3 +84,60 @@ Beachte, dass Tastatureingaben deaktiviert sind wie bei der
 ``--non-interactive`` Option von Monotone. Aktionen, die Operationen mit
 passwortgeschützten Schlüsseln benötigen, werden daher nicht funktionieren, es
 sei denn, dass der ``get_passphrase`` Hook eingrichtet wurde.
+
+Externe Programme
+-----------------
+
+Einbetten der aktuellen Revision
+................................
+
+Bei einigen Versionsverwaltungssystemen - z.B. RCS und CVS, gibt es
+Schlüsselworte, die im Quelltext eingesetzt werden können und dann vom
+Versionsverwaltungssystem durch die entsprechenden Werte, wie z.B. die Version
+der Datei oder das Datum des Check in, ersetzt werden. So etwas gibt es bei
+Monotone nicht, so dass man sich hier im Bedarfsfall mit einem Script behilft,
+das eine Datei automatisch generiert, die dann im Quelltext eingebunden wird.
+
+So etwas habe ich bei diesem Text ebenfalls verwendet. Die Angaben zur Basis-
+und aktuellen Revision werden durch folgendes Script generiert::
+
+ -- version.lua - get base and current version
+ 
+ mtn_au = io.popen('mtn automate get_base_revision_id')
+ base_rev = mtn_au:read('*l')
+ mtn_au = io.popen('mtn ls changed')
+ changed = mtn_au:read('*a')
+ if 0 == string.len(changed) then
+     curr_rev = base_rev
+ else
+     mtn_au = io.popen('mtn automate get_current_revision_id')
+     curr_rev = mtn_au:read('*l')
+ end
+ print(':Autor: Mathias Weidner')
+ print(':Datum: ' .. os.date('%Y-%m-%d'))
+ print(':Basisrevision: ' .. base_rev)
+ print(':Aktuelle Revision: ' .. curr_rev)
+
+Dieses Script wird im Makefile auf die folgende Art aufgerufen::
+
+ revision.txt: $(SOURCES) $(IMAGES) preamble.tex Makefile
+         lua bin/revision.lua > revision.txt
+
+Anschließend wird die Datei *revision.txt* im Vorspann eingebunden::
+
+ .. include:: revision.txt
+
+Das Ergebnis ist auf Seite 3 diesen Textes zu sehen.
+
+Ich gebe hier die Basis- und die aktuelle Revision aus, so dass klar wird
+
+- auf welcher Revision im Repository der Text aufbaut (der Basisversion)
+- ob an dieser Revision Veränderungen vorgenommen wurden (dann sind Basis- und
+  aktuelle Revision verschieden)
+
+Das Programm, das ich hier verwende, ist in Lua geschrieben. Prinzipiell
+sollte es möglich sein, das Programm so umzuschreiben, das es als Rcfile
+eingelesen werden kann und die Ausgabe durch einen benutzerdefinierten Befehl
+erfolgt. Der Vorteil wäre, das man keinen zusätzlichen Lua-Interpreter
+benötigt und statt dessen den in Monotone vorhandenen verwendet. Das lasse ich
+als Aufgabe für den interessierten Leser.
