@@ -22,6 +22,16 @@ Benutzerdefinierte Befehle
   Monotone kann mit eigenen Befehlen erweitert werden. Diese Befehle werden in
   der Scriptsprache *Lua* definiert.
 
+Bisektion, Zweiteilung
+  Ein Verfahren zur Fehlereingrenzung, das von Monotone mit den *bisect*
+  Befehlen unterstützt wird. Dabei werden am Anfang je eine gute und eine
+  schlechte Revision mit Ihren IDs gekennzeichnet. Monotone teilt dann die
+  Versionshistorie von der guten zur schlechten Revision jeweils etwa bei der
+  Hälfte für den nächsten Test. Die gefundene Revision wird getestet und
+  ebenfalls gut oder schlecht markiert. Daraufhin teilt Monotone die
+  verbleibende Historie zwischen gut und schlecht wieder für den nächsten
+  Test.
+
 Branch, Zweig
   Wenn in einer Versionsgeschichte eine *Gabelung* aufgetreten ist und man
   beide Enden separat weiter bearbeiten will, kann man einen neuen Branch
@@ -183,3 +193,6 @@ Zertifikat
 
 Zweig
   Siehe *Branch*.
+
+Zweiteilung
+  Siehe *Bisektion*

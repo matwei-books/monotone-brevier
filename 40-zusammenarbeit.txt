@@ -258,6 +258,37 @@ Konflikttypen
 
   Der Monotone-Befehl *conflicts* kann hierbei noch nicht helfen.
 
+Fehlersuche durch Zweiteilung
+-----------------------------
+
+Es ist gute Praxis, bei der Arbeit möglichst kleine Änderungen als eigene
+Revisionen abzuspeichern. Ein Vorteil ist, dass der Übergang zwischen zwei
+Revisionen überschaubar bleibt und damit eine eventuell nötige Fehlersuche
+erleichtert wird.
+
+Dann kann es aber vorkommen, dass bei einem im Laufe der Entwicklung
+eingeführten Fehler sehr viele Revisionen zwischen der letzten guten und der
+Revision, bei der der Fehler bemerkt wurde, liegen. Hier hilft das
+Bisektionsverfahren die Änderung zu ermitteln, bei der der Fehler
+wahrscheinlich eingeführt wurde.
+
+Die Bisektion benötigt einen Arbeitsbereich ohne Änderungen. Sie startet
+indem Revisionen mit ``mtn bisect good -r rev_good`` und ``mtn bisect bad -r
+rev_bad`` markiert werden. Damit hat man die Menge der verdächtigen
+Revisionen eingegrenzt. Monotone wählt als nächstes die Revision in der Mitte
+zwischen der guten und der schlechten Revision aus und lädt diese in den
+Arbeitsbereich. Nachdem man diese Revision getestet hat, markiert man diese
+ebenfalls mit *good* bzw. *bad* (dabei brauch keine Revision mehr angegeben
+werden). Monotone halbiert im Arbeitsbereich automatisch den Bereich zwischen
+der zuletzt als *good* und der zuletzt als *bad* markierten Revision, so dass
+man auf schnellst möglichem Weg zu der Revision kommen kann, in der der Fehler
+zum ersten Mal auftrat. Kommt man auf dem Weg hierhin zu einer Revision die
+nicht testbar ist (z.B. weil sie nicht compiliert werden kann), überspringt
+man diese Revision mit ``mtn bisect skip``.
+
+Mit ``mtn bisect status`` kann man sich jederzeit den Status der Bisektion
+ausgeben lassen.
+
 Zugriffsrechte
 --------------
 
