@@ -5,7 +5,6 @@
 Monotone - Ein Brevier für verteilte Versionsverwaltung
 =======================================================
 
-:Autor: Mathias Weidner
-:Date: 2010-04-23
+.. include:: revision.txt
 
 .. contents:: Inhaltsverzeichnis

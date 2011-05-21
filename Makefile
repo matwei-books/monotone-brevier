@@ -26,7 +26,7 @@ R2LFLAGS = \
 #
 all: $(OUTNAME).pdf
 
-$(OUTNAME).tex: $(SOURCES) $(IMAGES)
+$(OUTNAME).tex: $(SOURCES) $(IMAGES) revision.txt
 	cat $(SOURCES) | rst2latex $(R2LFLAGS) > $@
 
 $(OUTNAME).pdf: $(OUTNAME).tex $(OUTNAME).out
@@ -35,5 +35,7 @@ $(OUTNAME).pdf: $(OUTNAME).tex $(OUTNAME).out
 $(OUTNAME).out: $(OUTNAME).tex preamble.tex
 	pdflatex $<
 
+revision.txt: $(SOURCES) $(IMAGES) preamble.tex Makefile
+	bin/revision.lua > revision.txt
 clean:
 	rm *.aux *.log *.out *.tex
