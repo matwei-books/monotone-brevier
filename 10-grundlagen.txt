@@ -10,7 +10,7 @@ Grundlagen
 
    -- Troy Hunt
 
-Monotone als Versionsverwaltungssystem hält für mich verschiedene Arbeitsstände
+Monotone als Versionsverwaltungssystem hält für mich Zwischenstände
 von Dateien, die ich bearbeite, bereit. Da sind zum einen die aktuellen
 Versionen im Arbeitsbereich und die jeweils mit der Vorgänger- und
 Nachfolgerversion verketteten Versionen im Repository.
@@ -26,7 +26,7 @@ die mit dem lokalen abgeglichen werden.
 Eine Datei ist im Repository jeweils mit ihrer Vorgänger- und
 Nachfolgerversion (soweit vorhanden) verknüpft. Dabei ist es möglich, dass eine
 bestimmte Version keinen Vorgänger hat (es ist die erste eingecheckte Version
-dieser Datei), einen Vorgänger (die Datei wurde ausgecheckt, geändert,
+dieser Datei), einen Vorgänger (Datei wurde ausgecheckt, geändert,
 eingecheckt) oder mehrere (die Version ist aus der Vereinigung verschiedener
 älterer Versionen entstanden). Ebenso ist es möglich, dass eine Version keinen
 Nachfolger hat (es ist die letzte eingecheckte Version), einen Nachfolger, oder

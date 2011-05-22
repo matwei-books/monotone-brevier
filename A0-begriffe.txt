@@ -44,9 +44,9 @@ Branchname, Zweigname
   Zwei verschiedene Projekte mit dem gleichen Namen können nicht in einer
   Datenbank gespeichert werden.
 
-  Als Standard zur Namensvergabe wird empfohlen den eigenen DNS-Namen
-  umgekehrt voranzustellen. Dieser Text ist z.B. im Monotone-Zweig
-  *net.mamawe.text.monotone-brevier* gespeichert.
+  Als Standard für die Namensvergabe wird empfohlen den eigenen DNS-Namen
+  rückwärts voranzustellen (z.B. *net.mamawe.text.monotone-brevier* für diesen
+  Text).
 
 Datenbank
   Monotone verwendet als lokales Repository eine SQLite-Datenbank. Daher
@@ -120,7 +120,7 @@ Revision
 
 Schlüssel
   Monotone verwendet für die Integritätsprüfung Zertifikate, die mit
-  asymmetrischen Schlüsseln der Entwickler signiert werden. Die öffentlichen
+  asymmetrischen Schlüsseln der Entwickler signiert sind. Die öffentlichen
   Schlüssel der Beteiligten werden dabei in den einzelnen Datenbanken mit
   abgelegt, die privaten Schlüssel werden im Schlüsselspeicher des Benutzers
   (üblicherweise das Verzeichnis *~/.monotone/keys/*) abgelegt.

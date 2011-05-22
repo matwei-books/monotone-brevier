@@ -17,8 +17,9 @@ gelesen werden. Als *rcfiles* werden verwendet:
 - alle Dateien in Verzeichnissen, die mit ``--rcfile=Verzeichnisname`` in der
   Kommandozeile angegeben werden
 
-Die Dateien werden in der Reihenfolge *~/.monotone/monotonerc*,
-*_MTN/monotonerc*, *--rcfile* in der Reihenfolge der Kommandozeile geladen.
+Zuerst wird die Datei *~/.monotone/monotonerc*, dann
+*_MTN/monotonerc*, wenn vorhanden und schließlich die mit *--rcfile*
+angegebenen in der Reihenfolge der Kommandozeile geladen.
 Spätere Definitionen überschreiben dabei frühere.
 
 Lua-Funktionen werden auf zwei Arten in Monotone verwendet. Als *Hooks* und
@@ -80,8 +81,9 @@ des Aufrufs von ``automate command`` enthält.
 Diese Funktion ist nicht für den Gebrauch in normalen Lua-Hooks sondern eher
 für Lua-Funktionen, die mit ``register_command`` registriert wurden.
 
-Beachte, dass Tastatureingaben deaktiviert sind wie bei der
-``--non-interactive`` Option von Monotone. Aktionen, die Operationen mit
+Beachte, dass Tastatureingaben wie bei der
+``--non-interactive`` Option von Monotone deaktiviert sind.
+Aktionen, die Operationen mit
 passwortgeschützten Schlüsseln benötigen, werden daher nicht funktionieren, es
 sei denn, dass der ``get_passphrase`` Hook eingrichtet wurde.
 

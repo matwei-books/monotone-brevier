@@ -47,7 +47,7 @@ http://oandrieu.nerim.net/monotone-viz/
   Revisionsgraphen.
 
 http://nakedstartup.com/2010/04/simple-daily-git-workflow/
-  Die Beschreibung eines möglichen Arbeitsablaufs mit *git*, die ich als
+  Eine Beschreibung für einen möglichen Arbeitsablaufs mit *git*, die ich als
   Anregung für diesen Text verarbeitet habe.
 
 http://www.troyhunt.com/2011/05/10-commandments-of-good-source-control.html

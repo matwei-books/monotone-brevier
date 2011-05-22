@@ -62,7 +62,7 @@ Monotone-Repository abgleichen können, starte ich den Server wie folgt::
  $ mtn --db lokales/repository.mtn serve
 
 Damit lauscht Monotone am TCP Port 4691 und bietet alles aus der Datenbank
-``lokales/repository.mtn`` entsprechend den in den beiden Dateien
+``lokales/repository.mtn`` entsprechend den in
 ``read-permissions`` und ``write-permissions`` eingestellten Regeln an.
 
 Um sich Daten von diesem Server zu holen, gibt man ein::
@@ -140,7 +140,7 @@ Anonymer Download
 -----------------
 
 Insbesondere bei Open Source Entwicklungen möchte man ein Repository gern zum
-einfachen Download der Quellen freigeben. Das wird in der Datei
+einfachen Download der Quellen freigeben. Das wird in
 ``read-permissions``  eingestellt::
 
  $ cat >> ~/.monotone/read-permissions <<EOT
@@ -163,7 +163,7 @@ oder irgendein Programm, das eine Full-Duplex-Verbindung aufbauen kann, zu
 verwenden.
 
 Wenn Monotone mit dem *pull*, *push* oder *sync* Befehl aufgerufen wird,
-analysiert übergibt es das erste Argument an einen Lua-Hook, der es in einen
+reicht es das erste Argument an einen Lua-Hook weiter, der es in einen
 Verbindungsbefehl umwandeln soll. Wenn dieser Hook einen Verbindungsbefehl
 zurückliefert, startet Monotone diesen Befehl lokal und spricht das *netsync*
 Protokoll über die Standardeingabe und -ausgabe des entsprechenden Processes.

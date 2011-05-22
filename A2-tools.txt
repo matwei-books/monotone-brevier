@@ -55,8 +55,9 @@ stdio* Interface von Monotone.
 
 Die Homepage ist http://www.coosoft.plus.com/software.html.
 
-Monotone::AutomateStdio ist wie die meisten Perl-Module via CPAN
-(http://search.cpan.org/~aecooper/Monotone-AutomateStdio/) erhältlich.
+Monotone::AutomateStdio ist via CPAN, das
+Comprehensive Perl Archive Network
+(http://search.cpan.org/~aecooper/Monotone-AutomateStdio/), zu bekommen.
 
 Monotone-viz
 ------------
