@@ -168,7 +168,7 @@ Konflikttypen
 
   Dieser Konflikt tritt auf, wenn zwei Dateien oder Verzeichnissen in beiden
   Zusammenführungskandidaten der gleiche Name gegeben wurde. Diese Dateien
-  odeer Verzeichnisse können neu aufgenommen oder in den widersprechenden
+  oder Verzeichnisse können neu aufgenommen oder in den widersprechenden
   Namen umbenannt worden sein.
 
   Die Lösung für diesen Konflikt hängt von den genaueren Umständen ab.
