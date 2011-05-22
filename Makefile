@@ -38,4 +38,7 @@ $(OUTNAME).out: $(OUTNAME).tex preamble.tex
 revision.txt: $(SOURCES) $(IMAGES) preamble.tex Makefile bin/revision.lua
 	lua bin/revision.lua > revision.txt
 clean:
-	rm *.aux *.log *.out *.tex
+	rm -f *.aux *.log *.out monotone-brevier.tex
+
+distclean: clean
+	rm -f revision.txt
