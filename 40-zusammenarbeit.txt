@@ -374,3 +374,41 @@ Aussprechen von Vertrauen voneinander getrennt. Das heißt:
 - Vertrauen gegenüber den neuen Zertifikaten wird erst geprüft, wenn ich
   meinen Arbeitsbereich aktualisiere.
 
+Qualitätssicherung
+------------------
+
+Monotones Mechanismen zur Qualitätssicherung beruhen überwiegend auf der
+Einschränkung von Subgraphen der Revisionsgeschichte. Es gibt zwei
+Möglichkeiten, diese einzuschränken:
+
+- Indem man die Menge der vertrauenswürdigen Zweigzertifikate einschränkt kann
+  man fordern, dass bestimmte Gutachter jede Kante des Subgraphen evaluiert
+  haben.
+
+  Hierfür verwendet Monotone die Lua Hooks ``get_revision_cert_trust``,
+  ``get_manifest_cert_trust`` und ``get_file_cert_trust``. Ein Beispiel für
+  den ersten Hook ist im Abschnitt *Trust Evaluation Hooks* des Handbuches zu
+  finden. Dieser lässt sich leicht an die anderen beiden anpassen.
+
+  Die Gutachter können Ihre Bewertung bestimmter Revisionen u.a. mit den
+  Monotone-Befehlen *approve*, *disapprove*, *suspend* ausdrücken.
+
+- Indem man die Menge der geforderten *testresult* Zertifikate angibt, kann
+  man verlangen, dass die Endpunkte eines *update* Befehls ein Zertifikat
+  haben, welches angibt, dass die betreffende Revision bestimmte Tests oder
+  eine Testsuite erfüllt haben.
+  haben.
+
+  Hierfür verwendet Monotone den Lua Hook ``accept_testresult_change``, der
+  durch den Monotone-Befehl *update* aufgerufen wird. Die
+  Default-Implementierung liefert ``true``, wenn die Datei
+  ``_MTN/wanted-testresults`` nicht existiert. Andernfalls sollte diese Datei
+  eine Liste von Schlüssel-IDs enthalten, die die Testresultate
+  repräsentieren. Dann liefert der Hook ``false``, wenn eine gelistete
+  Schlüssel-ID sowohl in der alten als auch in der neuen Revision enthalten
+  ist und in der alten Revision ``true`` ist und in der neuen ``false``,
+  andernfalls liefert die Default-Implementierung ``true``.
+
+  Ein Testresultat kann mit dem Monotone-Befehl *testresult* hinzugefügt
+  werden. Sinnvollerweise verwendet man für jeden Test bzw. jede Testsuite,
+  die vermerkt werden soll, einen eigenen Schlüssel.
