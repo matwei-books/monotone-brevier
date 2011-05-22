@@ -8,3 +8,4 @@ Monotone - Ein Brevier für verteilte Versionsverwaltung
 .. include:: revision.txt
 
 .. contents:: Inhaltsverzeichnis
+   :depth: 1
