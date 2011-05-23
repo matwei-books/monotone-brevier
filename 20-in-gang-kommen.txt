@@ -34,7 +34,7 @@ Repository einspeichere sowie alle Tags die ich vergebe. Über diesen Schlüssel
 werden auch die Zugriffsrechte auf entfernte Repositories eingestellt::
 
 
- $ mtn genkey mathias@weidner.in-bad-schmiedeberg.de
+ $ mtn genkey mathias@example.net
 
 Um das Kennwort für den Schlüssel nicht jedesmal eingeben zu müssen kann ich
 (unter UNIX, mit installiertem ssh_agent) den Schlüssel zur Verwaltung an
@@ -55,7 +55,7 @@ Datei *.monotonerc* [#monotonerc]_ eintragen [#windowspassphrase]_::
  $ mkdir ~/.monotone
  $ cat >> ~/.monotone/.monotonerc
  function get_passphrase(keypair_id)
-     return "jimsekret"
+     return "geheim"
  end
  ^D
 
@@ -63,7 +63,7 @@ Den öffentlichen Schlüssel benötige ich um Änderungen von anderen Entwickler
 zu überprüfen und um Zugriffsrechte für Repositories festzulegen. Um an den
 öffentlichen Schlüssel zu kommen gebe ich das folgende ein::
 
- $ mtn pubkey mathias@weidner.in-bad-schmiedeberg.de
+ $ mtn pubkey mathias@example.net
 
 Mit diesem Befehl gibt monotone den öffentlichen Schlüssel so in Textform aus,
 das er in andere Datenbanken mit ``mtn read`` eingelesen werden kann.

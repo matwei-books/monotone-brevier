@@ -14,8 +14,7 @@ und akzeptieren genauso wie sie meinen Schlüssel kennen und akzeptieren
 müssen. Der erste Schritt zur Zusammenarbeit ist daher der Austausch der
 Schlüssel::
 
- $ mtn pubkey mathias@weidner.in-bad-schmiedeberg.de \
-   > mathias.pubkey
+ $ mtn pubkey mathias@example.net > mathias.pubkey
 
 Für meinen eigenen Schlüssel muss ich dabei keine Datenbank angeben. Ich kann
 diesen Schlüssel nun an alle Mitarbeiter schicken, die mir ihre öffentliche
@@ -33,7 +32,7 @@ paar Rechte einräumen::
 
  $ cat >> ~/.monotone/read-permissions <<EOT
  pattern "*"
- allow "mathias@weidner.in-bad-schmiedeberg.de"
+ allow "mathias@example.net"
  EOT
 
 Damit wird dem Schlüssel mathias@weidner.in-bad-schmiedeberg.de erlaubt, alle
@@ -44,7 +43,7 @@ Außerdem brauche ich noch Schreibzugriff, damit ich meine Daten in das
 Repository schicken kann (``mtn push`` bzw. ``mtn sync``)::
 
  $ cat >> ~/.monotone/write-permissions <<EOT
- mathias@weidner.in-bad-schmiedeberg.de
+ mathias@example.net
  EOT
 
 Bei den Schreibrechten wird nicht nach Zweig unterschieden.
@@ -113,11 +112,11 @@ und ``database: default-include-pattern``. Diese sehen ungefähr so aus::
 
  $ mtn list vars
  database: default-exclude-pattern 
- database: default-include-pattern net.mamawe.text.monotone...
- database: default-server monotone.mamawe.net
- known-servers: monotone.mamawe.net b1c3782090a03536fc21f9f...
+ database: default-include-pattern net.example.abc
+ database: default-server monotone.example.net
+ known-servers: monotone.example.net b1c3782090a03536fc21f9f...
 
-Die Variable ``known-servers: monotone.mamawe.net`` enthält den Schlüssel, für
+Die Variable ``known-servers: monotone.example.net`` enthält den Schlüssel, für
 den Monotone-Server. Dieser Schlüssel wird nicht für das Signieren der Dateien
 im Repository sondern nur für die Kommunikation mit dem Server verwendet.
 Falls sich der Schlüssel auf dem Server ändert, teilt mir das Monotone bei der
@@ -144,12 +143,12 @@ einfachen Download der Quellen freigeben. Das wird in
 ``read-permissions``  eingestellt::
 
  $ cat >> ~/.monotone/read-permissions <<EOT
- pattern "net.mamawe"
+ pattern "net.example"
  allow "*"
  continue "true"
 
  pattern "*"
- allow "mathias@weidner.in-bad-schmiedeberg.de"
+ allow "mathias@example.net"
  EOT
 
 Andere Transportwege

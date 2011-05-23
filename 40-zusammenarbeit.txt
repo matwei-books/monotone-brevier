@@ -308,20 +308,20 @@ beschränkt werden können, werden Schreibrechte für die ganze Datenbank vergeb
 
 Ein Beispiel für die Datei read-permissions könnte so aussehen::
 
-  pattern "de.in-bad-schmiedeberg.public.*"
+  pattern "net.example.*"
   allow "*"
   continue "true"
 
   pattern "*"
-  allow "mathias@weidner.in-bad-schmiedeberg.de"
+  allow "mathias@example.net"
 
 Dies würde aller Welt Lesezugriff auf alle Zweige erlauben, die mit
-"de.in-bad-schmiedeberg.public." anfangen und mir Zugriff auf alle Zweige.
+"net.example." anfangen und mir Zugriff auf alle Zweige.
 
 Die Datei write-permissions enthält lediglich eine Aufzählung von zugelassenen
 Schlüsseln, einen pro Zeile::
 
-  mathias@weidner.in-bad-schmiedeberg.de
+  mathias@example.net
 
 Damit der entsprechende Schlüssel anerkannt wird, muss er vorher mit ``mtn
 pubkey`` extrahiert und dann mit ``mtn read`` importiert werden.

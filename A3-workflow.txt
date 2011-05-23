@@ -27,7 +27,7 @@ Arbeit am Problem
  $ mtn list unknown
  $ mtn add | move | remove
  $ mtn status | diff
- $ mtn commit -m "detaillierte Beschreibung"
+ $ mtn commit -m "kurze Beschreibung"
 
 Änderungen veröffentlichen
 --------------------------

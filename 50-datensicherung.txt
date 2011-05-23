@@ -56,7 +56,7 @@ Server::
 
  $ cp -a pfad/zum/backup/.monotone ~/.monotone
  $ mtn --db lokales_repository.mtn db init
- $ mtn --db lokales_repository.mtn pull remote.server "muster"
+ $ mtn --db lokales_repository.mtn pull remote.server "zweigmuster"
 
 Automatische Sicherung eines Monotone-Servers
 ---------------------------------------------
