@@ -172,18 +172,33 @@ erste Argument als TCP-Adresse zu interpretieren (ein Rechnername mit einer
 optionalen Portnummer), baut eine TCP-Verbindung dorthin auf und spricht
 *netsync* über diese Verbindung.
 
-Der Default-Lua-Hook versteht zwei URI-Schemata:
+Monotone versteht per Default drei URI-Schemata:
 
 - SSH-URIs in der Form ``ssh://[user@]hostname[:port]/pfad/zur/db.mtn``
+
+  Hierbei wird Monotone auf dem fremden Rechner via SSH aufgerufen und das
+  *netsync* Protokoll über die Standardein- und -ausgabe verwendet.
+
+  Bei einer SSH-URI muss das Programm *ssh* lokal im Suchpfad für Programme zu
+  finden sein und das Program *mtn* auf dem entfernten Rechner.
+
 - Datei-URIs in der Form ``file:/pfad/zur/db.mtn``
 
-Bei einer SSH-URI muss das Programm *ssh* lokal im Suchpfad für Programme zu
-finden sein und das Program *mtn* auf dem entfernten Rechner.
+  Hierbei wird Monotone auf dem lokalen Rechner aufgerufen mit der angegebenen
+  Datenbank als Argument zu ``--db``. Das *netsync* Protokoll wird wie bei
+  SSH-Verbindungen über die Standardein- und -ausgabe verwendet.
 
-Bei einer Datei-URI muss das Programm *mtn* lokal im Suchpfad für Programme zu
-finden sein.
+  Bei einer Datei-URI muss das Programm *mtn* lokal im Suchpfad für Programme zu
+  finden sein.
 
-In beiden Fällen wird die Datenbank gesperrt, d.h. man benötigt Schreibrechte
+- Monotone(-TCP)-URIS in der Form ``mtn://hostname[:port]``
+
+  Hierbei baut Monotone eine TCP-Verbindung zu dem angegebenen Rechner und
+  Port 4691 bzw. dem angegebenen Port auf und verwendet das *netsync*
+  Protokoll darüber.
+
+Sowohl bei SSH-URIs als auch bei Datei-URIs wird die Datenbank gesperrt,
+d.h. man benötigt Schreibrechte
 auf die Datenbank, auch wenn man nur mit *pull* Daten holt und die Datenbank
 nicht dauerhaft modifiziert. Außerdem wird für diese beiden Transporte die
 Default-Authentisierung deaktiviert.
