@@ -5,7 +5,7 @@ Installation
 ============
 
 Bevor es losgehen kann, müssen wir uns das Programm beschaffen, was nicht sehr
-schwierig ist. Die neueste Version bekommt man von http://www.monotone.ca/.
+schwierig ist. Die neueste Version gibt es bei http://www.monotone.ca/.
 Die Beispiele sind alle mit Version 1.0 getestet.
 
 Debian GNU/Linux und Ubuntu Linux
