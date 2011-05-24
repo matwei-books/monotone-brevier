@@ -9,3 +9,4 @@ Monotone - Ein Brevier für verteilte Versionsverwaltung
 
 .. contents:: Inhaltsverzeichnis
    :depth: 1
+
