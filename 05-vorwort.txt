@@ -1,0 +1,90 @@
+Vorwort
+=======
+
+Im Jahre 2007 arbeitete ich nach langem wieder an einer Hochschule in
+einem Forschungsprojekt. Was mir auffiel war, dass sogar Studenten der
+Sektion Informatik, Mathematik und Naturwissenschaften kaum Kenntnisse
+über die Verwendung von Versionsverwaltungssystemen (RCS) hatten. Da ich
+seit etlichen Jahren mit CVS und davor mit anderen Systemen gearbeitet
+hatte, begann ich als erstes nach einem geeigneten
+Versionsverwaltungssystem für das Projekt zu suchen. CVS und auch andere
+Systeme, die mit einem zentralen Repository fielen aus, da wir für das
+Projekt keinen durchgängig laufenden Server zur Verfügung hatten. Ich
+hatte ohnehin schon seit einiger Zeit von verteilten Systemen für die
+Versionsverwaltung (DRCS) gehört. Das sollte der Einstieg werden. Ich bin tief
+verwurzelt in der UNIX-Welt und damit stand mir eigentlich eine große
+Palette zur Verfügung. Die anderen Mitarbeiter am Projekt arbeiteten
+jedoch mit MS-Windows, also war ein natives Windows-Programm Pflicht,
+möglichst mit Installer. Da wir in Java entwickelten, kam uns entgegen,
+dass es auch ein Java-Projekt mit Monotone gab, mit dem wir Monotone mit
+Eclipse und Ant verwenden konnten. So kam ich zu Monotone, das ich
+seither schätzen gelernt habe. Im folgenden Jahr begann ich eine kleine
+Anleitung für Monotone zu schreiben. Diese blieb lange Zeit liegen, bis
+ich 2011 genügend Zeit und Schwung hatte, es zu diesem Text auszubauen.
+
+Für wen ist dieses Buch
+-----------------------
+
+Wie schon erwähnt, soll das eine Einführung in die Arbeit mit Monotone
+sein. Die Zielgruppe sind Leute, die überhaupt noch nicht mit
+oder bisher mit anderen Versionsverwaltungssystemen gearbeitet haben.
+Wer bereits längere Zeit mit Monotone gearbeitet hat, wird vieleicht noch
+die eine oder andere Anregung im Kapitel *Anpassungen und Erweiterungen*
+finden.
+
+Wie ist das Buch aufgebaut
+--------------------------
+
+Im Kapitel *Grundlagen* geht es ganz kurz darum, wofür ich Monotone
+verwende, was es für micht macht und wo meine Daten hinkommen.
+
+Beim nächsten Kapitel *Installation* geht es nur darum, wie man monotone
+auf seinen Rechner bekommt.
+
+Das Kapitel *In Gang kommen* beschreibt die ersten Schritte mit Monotone
+und wie man es lokal einsetzt.
+
+Im nächsten Kapitel *Verteilt über das Netz* geht es um das, was
+verteilte Versionsverwaltungssysteme aus macht, die Arbeit mit mehreren
+Repositories und die Synchronisation zwischen diesen.
+
+Das Kapitel *Tag für Tag* behandelt verschiedene Problemstellungen, die
+bei der täglichen Arbeit mit monotone vorkommen können.
+
+Das nächste Kapitel *Datensicherung* hätte auch gut in das vorige
+hineingepasst. Ich habe es nur wegen der Wichtigkeit des Themas - ich
+arbeite seit mehr als zehn Jahren als Systemadministrator - als eigenes
+Kapitel herausgehoben.
+
+Beim Kapitel *Anpassungen und Erweiterungen* geht es zum einen um die
+Scriptsprache Lua und wie man damit Monotone Dinge beibringen kann, die
+es so noch nicht kann. Zum anderen um externe Programme, die -
+automatisch aufgerufen - mit Monotone zusammenarbeiten.
+
+Damit sind wir schon beim Anhang.
+
+Im Anhang 0 versuche ich einige der verwendeten Begriffe, so wie ich sie
+verstanden habe, zu erklären.
+
+Anhang 1 listet weiterführende Informationen auf. Das sind überwiegend
+URLs von Webseiten, über die man einzelne Themen vertiefen kann.
+
+In Anhang 2 stelle ich einige Programme vor, die mit Monotone
+zusammenarbeiten.
+
+Anhang 3 und 4 sind Kurzfassungen aus Themen in diesem Text.
+
+Danksagung
+----------
+
+Dieses Buch wäre nicht entstanden, wenn ich nicht soviele Leute
+getroffen hätten, die nicht nur keine Versionsverwaltung verwenden,
+sondern sich aktiv dagegen sträuben, *weil der Aufwand das zu
+Lernen nicht durch den Nutzen aufgewogen wird*. Da es mir schwerfällt,
+diese Leute vom Nutzen der verschiedenen Versionsverwaltungssysteme zu
+überzeugen - ich bin nicht der Verkäufertyp - hoffe ich wenigstens, den
+Aufwand etwas verringert zu haben.
+
+Weiterhin bin ich dankbar für die Hinweise, die ich über die
+Mailingliste *monotone-users* bekommen habe. Insbesondere von Marc Lütow
+und Thomas Keller.
