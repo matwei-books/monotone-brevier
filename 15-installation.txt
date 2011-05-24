@@ -84,8 +84,8 @@ dann geht es los.
    :scale: 25
    :align: center
 
-Wenn am Ende das folgende Dialogfenster erscheint, haben wir Monotone auf dem
-Windowsrechner installiert.
+Das folgende Dialogfenster zeigt uns, dass monotone auf dem
+Rechner installiert ist.
 
 .. image:: img/win-setup-7.png
    :alt: Installation beendet
