@@ -1,14 +1,14 @@
 Vorwort
 =======
 
-Im Jahre 2007 arbeitete ich nach langem wieder an einer Hochschule in
-einem Forschungsprojekt. Was mir auffiel war, dass sogar Studenten der
-Sektion Informatik, Mathematik und Naturwissenschaften kaum Kenntnisse
+Im Jahre 2007 arbeitete ich nach langer Zeit wieder an einer Hochschule in
+einem Forschungsprojekt. Was mir auffiel war, dass viele Mitarbeiter und
+auch Studenten der Sektion Informatik kaum Kenntnisse
 über die Verwendung von Versionsverwaltungssystemen (RCS) hatten. Da ich
 seit etlichen Jahren mit CVS und davor mit anderen Systemen gearbeitet
 hatte, begann ich als erstes nach einem geeigneten
 Versionsverwaltungssystem für das Projekt zu suchen. CVS und auch andere
-Systeme, die mit einem zentralen Repository fielen aus, da wir für das
+Systeme, mit einem zentralen Repository fielen aus, da wir für das
 Projekt keinen durchgängig laufenden Server zur Verfügung hatten. Ich
 hatte ohnehin schon seit einiger Zeit von verteilten Systemen für die
 Versionsverwaltung (DRCS) gehört. Das sollte der Einstieg werden. Ich bin tief
@@ -16,10 +16,10 @@ verwurzelt in der UNIX-Welt und damit stand mir eigentlich eine große
 Palette zur Verfügung. Die anderen Mitarbeiter am Projekt arbeiteten
 jedoch mit MS-Windows, also war ein natives Windows-Programm Pflicht,
 möglichst mit Installer. Da wir in Java entwickelten, kam uns entgegen,
-dass es auch ein Java-Projekt mit Monotone gab, mit dem wir Monotone mit
+dass es auch ein Java-Projekt mit Monotone gab, durch das wir Monotone mit
 Eclipse und Ant verwenden konnten. So kam ich zu Monotone, das ich
 seither schätzen gelernt habe. Im folgenden Jahr begann ich eine kleine
-Anleitung für Monotone zu schreiben. Diese blieb lange Zeit liegen, bis
+Anleitung für Monotone zu schreiben. Diese blieb sehr lange liegen, bis
 ich 2011 genügend Zeit und Schwung hatte, es zu diesem Text auszubauen.
 
 Für wen ist dieses Buch
