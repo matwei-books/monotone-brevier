@@ -72,6 +72,28 @@ Bei Debian/Ubuntu kann man Monotone-viz mit der Softwareverwaltung (*apt-get*)
 installieren. Für Windows gibt es ein Zip-Archiv und eine
 Installationsanleitung.
 
+usher
+-----
+
+Usher ist wie der Name besagt, eine Art Pförtnerprogramm für monotone-Server.
+Es fragt den monotone-Client, was er synchronisieren will, sucht den
+zuständigen Server in einer Tabelle und leitet die Verbindung dann weiter.
+
+Die Homepage von usher ist http://mtn-host.prjek.net/projects/webhost/.
+
+Dort ist zur Zeit ein Archiv für Version 0.99 zu finden, dem das
+Verzeichnis mit der Dokumentation fehlt. Am besten synchronisiert man ein
+lokales Repository mit dem Projekt::
+
+ $ mtn --db usher.db db init
+ $ mtn --db usher.db pull webhost.mtn-host.prjek.net \*
+ $ mtn --db usher.db list branches
+ $ mtn --db usher.db \
+       --branch net.venge.monotone.contrib.usher \
+       co .
+
+Dann ist es auch einfacher, eigene Änderungen zurück zu geben.
+
 viewmtn
 -------
 
