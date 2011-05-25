@@ -17,7 +17,7 @@ Nachfolgerversion verketteten Versionen im Repository.
 
 Das Repository ist dabei die Stelle, an der Buch geführt wird über alle von mir
 bestätigten Änderungen an den Dateien im Arbeitsbereich. Bei monotone ist das
-Repository eine SQLight-Datenbank.
+Repository eine SQLite-Datenbank.
 Da monotone eine verteiltes Versionsverwaltungssystem ist, gibt es nicht nur ein
 Repository sondern mehrere, üblicherweise eins auf dem lokalen Rechner welches
 im Workspace referenziert wird und weitere Repositories auf anderen Rechnern,
