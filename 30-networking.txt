@@ -23,10 +23,10 @@ Schlüssel senden und meinen Schlüssel importieren::
  $ mtn --db lokales/repository.mtn read < mathias.pubkey
 
 Beim Import muss immer eine Datenbank angegeben werden, weil das Vertrauen
-gegenüber fremden Schlüsseln immer projektbezogen ist. Nun kennt Monotone also
+gegenüber fremden Schlüsseln immer projektbezogen ist. Nun kennt monotone also
 die Schlüssel aller Beteiligten, das reicht aber noch nicht ganz.
 
-Damit der Monotone-Server Daten, die mit anderen (wenn auch bekannten)
+Damit der monotone-Server Daten, die mit anderen (wenn auch bekannten)
 Schlüsseln signiert wurden akzeptiert, muss ich diesen Schlüsseln noch ein
 paar Rechte einräumen::
 
@@ -49,18 +49,18 @@ Repository schicken kann (``mtn push`` bzw. ``mtn sync``)::
 Bei den Schreibrechten wird nicht nach Zweig unterschieden.
 
 Damit haben haben wir die Vorbereitungen abgeschlossen und können einen
-Monotone Server starten, mit dem die anderen Mitarbeiter ihre Repositories
+monotone Server starten, mit dem die anderen Mitarbeiter ihre Repositories
 synchronisieren können.
 
 Abgleich über Netz
 ------------------
 
 Dieser Teil ist nun wieder sehr simpel. Damit andere sich mit meinem
-Monotone-Repository abgleichen können, starte ich den Server wie folgt::
+monotone-Repository abgleichen können, starte ich den Server wie folgt::
 
  $ mtn --db lokales/repository.mtn serve
 
-Damit lauscht Monotone am TCP Port 4691 und bietet alles aus der Datenbank
+Damit lauscht monotone am TCP Port 4691 und bietet alles aus der Datenbank
 ``lokales/repository.mtn`` entsprechend den in
 ``read-permissions`` und ``write-permissions`` eingestellten Regeln an.
 
@@ -93,7 +93,7 @@ Die Anmerkungen wie zu ``mtn sync`` gelten auch hier.
 Zentraler Server
 ----------------
 
-Ein Grundprinzip von verteilten Versionsverwaltungssystemen wie Monotone ist
+Ein Grundprinzip von verteilten Versionsverwaltungssystemen wie monotone ist
 das, das ein zentraler Server nicht nötig ist.
 
 Wenn mehrere Leute an einem Projekt arbeiten, insbesondere wenn die Mitarbeiter
@@ -117,14 +117,14 @@ und ``database: default-include-pattern``. Diese sehen ungefähr so aus::
  known-servers: monotone.example.net b1c3782090a03536fc21f9f...
 
 Die Variable ``known-servers: monotone.example.net`` enthält den Schlüssel, für
-den Monotone-Server. Dieser Schlüssel wird nicht für das Signieren der Dateien
+den monotone-Server. Dieser Schlüssel wird nicht für das Signieren der Dateien
 im Repository sondern nur für die Kommunikation mit dem Server verwendet.
-Falls sich der Schlüssel auf dem Server ändert, teilt mir das Monotone bei der
+Falls sich der Schlüssel auf dem Server ändert, teilt mir das monotone bei der
 nächsten Verbindungsaufnahme mit. Damit ist die Gefahr geringer, dass ich mit
 dem falschen Server synchronisiere.
 
 Unter Debian GNU/Linux gibt es ein Paket ``monotone-server``, welches Scripts
-enthält, die das Aufsetzen eines Monotone-Servers vereinfachen.
+enthält, die das Aufsetzen eines monotone-Servers vereinfachen.
 
 Der Server benötigt keine eigene Datensicherung, da alle Versionen, die er
 enthält auch auf den Rechnern der Entwickler vorhanden sind. Bei einem Ausfall
@@ -155,19 +155,19 @@ Andere Transportwege
 --------------------
 
 Monotones Datenbanksynchronisation basiert auf einem Protokoll namens
-*netsync*. Normalerweise transportiert Monotone dieses Protokoll über eine
+*netsync*. Normalerweise transportiert monotone dieses Protokoll über eine
 einfache TCP-Verbindung. Das ist nicht der einzige Transportweg, über den
-Monotone *netsync* verwenden kann. Es ist möglich dieses Protokoll über *SSH*
+monotone *netsync* verwenden kann. Es ist möglich dieses Protokoll über *SSH*
 oder irgendein Programm, das eine Full-Duplex-Verbindung aufbauen kann, zu
 verwenden.
 
-Wenn Monotone mit dem *pull*, *push* oder *sync* Befehl aufgerufen wird,
+Wenn monotone mit dem *pull*, *push* oder *sync* Befehl aufgerufen wird,
 reicht es das erste Argument an einen Lua-Hook weiter, der es in einen
 Verbindungsbefehl umwandeln soll. Wenn dieser Hook einen Verbindungsbefehl
-zurückliefert, startet Monotone diesen Befehl lokal und spricht das *netsync*
+zurückliefert, startet monotone diesen Befehl lokal und spricht das *netsync*
 Protokoll über die Standardeingabe und -ausgabe des entsprechenden Processes.
 
-Wenn der Lua-Hook keinen Verbindungsbefehl liefert, versucht Monotone das
+Wenn der Lua-Hook keinen Verbindungsbefehl liefert, versucht monotone das
 erste Argument als TCP-Adresse zu interpretieren (ein Rechnername mit einer
 optionalen Portnummer), baut eine TCP-Verbindung dorthin auf und spricht
 *netsync* über diese Verbindung.
@@ -176,7 +176,7 @@ Monotone versteht per Default drei URI-Schemata:
 
 - SSH-URIs in der Form ``ssh://[user@]hostname[:port]/pfad/zur/db.mtn``
 
-  Hierbei wird Monotone auf dem fremden Rechner via SSH aufgerufen und das
+  Hierbei wird monotone auf dem fremden Rechner via SSH aufgerufen und das
   *netsync* Protokoll über die Standardein- und -ausgabe verwendet.
 
   Bei einer SSH-URI muss das Programm *ssh* lokal im Suchpfad für Programme zu
@@ -184,16 +184,16 @@ Monotone versteht per Default drei URI-Schemata:
 
 - Datei-URIs in der Form ``file:/pfad/zur/db.mtn``
 
-  Hierbei wird Monotone auf dem lokalen Rechner aufgerufen mit der angegebenen
+  Hierbei wird monotone auf dem lokalen Rechner aufgerufen mit der angegebenen
   Datenbank als Argument zu ``--db``. Das *netsync* Protokoll wird wie bei
   SSH-Verbindungen über die Standardein- und -ausgabe verwendet.
 
   Bei einer Datei-URI muss das Programm *mtn* lokal im Suchpfad für Programme zu
   finden sein.
 
-- Monotone(-TCP)-URIS in der Form ``mtn://hostname[:port]``
+- monotone(-TCP)-URIS in der Form ``mtn://hostname[:port]``
 
-  Hierbei baut Monotone eine TCP-Verbindung zu dem angegebenen Rechner und
+  Hierbei baut monotone eine TCP-Verbindung zu dem angegebenen Rechner und
   Port 4691 bzw. dem angegebenen Port auf und verwendet das *netsync*
   Protokoll darüber.
 

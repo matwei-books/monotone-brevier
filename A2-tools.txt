@@ -19,7 +19,7 @@ ist (d.h. UNIX, Mac OS, MS Windows).
 Guitone
 -------
 
-Guitone ist eine grafische Benutzeroberfläche für Monotone die insbesondere
+Guitone ist eine grafische Benutzeroberfläche für monotone die insbesondere
 für Anfänger gedacht ist.
 
 Es gibt einen Installer für Microsoft Windows.  Die Installation unter Linux
@@ -51,7 +51,7 @@ Monotone::AutomateStdio
 -----------------------
 
 Monotone::AutomateStdio ist ein Perl-Modul zum Zugriff auf das *automate
-stdio* Interface von Monotone.
+stdio* Interface von monotone.
 
 Die Homepage ist http://www.coosoft.plus.com/software.html.
 
@@ -63,12 +63,12 @@ Monotone-viz
 ------------
 
 Monotone-viz ist ein Programm zur Visualisierung von Versionsgraphen. Ein Teil
-der Bilder in diesem Text ist mit Monotone-viz erzeugt. Das Programm benötigt
+der Bilder in diesem Text ist mit monotone-viz erzeugt. Das Programm benötigt
 ``dot`` von *GraphViz* und ``Gtk+``.
 
-Die Homepage von Monotone-viz ist http://oandrieu.nerim.net/monotone-viz/.
+Die Homepage von monotone-viz ist http://oandrieu.nerim.net/monotone-viz/.
 
-Bei Debian/Ubuntu kann man Monotone-viz mit der Softwareverwaltung (*apt-get*)
+Bei Debian/Ubuntu kann man monotone-viz mit der Softwareverwaltung (*apt-get*)
 installieren. Für Windows gibt es ein Zip-Archiv und eine
 Installationsanleitung.
 
@@ -97,7 +97,7 @@ Dann ist es auch einfacher, eigene Änderungen zurück zu geben.
 viewmtn
 -------
 
-Viewmtn ist ein Web-Interface für Monotone. Unter http://mtn-view.1erlei.de/
+Viewmtn ist ein Web-Interface für monotone. Unter http://mtn-view.1erlei.de/
 kann man eine öffentliche Installation finden um sich einen Eindruck davon zu
 verschaffen.
 
@@ -110,7 +110,7 @@ xxdiff
 ------
 
 Xxdiff ist ein grafisches Vergleichs- und Merge-Programm für Dateien und
-Verzeichnissen. Dieses Programm wird in der Monotone-FAQ als das beste
+Verzeichnissen. Dieses Programm wird in der monotone-FAQ als das beste
 bekannte externe Merge-Programm angegeben.
 
 Die Homepage von xxdiff ist http://furius.ca/xxdiff/.

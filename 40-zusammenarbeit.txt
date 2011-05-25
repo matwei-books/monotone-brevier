@@ -7,7 +7,7 @@ Tag für Tag
 Workflow
 --------
 
-Bei der täglichen Arbeit mit Monotone (oder auch anderen VCS) gibt es etliche
+Bei der täglichen Arbeit mit monotone (oder auch anderen VCS) gibt es etliche
 mögliche Workflows um die Änderungen im Code zu verwalten.
 
 Einer davon ist, im Hauptprojektzweig (Trunk) nur umfangreiche Änderungen wie
@@ -124,7 +124,7 @@ Konflikte beim Zusammenführen
 
 Es gibt zwei Möglichkeiten, verschiedene Kopfrevisionen eines Zweiges
 zusammenzuführen. Vor dem Commit der eigenen Änderungen mit ``mtn update`` und
-nach dem Commit mit ``mtn merge``. Bei beiden Varianten verwendet Monotone die
+nach dem Commit mit ``mtn merge``. Bei beiden Varianten verwendet monotone die
 gleichen Algorithmen zum Zusammenführen. Bei der ersten Variante ist es
 möglich, dass bei einem Konflikt, der nicht gleich manuell gelöst werden kann,
 der Arbeitsbereich einen fehlerhaften Stand hat.
@@ -136,13 +136,13 @@ die Revisionen immer noch zusammenführen.
 Konflikte können beim Zusammenführen zweier Revisionen in der Datenbank oder
 beim Zusammenführen im Arbeitsbereich auftreten.
 
-Die Monotone-Befehle *show_conflicts* und *automate show_conflicts* zeigen
+Die monotone-Befehle *show_conflicts* und *automate show_conflicts* zeigen
 Konflikte, die auftreten, wenn man das Revisionen in der Datenbank (nach
 *commit*) zusammenführen will. Leider können diese Befehle noch nicht die
 Konflikte im Arbeitsbereich auflisten.
 
 Mit dem Befehl *conflicts* und seinen Unterbefehlen können
-Konfliktlösungen für Monotone vorgegeben werden. Dieser Befehl erfordert einen
+Konfliktlösungen für monotone vorgegeben werden. Dieser Befehl erfordert einen
 Arbeitsbereich. Die Konfliktlösungen werden in einer Datei gespeichert und
 bei ``mtn merge`` verwendet.
 
@@ -155,11 +155,11 @@ Konflikttypen
 
   Diese kommen allgemein am häufigsten vor. Sie treten z.B. auf, wenn in einer
   Datei unterschiedliche Änderungen gegenüber dem gemeinsamen Vorfahren 
-  aufgetreten sind.  Bei Änderungen an verschiedenen Zeilen wird Monotone
+  aufgetreten sind.  Bei Änderungen an verschiedenen Zeilen wird monotone
   diese Änderungen intern zusammenführen.
 
   Falls binäre Dateien betroffen sind, oder die gleiche Zeile auf verschiedene
-  Weise geändert wurde, ruft Monotone den *merge3* Hook auf. In der
+  Weise geändert wurde, ruft monotone den *merge3* Hook auf. In der
   Default-Implementierung schreibt dieser die verschiedenen Texte in temporäre
   Dateien und ruft das externe Programm auf, das von der Lua-Funktion
   *get_preferred_merge3_command()* angegeben wird, um den Konflikt zu lösen.
@@ -176,7 +176,7 @@ Konflikttypen
   - Gleiche Datei
 
     In diesem Fall wird die Datei in einer der Revisionen mit entfernt. Der
-    Monotone-Befehl *conflicts* hilft hierbei.
+    monotone-Befehl *conflicts* hilft hierbei.
 
   - Verschiedene Dateien
 
@@ -191,7 +191,7 @@ Konflikttypen
     entfernt werden müssen, ist es fast immer besser, das Verzeichnis temporär
     umzubenennen und die darin enthaltenen Dateien einzeln zu betrachten,
     indem man sie zusammenführt umbenennt oder löscht. Schließlich kann man
-    das temporäre Verzeichnis entfernen. Der Monotone-Befehl *conflicts* kann
+    das temporäre Verzeichnis entfernen. Der monotone-Befehl *conflicts* kann
     hierbei aber nicht helfen, das muss man direkt tun.
 
 - Missing Root
@@ -222,7 +222,7 @@ Konflikttypen
   Das kann einfach gelöst werden, indem eines der Verzeichnisse aus dem
   anderen heraus verschoben wird.
 
-  Der Monotone-Befehl *conflicts* kann hierbei noch nicht helfen.
+  Der monotone-Befehl *conflicts* kann hierbei noch nicht helfen.
 
 - Verwaiste Knoten
 
@@ -246,7 +246,7 @@ Konflikttypen
   Zur Lösung benennt man die Datei in einer Revision so um, wie sie in der
   anderen heißt.
 
-  Der Monotone-Befehl *conflicts* kann hierbei noch nicht helfen.
+  Der monotone-Befehl *conflicts* kann hierbei noch nicht helfen.
 
 - Attributkonflikte
 
@@ -256,7 +256,7 @@ Konflikttypen
   Zur Lösung ändert man die Attribute in einer oder beiden Revisionen so, dass
   sie gleich sind.
 
-  Der Monotone-Befehl *conflicts* kann hierbei noch nicht helfen.
+  Der monotone-Befehl *conflicts* kann hierbei noch nicht helfen.
 
 Fehlersuche durch Zweiteilung
 -----------------------------
@@ -292,7 +292,7 @@ ausgeben lassen.
 Zugriffsrechte
 --------------
 
-Bei Monotone ist es viel wichtige, was aus einer einem Repository herauskommt,
+Bei monotone ist es viel wichtige, was aus einer einem Repository herauskommt,
 als was hinein geht. Der Austausch über Netzwerk ist eine einfache Kommunikation
 von Fakten (Dateiinhalte und Revisionen) und Zusicherungen über deren Wert (die
 Zertifikate, mit denen diese signiert sind). Diese Zusicherungen müssen nicht
@@ -329,7 +329,7 @@ pubkey`` extrahiert und dann mit ``mtn read`` importiert werden.
 Vertrauensgrundlagen
 --------------------
 
-In Monotone wird alles Vertrauen über Zertifikate gehandhabt.
+In monotone wird alles Vertrauen über Zertifikate gehandhabt.
 
 Zertifikate und Revisionen
 ..........................
@@ -342,7 +342,7 @@ Die normalen Zertifikate, die mit allen Revisionen einhergehen sind für den
 Autor, den Zweig der Revision und das Änderungsprotokoll (*changelog*)
 
 Das Zweigzertifikat ist das wichtigste für die automatischen Operationen von
-Monotone.
+monotone.
 
 Vertrauenswürdige Versionen
 ...........................
@@ -361,7 +361,7 @@ Diese Einstellungen werden über Lua-Hooks realisiert.
 Synchronisation, Zusammenführen und Vertrauen
 .............................................
 
-Bei Monotone sind die Synchronisation, das Zusammenführen (Merge) und das
+Bei monotone sind die Synchronisation, das Zusammenführen (Merge) und das
 Aussprechen von Vertrauen voneinander getrennt. Das heißt:
 
 - Bei einer Synchronisation werden lediglich Dateien und Zertifikate
@@ -385,13 +385,13 @@ Möglichkeiten, diese einzuschränken:
   man fordern, dass bestimmte Gutachter jede Kante des Subgraphen evaluiert
   haben.
 
-  Hierfür verwendet Monotone die Lua Hooks ``get_revision_cert_trust``,
+  Hierfür verwendet monotone die Lua Hooks ``get_revision_cert_trust``,
   ``get_manifest_cert_trust`` und ``get_file_cert_trust``. Ein Beispiel für
   den ersten Hook ist im Abschnitt *Trust Evaluation Hooks* des Handbuches zu
   finden. Dieser lässt sich leicht an die anderen beiden anpassen.
 
   Die Gutachter können Ihre Bewertung bestimmter Revisionen u.a. mit den
-  Monotone-Befehlen *approve*, *disapprove*, *suspend* ausdrücken.
+  monotone-Befehlen *approve*, *disapprove*, *suspend* ausdrücken.
 
 - Indem man die Menge der geforderten *testresult* Zertifikate angibt, kann
   man verlangen, dass die Endpunkte eines *update* Befehls ein Zertifikat
@@ -399,8 +399,8 @@ Möglichkeiten, diese einzuschränken:
   eine Testsuite erfüllt haben.
   haben.
 
-  Hierfür verwendet Monotone den Lua Hook ``accept_testresult_change``, der
-  durch den Monotone-Befehl *update* aufgerufen wird. Die
+  Hierfür verwendet monotone den Lua Hook ``accept_testresult_change``, der
+  durch den monotone-Befehl *update* aufgerufen wird. Die
   Default-Implementierung liefert ``true``, wenn die Datei
   ``_MTN/wanted-testresults`` nicht existiert. Andernfalls sollte diese Datei
   eine Liste von Schlüssel-IDs enthalten, die die Testresultate
@@ -409,6 +409,6 @@ Möglichkeiten, diese einzuschränken:
   ist und in der alten Revision ``true`` ist und in der neuen ``false``,
   andernfalls liefert die Default-Implementierung ``true``.
 
-  Ein Testresultat kann mit dem Monotone-Befehl *testresult* hinzugefügt
+  Ein Testresultat kann mit dem monotone-Befehl *testresult* hinzugefügt
   werden. Sinnvollerweise verwendet man für jeden Test bzw. jede Testsuite,
   die vermerkt werden soll, einen eigenen Schlüssel.

@@ -6,7 +6,7 @@ Anpassungen und Erweiterungen
 
 Monotone nutzt die Programmiersprache *Lua* für Anpassungen und Erweiterungen.
 
-Lua-Funktionen werden in *rcfiles* definiert, die bei jedem Lauf von Monotone
+Lua-Funktionen werden in *rcfiles* definiert, die bei jedem Lauf von monotone
 gelesen werden. Als *rcfiles* werden verwendet:
 
 - *~/.monotone/monotonerc* bzw. *%APPDATA%\\monotone\\monotonerc*
@@ -22,14 +22,14 @@ Zuerst wird die Datei *~/.monotone/monotonerc*, dann
 angegebenen in der Reihenfolge der Kommandozeile geladen.
 Spätere Definitionen überschreiben dabei frühere.
 
-Lua-Funktionen werden auf zwei Arten in Monotone verwendet. Als *Hooks* und
+Lua-Funktionen werden auf zwei Arten in monotone verwendet. Als *Hooks* und
 als benutzerdefinierte Befehle. Beide Arten werden ausführlich auf der Website
-von Monotone beschrieben.
+von monotone beschrieben.
 
 Lua-Hooks
 ---------
 
-*Hooks* sind Lua-Funktionen, die von Monotone an verschiedenen Stellen
+*Hooks* sind Lua-Funktionen, die von monotone an verschiedenen Stellen
 aufgerufen werden. Monotone stellt Default-Definitionen für einige dieser
 Funktionen bereit.
 Für andere Hooks gibt es keine Definitionen, stattdessen wird ein
@@ -49,7 +49,7 @@ möglich::
  end
 
 Die alte Definition von *default_hook* ist über die Variable *old_hook* nur
-innerhalb des *do* Blocks verfügbar. Global, d.h. für Monotone ist
+innerhalb des *do* Blocks verfügbar. Global, d.h. für monotone ist
 *default_hook* jetzt in dieser Funktion definiert.
 
 Benutzerdefinierte Befehle
@@ -60,8 +60,8 @@ Standard-Lua zur Verfügung stehen. Eine dieser Funktionen ist::
 
  register_command(name, params, abstract, description, function)
 
-Diese Funktion fügt einen Befehl *name* zu den Benutzerbefehlen von Monotone
-hinzu. Wenn dieser registrierte Befehl aufgerufen wird, wird Monotone die mit
+Diese Funktion fügt einen Befehl *name* zu den Benutzerbefehlen von monotone
+hinzu. Wenn dieser registrierte Befehl aufgerufen wird, wird monotone die mit
 *function* bereitgestellte Definition aufrufen. Diese Funktion würde
 üblicherweise mit ``mtn_automate`` (s.u.) verwenden, um den Aufruf
 abzuarbeiten.  *params* ist eine Zeichenkette mit der Liste der Parameter
@@ -73,7 +73,7 @@ Eine weitere wichtige Funktion ist::
 
  mtn_automate(command args... )
 
-Diese Funktion ruft den Befehl ``automate command`` von Monotone mit *args*
+Diese Funktion ruft den Befehl ``automate command`` von monotone mit *args*
 auf. Das Ergebnis ist ein *pair* (Lua), das besteht aus einem Boolean
 (``true`` bei Erfolg) und einer Zeichenkette, die den Inhalt von ``stdout``
 des Aufrufs von ``automate command`` enthält.
@@ -82,7 +82,7 @@ Diese Funktion ist nicht für den Gebrauch in normalen Lua-Hooks sondern eher
 für Lua-Funktionen, die mit ``register_command`` registriert wurden.
 
 Beachte, dass Tastatureingaben wie bei der
-``--non-interactive`` Option von Monotone deaktiviert sind.
+``--non-interactive`` Option von monotone deaktiviert sind.
 Aktionen, die Operationen mit
 passwortgeschützten Schlüsseln benötigen, werden daher nicht funktionieren, es
 sei denn, dass der ``get_passphrase`` Hook eingrichtet wurde.
@@ -97,7 +97,7 @@ Bei einigen Versionsverwaltungssystemen - z.B. RCS und CVS, gibt es
 Schlüsselworte, die im Quelltext eingesetzt werden können und dann vom
 Versionsverwaltungssystem durch die entsprechenden Werte, wie z.B. die Version
 der Datei oder das Datum des Check in, ersetzt werden. So etwas gibt es bei
-Monotone nicht, so dass man sich hier im Bedarfsfall mit einem Script behilft,
+monotone nicht, so dass man sich hier im Bedarfsfall mit einem Script behilft,
 das eine Datei automatisch generiert, die dann im Quelltext eingebunden wird.
 
 So etwas habe ich bei diesem Text ebenfalls verwendet. Die Angaben zur Basis-
@@ -141,5 +141,5 @@ Das Programm, das ich hier verwende, ist in Lua geschrieben. Prinzipiell
 sollte es möglich sein, das Programm so umzuschreiben, das es als Rcfile
 eingelesen werden kann und die Ausgabe durch einen benutzerdefinierten Befehl
 erfolgt. Der Vorteil wäre, das man keinen zusätzlichen Lua-Interpreter
-benötigt und statt dessen den in Monotone vorhandenen verwendet. Das lasse ich
+benötigt und statt dessen den in monotone vorhandenen verwendet. Das lasse ich
 als Aufgabe für den interessierten Leser.

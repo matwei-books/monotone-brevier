@@ -4,14 +4,14 @@
 In Gang kommen
 ==============
 
-Um mit Monotone zu arbeiten benötige ich mindestens ein lokales Repository,
+Um mit monotone zu arbeiten benötige ich mindestens ein lokales Repository,
 einen Schlüssel um die abgespeicherten Daten zu signieren und einen
-Arbeitsbereich, dessen Inhalt von Monotone verfolgt wird.
+Arbeitsbereich, dessen Inhalt von monotone verfolgt wird.
 
 Ein lokales Repository anlegen
 ------------------------------
 
-Um Dateien mit Monotone zu verwalten muß ich ein lokales
+Um Dateien mit monotone zu verwalten muß ich ein lokales
 Repository anlegen. Prinzipiell kann man ein Repository für mehrere oder alle
 Projekte verwenden, ich ziehe in den meisten Fällen ein Repository für ein
 Projekt vor. Das lokale Repository [#databaselocation]_ lege ich mit folgendem
@@ -45,7 +45,7 @@ ssh_agent übergeben::
  $ ssh-agent /bin/bash
  $ ssh-add ~/.ssh/id_monotone
 
-Anschließend brauche ich den Monotone-Schlüssel nur noch einmal während der
+Anschließend brauche ich den monotone-Schlüssel nur noch einmal während der
 Sitzung eingeben.
 
 Alternativ (und weniger sicher) kann ich das Kennwort in einen Hook in der
@@ -72,7 +72,7 @@ das er in andere Datenbanken mit ``mtn read`` eingelesen werden kann.
    ist üblicherweise im Verzeichnis *~/.monotone/* bzw. unter MS Windows etwa
    bei *C:/Dokumente und Einstellungen/Name/Anwendungsdaten/monotone/* zu
    finden. Hier gibt es auch ein Unterverzeichnis */keys/*, in dem die
-   Monotone bekannten Schlüssel gespeichert sind.
+   monotone bekannten Schlüssel gespeichert sind.
 
 .. [#windowspassphrase] Soweit mir bekannt, ist das die einzige Möglichkeit
    unter MS Windows.
@@ -93,30 +93,30 @@ Arbeitsbereich an::
 Monotone kann nun im lokalen Repository
 *~/A/monotone/projekt.mtn* Dateien aus dem Verzeichnis *~/P/projekt/* im Zweig
 *projekt.branch* verwalten. Von sich aus tut es das allerdings nicht. Damit
-Monotone den aktuellen Stand einer Datei im lokalen Repository verwaltet, muss
+monotone den aktuellen Stand einer Datei im lokalen Repository verwaltet, muss
 ich ihm die Datei vorher bekannt machen.
 
 Dateien hinzufügen / umbenennen / entfernen
 -------------------------------------------
 
-Dateien im Arbeitsbereich, die von Monotone verwaltet werden sollen, kann ich
+Dateien im Arbeitsbereich, die von monotone verwaltet werden sollen, kann ich
 ihm mit ``mtn add`` bekannt machen. Mit ``mtn drop`` schließe ich eine Datei
-von der weiteren Verwaltung durch Monotone aus (ältere Versionen bleiben im
+von der weiteren Verwaltung durch monotone aus (ältere Versionen bleiben im
 Repository erhalten und zugänglich). Wenn ich eine Datei umbenennen oder in ein
 anderes Verzeichnis verschieben und dabei ihre Versionsgeschichte erhalten
 möchte, verwende ich ``mtn rename``.
 
-Welche Dateien Monotone verwaltet (kennt), zeigt mir das Kommando ``mtn list
+Welche Dateien monotone verwaltet (kennt), zeigt mir das Kommando ``mtn list
 known`` im Arbeitsbereich. Dem entsprechend zeigt ``mtn list unknown`` die
-Dateien im Arbeitsbereich, die Monotone nicht kennt (nicht verwaltet).
-Schließlich zeigt ``mtn list ignored`` die Dateien, die Monotone gar nicht
+Dateien im Arbeitsbereich, die monotone nicht kennt (nicht verwaltet).
+Schließlich zeigt ``mtn list ignored`` die Dateien, die monotone gar nicht
 kennen will. Diese letzte Liste kann ich mit einer Datei namens *.mtn-ignore*
 im Arbeitsbereich beeinflussen [#mtnignore]_.
 Damit kann ich die Dateien, deren Änderungen ich nicht verfolgen will,
 ausschließen und schließlich mit ``mtn add --unknown`` alle anderen Dateien
 mit einem Mal unter Versionsverwaltung stellen.
 
-.. [#mtnignore] Natürlich kann ich auch *.mtn-ignore* mit Monotone verwalten.
+.. [#mtnignore] Natürlich kann ich auch *.mtn-ignore* mit monotone verwalten.
 
 Änderungen bestätigen
 ---------------------
@@ -125,7 +125,7 @@ Monotone merkt sich nahezu beliebig viele Zwischenstände der von ihm
 verwalteten Dateien, aber nur auf Aufforderung mit ``mtn commit``. Dieser
 Befehl verlangt eine Notiz, die die damit erzeugte Revision beschreibt. Die
 Notiz kann ich mit der Option ``--message`` auf der Kommandozeile mitgeben.
-Ansonsten öffnet Monotone einen Dateieditor mit dem man die Notiz in aller
+Ansonsten öffnet monotone einen Dateieditor mit dem man die Notiz in aller
 Sorgfalt erstellen kann. Erst dann wird der momentane Stand aller verwalteten
 Dateien im lokalen Repository zwischengespeichert.
 
@@ -179,8 +179,8 @@ anwenden, verwende ich ``mtn propagate``.
 Versionen kennzeichnen
 ----------------------
 
-Ein Problem bei Monotone ist für uns Menschen einen bestimmten Revisionsstand
-zu identifizieren, da bei Monotone jede Revision nach dem kryptographischen
+Ein Problem bei monotone ist für uns Menschen einen bestimmten Revisionsstand
+zu identifizieren, da bei monotone jede Revision nach dem kryptographischen
 Schlüssel (SHA1) der Datei benannt ist, die den Stand ausmacht.
 
 Wenn ich weiss, das ich einen bestimmten Revisionsstand später wieder erkennen
@@ -203,18 +203,18 @@ Mitunter habe ich ein älteres Projekt, das ich mit CVS - einem älteren, in
 vielen Jahren bewährten, mittlerweile aber an einige Grenzen stoßendes
 Versionsverwaltungssystem - gepflegt hatte. Nun wäre es einfach, die letzten
 stabilen und Entwicklungsstände zu nehmen und ein neues Repository mit
-Monotone anzufangen.
+monotone anzufangen.
 
 Hier gibt es einen besseren Weg. Wenn ich Zugriff auf das ganze Repository
 (auf die Dateien, nicht nur ein Netzzugang über den CVS-Server) habe, kann ich
 die komplette Historie des Projektes übernehmen. Das Feature wird zwar auf der
-Homepage von Monotone als "noch etwas unreif" bezeichnet, bei meinen Projekten
+Homepage von monotone als "noch etwas unreif" bezeichnet, bei meinen Projekten
 funktionierte es immer recht gut. Das Importieren
 kann allerdings - insbesondere bei größeren Projekten - etwas länger dauern.
 Das ist dem Umstand geschuldet, dass CVS auf Dateibasis arbeitet, d.h. alle
 Versionsinformationen sind immer nur an die betreffende Datei gebunden,
-während Monotone mit Verzeichnisbäumen arbeitet. Um das Manifest für eine
-Revision zu erstellen vergleicht Monotone daher das Commit-Datum und die
+während monotone mit Verzeichnisbäumen arbeitet. Um das Manifest für eine
+Revision zu erstellen vergleicht monotone daher das Commit-Datum und die
 Commit-Notizen aller Dateien. Das ist nicht trivial und braucht etliche
 Rechenzeit. Laut Homepage sind aber schon CVS-Repository in der Größe von etwa
 einem GB erfolgreich importiert worden - meine Projekte waren alle kleiner.
@@ -231,7 +231,7 @@ Die Vorgehensweise ist wie folgt::
 Als erstes erzeuge ich eine neue Datenbank und einen Schlüssel für den
 CVS-Import. Für den Schlüssel kann ich auch einen vorhandenen nehmen, besser
 aber nicht den, mit dem ich normalerweise Zertifikate signiere, damit die
-Herkunft leichter unterschieden werden kann. Der Monotone-Befehl
+Herkunft leichter unterschieden werden kann. Der monotone-Befehl
 ``cvs_import`` liest das Repository ein. Dabei ist */usr/local/cvsroot* das
 Verzeichnis, welches bei CVS in der Umgebungsvariable *$CVSROOT* verwendet wird
 und *abc* der Name des CVS-Projektes, welcher gleichzeitig der Name des

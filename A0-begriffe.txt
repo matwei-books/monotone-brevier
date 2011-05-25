@@ -10,9 +10,9 @@ Arbeitsbereich
   Dateien unter Revisionskontrolle geändert.
 
   Monotone legt nur ein Unterverzeichnis *_MTN* in der Wurzel des
-  Arbeitsbereiches an. Aus diesem Grund sucht Monotone nach diesem
+  Arbeitsbereiches an. Aus diesem Grund sucht monotone nach diesem
   Verzeichnis, für den Fall, dass es in einem anderen Unterverzeichnis
-  aufgerufen wurde. Bevor ein Befehl ausgeführt wird, sucht Monotone im
+  aufgerufen wurde. Bevor ein Befehl ausgeführt wird, sucht monotone im
   aktuellen und allen übergeordneten Verzeichnissen bis zur Wurzel des
   Dateisystems nach einem Verzeichnis namens *_MTN*. Diese Suche kann mit der
   Option ``--root`` eingeschränkt oder mit ``--no-workspace`` ganz unterbunden
@@ -23,12 +23,12 @@ Benutzerdefinierte Befehle
   der Scriptsprache *Lua* definiert.
 
 Bisektion, Zweiteilung
-  Ein Verfahren zur Fehlereingrenzung, das von Monotone mit den *bisect*
+  Ein Verfahren zur Fehlereingrenzung, das von monotone mit den *bisect*
   Befehlen unterstützt wird. Dabei werden am Anfang je eine gute und eine
   schlechte Revision mit Ihren IDs gekennzeichnet. Monotone teilt dann die
   Versionshistorie von der guten zur schlechten Revision jeweils etwa bei der
   Hälfte für den nächsten Test. Die gefundene Revision wird getestet und
-  ebenfalls gut oder schlecht markiert. Daraufhin teilt Monotone die
+  ebenfalls gut oder schlecht markiert. Daraufhin teilt monotone die
   verbleibende Historie zwischen gut und schlecht wieder für den nächsten
   Test.
 
@@ -61,7 +61,7 @@ Fork, Gabelung
   Diesen Vorgang nennt man *Fork* bzw. *Gabelung*.
 
 Hook
-  *Hooks* sind *Lua* Funktionen, die von Monotone an verschiedenen Stellen
+  *Hooks* sind *Lua* Funktionen, die von monotone an verschiedenen Stellen
   aufgerufen werden. Monotone stellt für einige dieser Funktionen
   Default-Definitionen bereit, für andere liefert es Default-Rückgabewerte.
   *Hooks* können in *rcfiles* durch eigene Definitionen ersetzt werden.
@@ -111,11 +111,11 @@ Merge, Zusammenführen
 Rcfiles
   Monotone kann durch eigene Funktionen in der Scriptsprache *Lua* angepasst
   und erweitert werden. Diese Funktionen werden in sogenannten *rcfiles*
-  abgelegt, welche bei jedem Start von Monotone eingelesen werden.
+  abgelegt, welche bei jedem Start von monotone eingelesen werden.
   
 Revision
   Eine Revision umfasst alle Änderungen, die von einer *Version* zur nächsten
-  führen. Die Revision wird als Textdatei in Monotone gepflegt. Siehe auch
+  führen. Die Revision wird als Textdatei in monotone gepflegt. Siehe auch
   *Versionsgeschichte*.
 
 Schlüssel
@@ -124,16 +124,16 @@ Schlüssel
   Schlüssel der Beteiligten werden dabei in den einzelnen Datenbanken mit
   abgelegt, die privaten Schlüssel werden im Schlüsselspeicher des Benutzers
   (üblicherweise das Verzeichnis *~/.monotone/keys/*) abgelegt.
-  Als Verschlüsselungsverfahren verwendet Monotone *RSA*.
+  Als Verschlüsselungsverfahren verwendet monotone *RSA*.
 
 Server
-  Ein Monotone-Prozess, der über das Netzwerk angesprochen werden kann. Das
-  kann ein ständig laufender Monotone-Server sein oder eine kurzzeitig mit
+  Ein monotone-Prozess, der über das Netzwerk angesprochen werden kann. Das
+  kann ein ständig laufender monotone-Server sein oder eine kurzzeitig mit
   ``mtn serve`` zum Abgleich bereitgestellte Datenbank auf einer
   Arbeitsstation.
 
 SHA1-Hash
-  In Monotone wird die *SHA1* Funktion verwendet, um eindeutige Bezeichner für
+  In monotone wird die *SHA1* Funktion verwendet, um eindeutige Bezeichner für
   bestimmte Versionen von Dateien zu bestimmen. Diese Bezeichner sind 20 Byte
   lang und werden SHA1-Hash genannt.
 
@@ -148,7 +148,7 @@ URI
   Synchronisation mit anderen Datenbanken.
 
 Version
-  Bei Monotone wird unterschieden zwischen Versionen von Dateien und Versionen
+  Bei monotone wird unterschieden zwischen Versionen von Dateien und Versionen
   von Verzeichnisbäumen. Generell ist eine Version der Zustand einer Datei oder
   eines Verzeichnisbaums zwischen zwei Änderungen. Die Version vor einer
   Änderung wird Elternversion, die Version nach dieser Änderung wird
@@ -177,12 +177,12 @@ Versionsgeschichte
   identifiziert.
 
 Zertifikat
-  Jede Revision in Monotone wird über eine SHA1-Hash identifiziert, die sowohl
+  Jede Revision in monotone wird über eine SHA1-Hash identifiziert, die sowohl
   den Inhalt der Revision als auch ihre ganze Abstammung repräsentiert.
   Wenn man weitere Aussagen zu einer Revision (z.B. den Zeitpunkt der
   Erstellung der Revision) treffen will, so sind diese zunächst unabhängig von
   der Revision und leicht änderbar. Um diese zusätzlichen Aussagen zu sichern
-  fügt Monotone einen Schlüssel und eine mit diesem Schlüssel erzeugte
+  fügt monotone einen Schlüssel und eine mit diesem Schlüssel erzeugte
   Signatur über die zusätzlichen Aussagen an. Diese 4 Elemente (die Revision,
   die zusätzliche Information, der Schlüssel und die Signatur) zusammen bilden
   ein Zertifikat.

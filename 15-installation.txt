@@ -11,14 +11,14 @@ Die Beispiele sind alle mit Version 1.0 getestet.
 Debian GNU/Linux und Ubuntu Linux
 ---------------------------------
 
-Prinzipiell kann man Monotone bei Debian GNU/Linux mit dem Befehl ``apt-get``
+Prinzipiell kann man monotone bei Debian GNU/Linux mit dem Befehl ``apt-get``
 installieren. In der momentan stabilen Version von Debian (6.0 Squeeze) wird
-dann aber Version 0.48 von Monotone installiert, in der aktuellen LTS-Version
+dann aber Version 0.48 von monotone installiert, in der aktuellen LTS-Version
 von Ubuntu (10.04 Lucid Lynx) gar 0.45, so dass ich hier die
 Installation aus den Programmquellen beschreibe.
 
 Zuerst müssen wir ein paar notwendige Programme und Bibiliotheken
-installieren, die für die Übersetzung von Monotone benötigt werden::
+installieren, die für die Übersetzung von monotone benötigt werden::
 
  $ sudo apt-get install autoconf automake bzip2 gettext g++   \
                         libboost-dev libz-dev libbotan1.8-dev \
@@ -32,8 +32,8 @@ Als nächstes holen wir uns die Programmquellen und entpacken diese::
  $ tar xjf monotone-1.0.tar.bz2
 
 Wir begeben uns in das entpackte Verzeichnis mit den Programmquellen und
-konfigurieren Monotone für unseren Rechner mit ``configure``. Wenn wir nichts
-angeben, wird Monotone nach */usr/local/bin* installiert. Ich installiere
+konfigurieren monotone für unseren Rechner mit ``configure``. Wenn wir nichts
+angeben, wird monotone nach */usr/local/bin* installiert. Ich installiere
 selbstkompilierte Software aber lieber nicht direkt dorthin, sondern gehe
 einen kleinen Umweg mit dem Programm ``stow``, der es mir erleichtert
 selbstkompilierte Software selektiv zu entfernen, oder zwischen verschiedenen
@@ -46,7 +46,7 @@ Versionen umzuschalten::
  $ sudo make install
  $ sudo stow -d /usr/local/stow -v monotone-1.0
 
-Nun ist Monotone unter */usr/local/stow/monotone-1.0* installiert und in
+Nun ist monotone unter */usr/local/stow/monotone-1.0* installiert und in
 */usr/local/bin*, */usr/local/etc* und */usr/local/share* gibt es
 symbolische Links dorthin. Wir können monotone direkt aufrufen::
 

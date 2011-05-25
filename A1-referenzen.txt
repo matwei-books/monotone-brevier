@@ -14,16 +14,16 @@ IRC
   irc.oftc.net #monotone
 
 http://www.monotone.ca/
-  Die Homepage von Monotone (englisch), hier findet man fast alles, was man
+  Die Homepage von monotone (englisch), hier findet man fast alles, was man
   braucht.
 
 http://wiki.monotone.ca/
-  Das Wiki zu Monotone. Von dort habe ich sehr viele Anregungen für diesen
+  Das Wiki zu monotone. Von dort habe ich sehr viele Anregungen für diesen
   Text genommen. Einzelne Passagen sind direkte Übersetzungen von
   Wiki-Artikeln oder Teilen davon.
 
 http://guitone.thomaskeller.biz/
-  Die Homepage von Guitone, einem grafischen Frontend für Monotone, das
+  Die Homepage von Guitone, einem grafischen Frontend für monotone, das
   insbesondere Anfängern den Einstieg erleichtern dürfte.
 
 http://diffuse.sourceforge.net/
@@ -36,14 +36,14 @@ http://kdiff3.sourceforge.net/
 
 http://www.lua.org/
   Die Homepage zur Programmiersprache *Lua*, mit der Anpassungen und
-  Erweiterungen für Monotone geschrieben werden können.
+  Erweiterungen für monotone geschrieben werden können.
 
 http://furius.ca/xxdiff/
   Die Homepage von xxdiff, einem Programm zum Vergleichen und Zusammenführen
   von Dateien.
 
 http://oandrieu.nerim.net/monotone-viz/
-  Die Homepage von Monotone-viz, einem Visualisierungsprogramm für
+  Die Homepage von monotone-viz, einem Visualisierungsprogramm für
   Revisionsgraphen.
 
 http://nakedstartup.com/2010/04/simple-daily-git-workflow/
@@ -65,5 +65,5 @@ http://www.mail-archive.com/monotone-devel@nongnu.org/msg09319.html
   aktueller Revision, wie im Vorspann angezeigt, genommen habe.
 
 http://weidner.in-bad-schmiedeberg.de/computer/rcs/monotone/
-  Artikel auf meiner Homepage zu Monotone, z.T. Auszüge und Vorabdrücke aus
+  Artikel auf meiner Homepage zu monotone, z.T. Auszüge und Vorabdrücke aus
   diesem Text.

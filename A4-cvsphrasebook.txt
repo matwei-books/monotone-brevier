@@ -4,7 +4,7 @@
 A4 CVS Schummelzettel
 =====================
 
-Dieser Anhang ist dem *CVS Phrase Book* aus dem Monotone-Wiki entnommen. Er
+Dieser Anhang ist dem *CVS Phrase Book* aus dem monotone-Wiki entnommen. Er
 soll insbesondere denen helfen, die bereits mit dem Versionsverwaltungssystem
 CVS gearbeitet haben.
 
@@ -16,7 +16,7 @@ CVS::
  $ CVSROOT=:pserver:cvs.example.net/wobbler
  $ cvs -d $CVSROOT checkout -r 1.2
 
-Monotone::
+monotone::
 
  $ mtn --db=/path/to/database.mtn \
        pull "mtn://monotone.example.net?net.example.wobbler*"
@@ -24,7 +24,7 @@ Monotone::
        checkout --revision=fe37 wobbler
 
 Vor dem Checkout ist üblicherweise kein Arbeitsbereich vorhanden, so dass man
-die Datenbank bei Monotone benennen muss. Beim Aufruf von Monotone in einem
+die Datenbank bei monotone benennen muss. Beim Aufruf von monotone in einem
 Arbeitsbereich ist das nicht mehr notwendig.
 
 Änderungen übergeben
@@ -34,7 +34,7 @@ CVS::
 
  $ cvs commit -m "log message"
 
-Monotone::
+monotone::
 
  $ mtn commit --message="log message"
  $ mtn push "mtn://monotone.example.net?net.example.wobbler*"
@@ -46,7 +46,7 @@ CVS::
 
  $ cvs update -C file
 
-Monotone::
+monotone::
 
  $ mtn revert file
 
@@ -66,13 +66,13 @@ CVS::
 
  $ cvs update -d
 
-Monotone::
+monotone::
 
  $ mtn pull "mtn://monotone.example.net?net.example.wobbler*"
  $ mtn merge
  $ mtn update
 
-Bei Monotone ist die Synchronisierung von der Aktualisierung getrennt. Der
+Bei monotone ist die Synchronisierung von der Aktualisierung getrennt. Der
 *merge* Befehl ist nur notwendig, wenn man am neuesten Stand des gesamten
 Revisions-Zweiges interessiert ist. Will man nur Änderungen an der eigenen
 Basis-Revision verfolgen, kann man diesen weglassen. Erst der *update* Befehl
@@ -85,15 +85,15 @@ CVS::
 
  $ cvs tag FOO_TAG .
 
-Monotone::
+monotone::
 
  $ mtn tag h: FOO_TAG
 
 Bei CVS werden Bezeichner (Tags) immer an einzelne Dateien vergeben und man
 erkennt eine über das ganze Repository konsistente Revision am ehesten am
 gleichen Bezeichner der Dateiversionen. Demgegenüber werden alle Änderungen in
-Monotone immer über das ganze Repository erfasst. Von diesen Änderungen sind
-dann einige mit Bezeichnern versehen. Es gibt bei Monotone keine Bezeichner
+monotone immer über das ganze Repository erfasst. Von diesen Änderungen sind
+dann einige mit Bezeichnern versehen. Es gibt bei monotone keine Bezeichner
 nur für einen Teil der Dateien im Repository.
 
 Arbeitsbereich auf eine andere Revision bringen
@@ -104,7 +104,7 @@ CVS::
  $ cvs update -r FOO_TAG -d
 
 
-Monotone::
+monotone::
 
  $ mtn update -r 830ac1a5f033825ab364f911608ec294fe37f7bc
 
@@ -113,7 +113,7 @@ oder
 
  $ mtn update -r t:FOO_TAG
 
-Mit dem Revisions-Parameter verhält sich Monotone ähnlich wie CVS. Ein
+Mit dem Revisions-Parameter verhält sich monotone ähnlich wie CVS. Ein
 Unterschied ist, dass man direkt von der gewählten Revision aus weiterarbeiten
 und mit *commit* einchecken kann. Das ist insbesondere dann nützlich, wenn man
 nach einer Aktualisierung feststellt, dass die Kopfversion eines Zweiges
@@ -129,7 +129,7 @@ CVS::
  $ cvs diff
  $ cvs diff -r 1.2 -r 1.4 myfile
 
-Monotone::
+monotone::
 
  $ mtn diff
  $ mtn diff -r 3e7db -r 278df myfile
@@ -141,7 +141,7 @@ CVS::
 
  $ cvs status
 
-Monotone::
+monotone::
 
  $ mtn status
 
@@ -154,7 +154,7 @@ CVS::
  $ cvs add dir/subdir
  $ cvs add dir/subdir/file
 
-Monotone::
+monotone::
 
  $ mtn add dir/subdir/file
 
@@ -169,11 +169,11 @@ CVS::
  $ rm file.txt
  $ cvs remove file
 
-Monotone::
+monotone::
 
  $ mtn drop file
 
-Mit dem Monotone-Befehl *drop* wird die Datei sowohl aus dem Dateisystem, als
+Mit dem monotone-Befehl *drop* wird die Datei sowohl aus dem Dateisystem, als
 auch aus dem Manifest entfernt.
 
 Historie ansehen
@@ -183,7 +183,7 @@ CVS::
 
  $ cvs log [file]
 
-Monotone::
+monotone::
 
  $ mtn log [file]
 
@@ -197,7 +197,7 @@ CVS::
 
  $ cvs import wobbler vendor start
 
-Monotone::
+monotone::
 
  $ mtn --db=/path/to/database.mtn --branch=net.example.wobbler \
        setup .
@@ -205,7 +205,7 @@ Monotone::
  $ mtn commit
 
 Der *setup* Befehl verwandelt ein gewöhnliches Verzeichnis in einen
-Monotone-Arbeitsbereich. Danach kann man die Dateien hinzufügen und mit
+monotone-Arbeitsbereich. Danach kann man die Dateien hinzufügen und mit
 *commit* übergeben.
 
 Ein Repository initialisieren
@@ -215,7 +215,7 @@ CVS::
 
  $ cvs init -d /path/to/repository
 
-Monotone::
+monotone::
 
  $ mtn db init --db=/path/to/database.mtn
 

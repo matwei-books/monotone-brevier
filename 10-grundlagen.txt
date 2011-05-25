@@ -16,9 +16,9 @@ Versionen im Arbeitsbereich und die jeweils mit der Vorgänger- und
 Nachfolgerversion verketteten Versionen im Repository.
 
 Das Repository ist dabei die Stelle, an der Buch geführt wird über alle von mir
-bestätigten Änderungen an den Dateien im Arbeitsbereich. Bei Monotone ist das
+bestätigten Änderungen an den Dateien im Arbeitsbereich. Bei monotone ist das
 Repository eine SQLight-Datenbank.
-Da Monotone eine verteiltes Versionsverwaltungssystem ist, gibt es nicht nur ein
+Da monotone eine verteiltes Versionsverwaltungssystem ist, gibt es nicht nur ein
 Repository sondern mehrere, üblicherweise eins auf dem lokalen Rechner welches
 im Workspace referenziert wird und weitere Repositories auf anderen Rechnern,
 die mit dem lokalen abgeglichen werden.
@@ -35,11 +35,11 @@ eingecheckt).
 
 Um einen bestimmten Stand verschiedener Dateien, sozusagen einen Schnappschuss,
 im Repository festzuhalten,
-verwendet Monotone sogenannte Manifest-Dateien. Das sind Textdateien, die
+verwendet monotone sogenannte Manifest-Dateien. Das sind Textdateien, die
 strukturiert aber für Menschen lesbar sind und jeweils einen relativen Pfad
 von der Wurzel
 des Arbeitsbereiches zur Datei und die Version für jede Datei festhalten. Diese
-Manifest-Dateien werden selbst wiederum ebenfalls im Monotone-Repository
+Manifest-Dateien werden selbst wiederum ebenfalls im monotone-Repository
 verwaltet.
 
 Alle im Repository verwalteten Daten werden mit kryptographischen Schlüsseln
@@ -48,7 +48,7 @@ signiert und dadurch gegen Veränderung gesichert.
 Wo sind meine Daten
 -------------------
 
-Die Daten, die von Monotone verwaltet werden, befinden sich an vier
+Die Daten, die von monotone verwaltet werden, befinden sich an vier
 verschiedenen Orten:
 
 - im *Keystore*
@@ -66,12 +66,12 @@ verschiedenen Orten:
    :scale: 50
    :align: center
 
-Mit den Monotone-Kommandos ``setup``, ``checkout``, ``revert`` und ``update``
+Mit den monotone-Kommandos ``setup``, ``checkout``, ``revert`` und ``update``
 werden Dateien aus dem lokalen Repository in mein Arbeitsverzeichnis befördert.
 Mit ``commit`` werden Änderungen im Arbeitsverzeichnis in das lokale Repository
 übernommen.
 
-Mit dem Monotone-Kommando ``pull`` holt man Daten aus einem entfernten
+Mit dem monotone-Kommando ``pull`` holt man Daten aus einem entfernten
 Repository in das lokale, mit ``push`` schiebt man Daten aus dem lokalen
 Repository in das entfernte. ``sync`` schließlich gleicht die Unterschiede
 zwischen lokalem und entfernten Repository aus, d.h. lokale Änderungen werden
