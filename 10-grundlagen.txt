@@ -64,16 +64,27 @@ verschiedenen Orten:
    :scale: 50
    :align: center
 
-Mit den monotone-Kommandos ``setup``, ``checkout``, ``revert`` und ``update``
-werden Dateien aus dem lokalen Repository in mein Arbeitsverzeichnis befördert.
-Mit ``commit`` werden Änderungen im Arbeitsverzeichnis in das lokale Repository
-übernommen.
+Die folgenden Befehle bewegen meine Daten in und zwischen den verschieden Orten.
 
-Mit dem monotone-Kommando ``pull`` holt man Daten aus einem entfernten
-Repository in das lokale, mit ``push`` schiebt man Daten aus dem lokalen
-Repository in das entfernte. ``sync`` schließlich gleicht die Unterschiede
-zwischen lokalem und entfernten Repository aus, d.h. lokale Änderungen werden
-in das entfernte Repository übernommen und umgekehrt.
+Mit den monotone-Kommandos *setup* und *checkout* kann ich einen neuen lokalen
+Arbeitsbereich einrichten. Mit *add*, *rm* und *rename* kann ich Dateien zum
+überwachten Arbeitsbereich hinzufügen, daraus entfernen oder umbenennen.
 
-Für ``pull`` wird kein Schlüssel benötigt, damit ist ein anonymer Download
+Der Befehl *update*
+bringt Änderungen aus dem lokalen Repository in meinen Arbeitsbereich.
+Mit *commit* übernehme ich Änderungen im Arbeitsverzeichnis in das lokale
+Repository. Mit *revert* kann ich Änderungen im Arbeitsverzeichnis rückgängig
+machen. Diese Befehle beeinflussen lediglich das lokale Repository und meinen
+Arbeitsbereich.
+
+Erst mit dem monotone-Kommando *pull* hole ich Daten aus einem entfernten
+Repository in das lokale und mit *push* schiebe ich Daten aus dem lokalen
+Repository in das entfernte, *sync* schließlich gleicht die Unterschiede
+zwischen lokalem und entfernten Repository in einem Aufruf aus, d.h. lokale
+Änderungen werden in das entfernte Repository übernommen und umgekehrt.
+
+Für *pull* wird kein Schlüssel benötigt, damit ist ein anonymer Download
 möglich.
+
+Schließlich gibt es noch das monotone-Kommando *genkey*, dass einen neuen
+Schlüssel erzeugt und diesen im Keystore ablegt.
