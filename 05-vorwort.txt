@@ -102,5 +102,5 @@ diese Leute vom Nutzen der verschiedenen Versionsverwaltungssysteme zu
 Aufwand etwas verringert zu haben.
 
 Besonders dankbar bin ich für die Hinweise, die ich über die
-Mailingliste *monotone-users* bekommen habe. Insbesondere von Marc Lütow
-und Thomas Keller.
+Mailingliste *monotone-users* bekommen habe. Insbesondere von Marc
+Lütolf und Thomas Keller.
