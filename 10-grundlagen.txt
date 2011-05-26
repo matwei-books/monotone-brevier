@@ -34,13 +34,11 @@ mehrere (die Version wurde mehrfach ausgecheckt, verschieden editiert und wieder
 eingecheckt).
 
 Um einen bestimmten Stand verschiedener Dateien, sozusagen einen Schnappschuss,
-im Repository festzuhalten,
-verwendet monotone sogenannte Manifest-Dateien. Das sind Textdateien, die
-strukturiert aber für Menschen lesbar sind und jeweils einen relativen Pfad
-von der Wurzel
-des Arbeitsbereiches zur Datei und die Version für jede Datei festhalten. Diese
-Manifest-Dateien werden selbst wiederum ebenfalls im monotone-Repository
-verwaltet.
+im Repository festzuhalten, verwendet monotone interne textbasierte
+Datenstrukturen, die ursprünglich Manifest genannt wurden. Diese selbst werden
+ebenfalls im Repository verwaltet. Das Manifest, welches seit Version 0.26
+Roster genannt wird, enthält den relativen Pfad, die zugehörige Version und
+noch weitere Informationen zu jeder erfassten Datei zu diesem Zeitpunkt.
 
 Alle im Repository verwalteten Daten werden mit kryptographischen Schlüsseln
 signiert und dadurch gegen Veränderung gesichert.

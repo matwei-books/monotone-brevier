@@ -79,11 +79,13 @@ Lua
   eingebaut werden kann. Monotone enthält einen Interpreter für *Lua*, der für
   *Hooks* und *benuutzerdefinierte Befehle* verwendet wird.
 
-Manifest
-  Ein Manifest ist eine Textdatei, die die aktuellen Versionen von Dateien
-  eines Verzeichnisbaums und zusätzliche Attribute dieser Dateien erfasst.
-  Siehe auch unter *Version*.
+Manifest, Roster
+  Manifeste sind interne textbasierte Datenstrukturen, die alle Dateien,
+  Verzeichnisse sowie deren Attribute für eine Revision erfasst.
 
+  Seit Version 0.26 heißen diese Datenstrukturen *Roster* und enthalten
+  noch mehr Informationen über die Dateien.
+  
 Merge, Zusammenführen
   Wenn in der Versionsgeschichte ein Fork aufgetreten ist, und die jeweils
   letzten Revision wieder zusammengeführt werden sollen, nennt man das bei
@@ -115,8 +117,11 @@ Rcfiles
   
 Revision
   Eine Revision umfasst alle Änderungen, die von einer *Version* zur nächsten
-  führen. Die Revision wird als Textdatei in monotone gepflegt. Siehe auch
-  *Versionsgeschichte*.
+  führen. Die Revision wird als interne textbasierte Datenstrurktur in
+  monotone gepflegt. Siehe auch *Manifest*, *Versionsgeschichte*.
+
+Roster
+  Siehe *Manifest*
 
 Schlüssel
   Monotone verwendet für die Integritätsprüfung Zertifikate, die mit
@@ -136,6 +141,10 @@ SHA1-Hash
   In monotone wird die *SHA1* Funktion verwendet, um eindeutige Bezeichner für
   bestimmte Versionen von Dateien zu bestimmen. Diese Bezeichner sind 20 Byte
   lang und werden SHA1-Hash genannt.
+
+  Diese Hash wird meist als Folge von 40 Hexadezimalzahlen lesbar
+  ausgegeben und auch so eingegeben, wenn ein Befehl die Angabe einer
+  Hash erfordert.
 
 URI
   Uniform Resource Identifier ist ein einheitlicher Bezeichner für Ressourcen
@@ -159,21 +168,21 @@ Version
   Bytes (genannt Hash) erzeugt, die genau dieser speziellen Version zugeordnet
   ist.
 
-  Eine Version eines Verzeichnisbaumes wird gebildet, indem zunächst eine
-  spezielle Datei, Manifest genannt, erzeugt wird. Diese Datei enthält eine
+  Eine Version eines Verzeichnisbaumes wird gebildet, indem zunächst das
+  *Manifest* erzeugt wird. Dieses enthält eine
   Liste aller Dateiversionen von Dateien im Verzeichnisbaum und gegebenenfalls
-  weitere Attribute dieser Dateien. Von dieser Datei *Manifest* wird ebenfalls
+  weitere Attribute dieser Dateien. Vom *Manifest* wird ebenfalls
   eine SHA1-Hash gebildet.
 
 Versionsgeschichte
   Die verschiedenen Versionen von Dateien und Verzeichnisbäumen selbst haben
   keinen Bezug zueinander. D.h. man kann aus den SHA1-Hashes und den
-  Manifest-Dateien nicht erkennen, welche Version von welcher anderen
+  Manifesten nicht erkennen, welche Version von welcher anderen
   abgeleitet wurde. Um die komplette Versionsgeschichte zu erhalten, wird
   daher für jede Änderung eine *Revision* gepflegt. Diese enthält das neue
   Manifest, die vorherige Revision, an die die aktuelle Anschließt und welche
   Dateiänderungen im einzelnen vorgenommen wurden. Die *Revision* selbst ist
-  auch nur eine Textdatei und wird deshalb ebenfalls über eine SHA1-Hash
+  auch eine Textdatei und wird deshalb ebenfalls über eine SHA1-Hash
   identifiziert.
 
 Zertifikat
