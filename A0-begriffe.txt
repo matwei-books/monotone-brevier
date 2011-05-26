@@ -69,15 +69,16 @@ Hook
 Keystore
   Monotone arbeitet sehr viel mit Zertifikaten, die mit asymmetrischen
   Schlüsseln signiert werden. Während die öffentlichen Schlüssel in der
-  Datenbank abgelegt und verteilt werden, liegen die privaten Verschlüssel
-  unter UNIX im Verzeichnis  *~/.monotone/keys* bzw. unter MS Windows
-  etwa im Verzeichnis
-  *C:\Dokumente und Einstellungen\Name\Anwendungsdaten\monotone\keys*.
+  Datenbank abgelegt und verteilt werden, liegen die privaten Verschlüssel als
+  Dateien
+  unter UNIX im Verzeichnis  *$HOME/.monotone/keys* bzw. unter MS Windows
+  in *%APPDATA%\\monotone\\keys*. Dieses Verzeichnis nennt man
+  den Keystore.
 
 Lua
   *Lua* ist eine leichtgewichtige Scriptsprache, die in andere Anwendungen
   eingebaut werden kann. Monotone enthält einen Interpreter für *Lua*, der für
-  *Hooks* und *benuutzerdefinierte Befehle* verwendet wird.
+  *Hooks* und *benutzerdefinierte Befehle* verwendet wird.
 
 Manifest, Roster
   Manifeste sind interne textbasierte Datenstrukturen, die alle Dateien,
@@ -127,8 +128,9 @@ Schlüssel
   Monotone verwendet für die Integritätsprüfung Zertifikate, die mit
   asymmetrischen Schlüsseln der Entwickler signiert sind. Die öffentlichen
   Schlüssel der Beteiligten werden dabei in den einzelnen Datenbanken mit
-  abgelegt, die privaten Schlüssel werden im Schlüsselspeicher des Benutzers
-  (üblicherweise das Verzeichnis *~/.monotone/keys/*) abgelegt.
+  abgelegt, die privaten Schlüssel werden im Schlüsselspeicher (*Keystore*)
+  des Benutzers abgelegt.
+
   Als Verschlüsselungsverfahren verwendet monotone *RSA*.
 
 Server

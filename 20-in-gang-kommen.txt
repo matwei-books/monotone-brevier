@@ -49,7 +49,7 @@ Anschließend brauche ich den monotone-Schlüssel nur noch einmal während der
 Sitzung eingeben.
 
 Alternativ (und weniger sicher) kann ich das Kennwort in einen Hook in der
-Datei *.monotonerc* [#monotonerc]_ eintragen [#windowspassphrase]_::
+Datei *monotonerc* [#monotonerc]_ eintragen [#windowspassphrase]_::
 
 
  $ mkdir ~/.monotone
@@ -68,10 +68,10 @@ zu überprüfen und um Zugriffsrechte für Repositories festzulegen. Um an den
 Mit diesem Befehl gibt monotone den öffentlichen Schlüssel so in Textform aus,
 das er in andere Datenbanken mit ``mtn read`` eingelesen werden kann.
 
-.. [#monotonerc] Die Datei *.monotonerc* bzw. Ihr Äquivalent unter MS Windows
-   ist üblicherweise im Verzeichnis *~/.monotone/* bzw. unter MS Windows etwa
-   bei *C:/Dokumente und Einstellungen/Name/Anwendungsdaten/monotone/* zu
-   finden. Hier gibt es auch ein Unterverzeichnis */keys/*, in dem die
+.. [#monotonerc] Die Datei *monotonerc* bzw. Ihr Äquivalent unter MS Windows
+   ist üblicherweise im Verzeichnis *$HOME/.monotone* bzw. unter MS Windows
+   in *%APPDATA%\\monotone* zu
+   finden. Hier gibt es auch ein Unterverzeichnis *keys*, in dem die
    monotone bekannten Schlüssel gespeichert sind.
 
 .. [#windowspassphrase] Soweit mir bekannt, ist das die einzige Möglichkeit
