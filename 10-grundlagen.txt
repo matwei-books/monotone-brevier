@@ -83,8 +83,8 @@ Repository in das entfernte, *sync* schließlich gleicht die Unterschiede
 zwischen lokalem und entfernten Repository in einem Aufruf aus, d.h. lokale
 Änderungen werden in das entfernte Repository übernommen und umgekehrt.
 
-Für *pull* wird kein Schlüssel benötigt, damit ist ein anonymer Download
-möglich.
+Für *pull* wird kein Schlüssel benötigt, wenn der Server entsprechend
+konfiguriert ist. Damit ist ein anonymer Download möglich.
 
 Schließlich gibt es noch das monotone-Kommando *genkey*, dass einen neuen
 Schlüssel erzeugt und diesen im Keystore ablegt.
