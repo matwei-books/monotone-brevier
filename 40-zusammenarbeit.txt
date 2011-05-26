@@ -136,9 +136,9 @@ die Revisionen immer noch zusammenführen.
 Konflikte können beim Zusammenführen zweier Revisionen in der Datenbank oder
 beim Zusammenführen im Arbeitsbereich auftreten.
 
-Die monotone-Befehle *show_conflicts* und *automate show_conflicts* zeigen
+Der monotone-Befehl *show_conflicts* zeigt
 Konflikte, die auftreten, wenn man das Revisionen in der Datenbank (nach
-*commit*) zusammenführen will. Leider können diese Befehle noch nicht die
+*commit*) zusammenführen will. Leider kann dieser Befehl noch nicht die
 Konflikte im Arbeitsbereich auflisten.
 
 Mit dem Befehl *conflicts* und seinen Unterbefehlen können

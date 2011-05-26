@@ -63,7 +63,7 @@ Standard-Lua zur Verfügung stehen. Eine dieser Funktionen ist::
 Diese Funktion fügt einen Befehl *name* zu den Benutzerbefehlen von monotone
 hinzu. Wenn dieser registrierte Befehl aufgerufen wird, wird monotone die mit
 *function* bereitgestellte Definition aufrufen. Diese Funktion würde
-üblicherweise mit ``mtn_automate`` (s.u.) verwenden, um den Aufruf
+üblicherweise ``mtn_automate`` (s.u.) verwenden, um den Aufruf
 abzuarbeiten.  *params* ist eine Zeichenkette mit der Liste der Parameter
 für den Befehl. *abstract* ist eine kurze Beschreibung, *description* eine
 längere Beschreibung des Benutzerbefehls. Bei ``mtn help`` werden *params*,
