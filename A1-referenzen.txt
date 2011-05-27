@@ -61,9 +61,9 @@ http://www.mail-archive.com/monotone-devel@nongnu.org/msg09319.html
   Re: [Monotone-devel] mtn automate get_current_revision_id - bug or feature?,
   *Nuno Lucas*
 
-  Ein Pythonscript, das ich als Vorlage für die Ermittlung von Basis- und
+  Ein Python-Script, das ich als Vorlage für die Ermittlung von Basis- und
   aktueller Revision, wie im Vorspann angezeigt, genommen habe.
 
 http://weidner.in-bad-schmiedeberg.de/computer/rcs/monotone/
-  Artikel auf meiner Homepage zu monotone, z.T. Auszüge und Vorabdrücke aus
-  diesem Text.
+  Artikel auf meiner Homepage zu monotone, zum Teil Auszüge aus und
+  Vorabversionen von diesem Text.

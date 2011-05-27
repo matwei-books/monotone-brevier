@@ -147,7 +147,7 @@ Monotone merkt sich nahezu beliebig viele Zwischenstände der von ihm
 verwalteten Dateien, aber nur auf Aufforderung mit ``mtn commit``. Dieser
 Befehl verlangt eine Notiz, die die damit erzeugte Revision beschreibt. Die
 Notiz kann ich mit der Option ``--message`` auf der Kommandozeile mitgeben.
-Ansonsten öffnet monotone einen Dateieditor mit dem man die Notiz in aller
+Ansonsten öffnet monotone einen Texteditor mit dem man die Notiz in aller
 Sorgfalt erstellen kann. Erst dann wird der momentane Stand aller verwalteten
 Dateien im lokalen Repository zwischengespeichert.
 
@@ -155,22 +155,22 @@ Zweige
 ------
 
 Zu Beginn der Arbeit an einem Projekt bilden die verschiedenen Versionen
-meiner Dateien einen geraden unverzweigten gerichteten Graphen, der jeweils
-vom Vorgänger zum Nachfolger in einer Kette geht. Man spricht hier auch vom
-Versionsstamm.
+meiner Dateien einen geraden, nicht verzweigten, gerichteten Graphen, der
+jeweils vom Vorgänger zum Nachfolger in einer Kette geht.
+Man spricht hier auch von Trunk-Version.
 
 Wenn ich bereits einen oder mehrere Stände des Projekts veröffentlicht habe,
 wird es früher oder später passieren, das ich einen Fehler in einer schon
-veröffentlichten Version bereinigen muss, die weit hinten in der Versionskette
-liegt. Das ist ein guter Moment um einen neuen Zweig im Repository zu starten,
+veröffentlichten Version bereinigen muss, die weit zurück liegt.
+Das ist ein guter Moment um einen neuen Zweig im Repository zu starten,
 der genau bei der veröffentlichten Version vom Stamm abzweigt. Monotone pflegt
 für mich diesen alternativen Entwicklungszweig im selben Repository und
-bezieht unabhängig von den Änderungen im Hauptstamm alle Änderungen in diesem
-Zweig auf die Version mit der er gestartet wurde.
+bezieht unabhängig von den Änderungen in der Trunk-Version alle Änderungen
+in diesem Zweig auf die Version mit der er gestartet wurde.
 
-Ein anderer Grund, einen neuen Zweig einzurichten, wäre z.B. um ein neues
-Feature auszuprobieren, für das bei der Entwicklung im Hauptstamm keine Zeit
-ist.
+Ein anderer Grund, einen neuen Zweig einzurichten, wäre zum Beispiel um ein
+neues Feature auszuprobieren, für das bei der Entwicklung in der Trunk-Version
+keine Zeit ist.
 
 Der einfachste Weg, einen neuen Zweig anzulegen, ist den Namen des neuen
 Zweiges beim Commit anzugeben::
@@ -193,7 +193,7 @@ meinem Arbeitsverzeichnis nun bereits zum neuen Zweig gehören und
 Wenn in einem Zweig verschiedene Änderungen von einem oder mehreren
 Entwicklern bestätigt wurden, kann es passieren, dass es mehrere letzte Stände
 gibt. Diese führe ich mit ``mtn merge`` zusammen. Nach der nächsten
-Synchronistation der Repositories haben alle wieder den gleichen Stand.
+Synchronisation der Repositories haben alle wieder den gleichen Stand.
 
 Möchte ich hingegen die Änderungen von einem Zweiges auf einen anderen Zweig
 anwenden, verwende ich ``mtn propagate``.
@@ -201,12 +201,12 @@ anwenden, verwende ich ``mtn propagate``.
 Versionen kennzeichnen
 ----------------------
 
-Ein Problem bei monotone ist für uns Menschen einen bestimmten Revisionsstand
+Ein Problem bei monotone ist für uns Menschen eine bestimmte Revision
 zu identifizieren, da bei monotone jede Revision nach dem kryptographischen
 Schlüssel (SHA1) der Datei benannt ist, die den Stand ausmacht.
 
-Wenn ich weiss, das ich einen bestimmten Revisionsstand später wieder erkennen
-will, z.B. weil ich diese Revision veröffentliche, dann
+Wenn ich weiss, das ich eine bestimmte Revision später wieder erkennen
+will, zum Beispiel weil ich diese Revision veröffentliche, dann
 markiere ich diese Revision mit einem *version tag*.
 
 .. image:: img/version-tags.png
@@ -228,12 +228,14 @@ stabilen und Entwicklungsstände zu nehmen und ein neues Repository mit
 monotone anzufangen.
 
 Hier gibt es einen besseren Weg. Wenn ich Zugriff auf das ganze Repository
-(auf die Dateien, nicht nur ein Netzzugang über den CVS-Server) habe, kann ich
+(auf die Dateien, nicht nur ein Netzwerkzugriff über den CVS-Server) habe,
+kann ich
 die komplette Historie des Projektes übernehmen. Das Feature wird zwar auf der
 Homepage von monotone als "noch etwas unreif" bezeichnet, bei meinen Projekten
 funktionierte es immer recht gut. Das Importieren
 kann allerdings - insbesondere bei größeren Projekten - etwas länger dauern.
-Das ist dem Umstand geschuldet, dass CVS auf Dateibasis arbeitet, d.h. alle
+Das ist dem Umstand geschuldet, dass CVS auf Basis von einzelnen Dateien
+arbeitet, das heisst alle
 Versionsinformationen sind immer nur an die betreffende Datei gebunden,
 während monotone mit Verzeichnisbäumen arbeitet. Um das Manifest für eine
 Revision zu erstellen vergleicht monotone daher das Commit-Datum und die

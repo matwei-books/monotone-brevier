@@ -28,7 +28,7 @@ Für wen ist dieses Buch
 Wie schon erwähnt, soll das eine Einführung in die Arbeit mit monotone
 sein. Die Zielgruppe sind Leute, die überhaupt noch nicht mit
 oder bisher mit anderen Versionsverwaltungssystemen gearbeitet haben.
-Wer bereits längere Zeit mit monotone gearbeitet hat, wird vieleicht noch
+Wer bereits längere Zeit mit monotone gearbeitet hat, wird vielleicht noch
 die eine oder andere Anregung im Kapitel *Anpassungen und Erweiterungen*
 finden.
 
@@ -36,7 +36,7 @@ Wie ist das Buch aufgebaut
 --------------------------
 
 Im Kapitel *Grundlagen* geht es ganz kurz darum, wofür ich monotone
-verwende, was es für micht macht und wo meine Daten hinkommen.
+verwende, was es für mich macht und wo meine Daten hinkommen.
 
 Beim nächsten Kapitel *Installation* geht es nur darum, wie man monotone
 auf seinen Rechner bekommt.
@@ -52,12 +52,12 @@ Das Kapitel *Tag für Tag* behandelt verschiedene Problemstellungen, die
 bei der täglichen Arbeit mit monotone vorkommen können.
 
 Das nächste Kapitel *Datensicherung* hätte auch gut in das vorige
-hineingepasst. Ich habe es nur wegen der Wichtigkeit des Themas - ich
+hinein gepasst. Ich habe es nur wegen der Wichtigkeit des Themas - ich
 arbeite seit mehr als zehn Jahren als Systemadministrator - als eigenes
 Kapitel herausgehoben.
 
 Beim Kapitel *Anpassungen und Erweiterungen* geht es zum einen um die
-Scriptsprache Lua und wie man damit monotone Dinge beibringen kann, die
+Script-Sprache Lua und wie man damit monotone Dinge beibringen kann, die
 es so noch nicht kann. Zum anderen um externe Programme, die -
 automatisch aufgerufen - mit monotone zusammenarbeiten.
 
@@ -81,9 +81,9 @@ Thomas Keller schrieb mir: `monotone sollte im Satz immer klein geschrieben
 werden, lediglich am Satzanfang groß`.
 Daran halte ich mich hier. Das Programm selbst heißt ``mtn``.
 
-Für Programmbeispiele und Eingaben auf der Kommandozeile verwende ich
-einen ``monospaced`` Font. Diesen nehme ich auch im Fließtext, wenn ich
-Optionen literal, d.h. so wie es eingegeben werden könnte, verwende.
+Für Programm-Beispiele und Eingaben auf der Kommandozeile verwende ich
+eine dicktengleiche Schrift. Diesen nehme ich auch im Fließtext, wenn ich
+Optionen literal, das heisst so wie es eingegeben werden könnte, verwende.
 
 Ansonsten verwende ich einen *kursiven* Font für Hervorhebungen von
 Namen, auch von Parametern. So kann es vorkommen, das ich an einer Stelle
@@ -98,7 +98,7 @@ getroffen hätten, die nicht nur keine Versionsverwaltung verwenden,
 sondern sich aktiv dagegen sträuben, *weil der Aufwand das zu
 Lernen nicht durch den Nutzen aufgewogen wird*. Da es mir schwerfällt,
 diese Leute vom Nutzen der verschiedenen Versionsverwaltungssysteme zu
-überzeugen - ich bin nicht der Verkäufertyp - hoffe ich wenigstens, den
+überzeugen - ich bin nicht so gut als Verkäufer - hoffe ich wenigstens, den
 Aufwand etwas verringert zu haben.
 
 Besonders dankbar bin ich für die Hinweise, die ich über die

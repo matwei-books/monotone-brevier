@@ -4,22 +4,22 @@
 Tag für Tag
 ===========
 
-Workflow
---------
+Arbeitsablauf
+-------------
 
 Bei der täglichen Arbeit mit monotone (oder auch anderen VCS) gibt es etliche
-mögliche Workflows um die Änderungen im Code zu verwalten.
+mögliche Arbeitsabläufe um die Änderungen im Code zu verwalten.
 
-Einer davon ist, im Hauptprojektzweig (Trunk) nur umfangreiche Änderungen wie
-z.B. neue Features oder Bugfixes zu führen und für die detaillierten
+Einer davon ist, im Trunk-Zweig nur umfangreiche Änderungen wie
+zum Beispiel neue Features oder Bugfixes zu führen und für die detaillierten
 Änderungen (die eigentliche Arbeit an den Features oder Bugfixes) jeweils
-eigene Zweige zu nehmen. Verwendet man eine Fehlerdatenbank oder ein
-Ticketsystem, so kann mann den Namen für die Arbeitszweige daraus ableiten
-(z.B. die Fehler- oder Ticketnummer).
+eigene Zweige zu nehmen. Verwendet man eine Fehler-Datenbank oder ein
+Ticketsystem, so kann man den Namen für die Arbeitszweige daraus ableiten
+(zum Beispiel die Fehler- oder Ticketnummer).
 
 Dieser Arbeitsablauf ist dem in
 http://nakedstartup.com/2010/04/simple-daily-git-workflow/ beschriebenen
-Workflow für *git* (ein anderes verteiltes Versionskontrollsystem)
+Arbeitsablauf für *git* (ein anderes verteiltes Versionskontrollsystem)
 nachempfunden.
 
 Daraus ergibt sich folgender grundlegender Ablauf für jedes Ticket, jeden
@@ -40,7 +40,7 @@ Repository::
  $ mtn --db alles.mtn pull
  $ mtn --db alles.mtn co -branch trunk
 
-oder ich nehme jedesmal ein frisches und checke den aktuellen Stand aus::
+Oder ich nehme jedesmal ein frisches und checke den aktuellen Stand aus::
 
  $ mtn --db ticketnr.mtn db init
  $ mtn --db ticketnr.mtn pull remotehost --branch trunk
@@ -57,14 +57,14 @@ Arbeit am Problem mit vielen Commits
 ....................................
 
  1. Arbeit am Problem
- 2. mtn list unknown
- 3. mtn add | move | remove
- 4. mtn status | diff
- 5. mtn commit -m "detaillierte Beschreibung"
+ 2. ``mtn list unknown``
+ 3. ``mtn add | move | remove``
+ 4. ``mtn status | diff``
+ 5. ``mtn commit -m "detaillierte Beschreibung"``
  6. wieder von vorn, bis das Problem gelöst ist
 
 Wenn alle Tests in dem neuen Zweig fehlerfrei durchlaufen, bin ich soweit, die
-Änderungen wieder im Hauptzweig einzupflegen.
+Änderungen wieder in den Trunk-Zweig einzupflegen.
 
 Merge des neuen Zweigs mit Trunk
 ................................
@@ -79,11 +79,11 @@ ein::
  $ mtn propagate trunk trunk.ticketnr
 
 Damit habe ich die Chance mögliche Konflikte in meinem Zweig aufzulösen ohne
-den Hauptzweig mit Zwischenständen zu belasten.
+den Trunk-Zweig mit Zwischenständen zu belasten.
 
 Ich lasse nochmal alle Tests durchlaufen. Bei Fehlern kehre ich zurück zur
 Arbeit am Problem in meinem Zweig. Ging alles gut, schiebe ich meine
-Änderungen in den Hauptzweig und veröffentliche sie [#mtnsync]_::
+Änderungen in den Trunk-Zweig und veröffentliche sie [#mtnsync]_::
 
  $ mtn propagate trunk.ticketnr trunk
  $ mtn sync
@@ -93,25 +93,26 @@ Arbeit am Problem in meinem Zweig. Ging alles gut, schiebe ich meine
    von anderen veröffentlicht wurden.
 
 Wenn zwischen dem ``mtn pull`` und dem ``mtn sync`` niemand anders Änderungen
-in den Hauptzweig eingespielt hat, bin ich fertig.
+in den Trunk-Zweig eingespielt hat, bin ich fertig.
 
 In dem wahrscheinlich eher seltenen Fall, dass jemand in der Zwischenzeit
-wieder eine neue Version in Trunk eingespielt hat, haben wir nun vieleicht
-zwei oder mehr Kopfversionen im Hauptzweig. Diese vereinige ich in meinem
+wieder eine neue Version in Trunk eingespielt hat, haben wir nun vielleicht
+zwei oder mehr Endversionen im Trunk-Zweig. Diese vereinige ich in meinem
 lokalen Repository mit::
 
  $ mtn merge trunk
 
 Dabei löse ich eventuell auftretende Konflikte und lasse nochmal alle Tests
-durchlaufen. Bei Problemen propagiere ich den letzten Stand des Hauptzweiges
+durchlaufen. Bei Problemen propagiere ich den letzten Stand des Trunk-Zweiges
 nochmal in meinen Problemzweig und kehre zurück zur Arbeit am Problem.
 
 Ging alles gut, veröffentliche ich die Änderungen::
 
  $ mtn sync
 
-Ein anderes Modell wäre z.B. das nur einer der Entwickler Änderungen mit dem
-Hauptzweig abgleicht und dazu vorher seinen Zweig mit den Änderungen der
+Ein anderes Modell wäre zum Beispiel, dass nur einer der Entwickler Änderungen
+mit dem
+Trunk-Zweig abgleicht und dazu vorher seinen Zweig mit den Änderungen der
 anderen Entwickler aktualisiert.
 
 Wenn ein Stand erreicht ist, der eingefroren und veröffentlicht werden soll,
@@ -122,7 +123,7 @@ gesammelt werden.
 Konflikte beim Zusammenführen
 -----------------------------
 
-Es gibt zwei Möglichkeiten, verschiedene Kopfrevisionen eines Zweiges
+Es gibt zwei Möglichkeiten, verschiedene Endrevisionen eines Zweiges
 zusammenzuführen. Vor dem Commit der eigenen Änderungen mit ``mtn update`` und
 nach dem Commit mit ``mtn merge``. Bei beiden Varianten verwendet monotone die
 gleichen Algorithmen zum Zusammenführen. Bei der ersten Variante ist es
@@ -148,12 +149,13 @@ bei ``mtn merge`` verwendet.
 
 .. XXX mtn conflicts untersuchen und beschreiben
 
-Konflikttypen
-.............
+Konflikt-Typen
+..............
 
 - Konflikte im Inhalt von Dateien
 
-  Diese kommen allgemein am häufigsten vor. Sie treten z.B. auf, wenn in einer
+  Diese kommen allgemein am häufigsten vor. Sie treten zum Beispiel auf,
+  wenn in einer
   Datei unterschiedliche Änderungen gegenüber dem gemeinsamen Vorfahren 
   aufgetreten sind.  Bei Änderungen an verschiedenen Zeilen wird monotone
   diese Änderungen intern zusammenführen.
@@ -167,7 +169,7 @@ Konflikttypen
 - Doppelte Namen
 
   Dieser Konflikt tritt auf, wenn zwei Dateien oder Verzeichnissen in beiden
-  Zusammenführungskandidaten der gleiche Name gegeben wurde. Diese Dateien
+  Revisionen der gleiche Name gegeben wurde. Diese Dateien
   oder Verzeichnisse können neu aufgenommen oder in den widersprechenden
   Namen umbenannt worden sein.
 
@@ -197,20 +199,20 @@ Konflikttypen
 - Missing Root
 
   Das tritt eher selten auf. Es passiert, wenn ein
-  Verzeichnis in einer der beiden Revisionen zum Wurzelverzeichnis gemacht
+  Verzeichnis in einer der beiden Revisionen zum Stammverzeichnis gemacht
   wurde und in der anderen Revision gelöscht wurde.
 
   Dieser Konflikt wird gelöst, in dem in der Revision mit dem geänderten
-  Wurzelverzeichnis ein anderes Verzeichnis zur Wurzel gemacht wird. In der
+  Stammverzeichnis ein anderes Verzeichnis zur Wurzel gemacht wird. In der
   Revision, in der das Verzeichnis gelöscht wurde, kann man nichts machen, da
   eine Datei oder ein Verzeichnis, welches einmal (im Repository) gelöscht
   wurde, nicht wiederbelebt werden kann, sondern nur neu angelegt.
 
 - Ungültige Namen
 
-  Monotone reserviert den Namen *_MTN* im Wurzelverzeichnis des
+  Monotone reserviert den Namen *_MTN* im Stammverzeichnis des
   Arbeitsbereiches für interne Zwecke und behandelt alle Dateien diesen Namens
-  im Wurzelverzeichnis als illegal für Versionierung.
+  im Stammverzeichnis als illegal für die Versionsverwaltung.
 
   In anderen Verzeichnissen im Arbeitsbereich ist der Name legal.
 
@@ -248,7 +250,7 @@ Konflikttypen
 
   Der monotone-Befehl *conflicts* kann hierbei noch nicht helfen.
 
-- Attributkonflikte
+- Konflikte von Attributen
 
   Das passiert, wenn die Attribute einer Datei bzw. eines Verzeichnisses in
   den beiden Revisionen unterschiedlich sind.
@@ -278,13 +280,13 @@ rev_bad`` markiert werden. Damit hat man die Menge der verdächtigen
 Revisionen eingegrenzt. Monotone wählt als nächstes die Revision in der Mitte
 zwischen der guten und der schlechten Revision aus und lädt diese in den
 Arbeitsbereich. Nachdem man diese Revision getestet hat, markiert man diese
-ebenfalls mit *good* bzw. *bad* (dabei brauch keine Revision mehr angegeben
+ebenfalls mit *good* bzw. *bad* (dabei braucht keine Revision mehr angegeben
 werden). Monotone halbiert im Arbeitsbereich automatisch den Bereich zwischen
 der zuletzt als *good* und der zuletzt als *bad* markierten Revision, so dass
 man auf schnellst möglichem Weg zu der Revision kommen kann, in der der Fehler
 zum ersten Mal auftrat. Kommt man auf dem Weg hierhin zu einer Revision die
-nicht testbar ist (z.B. weil sie nicht compiliert werden kann), überspringt
-man diese Revision mit ``mtn bisect skip``.
+nicht testbar ist (zum Beispiel weil sie nicht compiliert werden kann),
+überspringt man diese Revision mit ``mtn bisect skip``.
 
 Mit ``mtn bisect status`` kann man sich jederzeit den Status der Bisektion
 ausgeben lassen.
@@ -294,10 +296,11 @@ Zugriffsrechte
 
 Bei monotone ist es viel wichtige, was aus einer einem Repository herauskommt,
 als was hinein geht. Der Austausch über Netzwerk ist eine einfache Kommunikation
-von Fakten (Dateiinhalte und Revisionen) und Zusicherungen über deren Wert (die
-Zertifikate, mit denen diese signiert sind). Diese Zusicherungen müssen nicht
+von Fakten (Inhalt von Dateien und Revisionen) und Zusicherungen über deren
+Wert (die Zertifikate, mit denen diese signiert sind).
+Diese Zusicherungen müssen nicht
 notwendigerweise geglaubt werden, im Abschnitt Vertrauensgrundlagen wird näher
-darauf eingegangen. Es gibt einfache Steuerungsmöglichkeiten für den
+darauf eingegangen. Es gibt simple Möglichkeiten der Steuerung für den
 grundlegenden Zugriff auf die Datenbank, alles darüber hinausgehende sollte über
 Vertrauensverhältnisse geregelt werden.
 
@@ -316,7 +319,7 @@ Ein Beispiel für die Datei read-permissions könnte so aussehen::
   allow "mathias@example.net"
 
 Dies würde aller Welt Lesezugriff auf alle Zweige erlauben, die mit
-"net.example." anfangen und mir Zugriff auf alle Zweige.
+*net.example.* anfangen und mir Zugriff auf alle Zweige.
 
 Die Datei write-permissions enthält lediglich eine Aufzählung von zugelassenen
 Schlüsseln, einen pro Zeile::
@@ -356,7 +359,7 @@ einem Arbeitsbereich den stabilen Zweig zu verfolgen und in diesem
 Arbeitsbereich zusätzliche Zertifikate von der Qualitätssicherung zu
 verlangen, während ich in einem anderen Arbeitsbereich die aktuellsten
 Entwicklungen im Entwicklerzweig verfolge und Zertifikate von allen bekannten
-Projektentwicklern akzeptiere.
+am Projekt beteiligten Entwicklern akzeptiere.
 
 Diese Einstellungen werden über Lua-Hooks realisiert.
 
@@ -370,8 +373,8 @@ Aussprechen von Vertrauen voneinander getrennt. Das heißt:
   ausgetauscht.
 
 - Nach der Synchronisation kann ich entscheiden, was ich mit den neuen
-  Revisionen anfange. Z.B. könnte ich diese mit meiner Arbeit zusammenführen,
-  auschecken oder einfach ignorieren.
+  Revisionen anfange. Zum Beispiel könnte ich diese mit meiner Arbeit
+  zusammenführen, auschecken oder einfach ignorieren.
 
 - Vertrauen gegenüber den neuen Zertifikaten wird erst geprüft, wenn ich
   meinen Arbeitsbereich aktualisiere.
@@ -380,8 +383,8 @@ Qualitätssicherung
 ------------------
 
 Monotones Mechanismen zur Qualitätssicherung beruhen überwiegend auf der
-Einschränkung von Subgraphen der Revisionsgeschichte. Es gibt zwei
-Möglichkeiten, diese einzuschränken:
+Einschränkung von Subgraphen der Revisionsgeschichte. Zwei
+Möglichkeiten gibt es, diese einzuschränken:
 
 - Indem man die Menge der vertrauenswürdigen Zweigzertifikate einschränkt kann
   man fordern, dass bestimmte Gutachter jede Kante des Subgraphen evaluiert
@@ -392,25 +395,24 @@ Möglichkeiten, diese einzuschränken:
   den ersten Hook ist im Abschnitt *Trust Evaluation Hooks* des Handbuches zu
   finden. Dieser lässt sich leicht an die anderen beiden anpassen.
 
-  Die Gutachter können Ihre Bewertung bestimmter Revisionen u.a. mit den
-  monotone-Befehlen *approve*, *disapprove*, *suspend* ausdrücken.
+  Die Gutachter können Ihre Bewertung bestimmter Revisionen mit
+  den monotone-Befehlen *approve*, *disapprove*, *suspend* ausdrücken.
 
 - Indem man die Menge der geforderten *testresult* Zertifikate angibt, kann
   man verlangen, dass die Endpunkte eines *update* Befehls ein Zertifikat
   haben, welches angibt, dass die betreffende Revision bestimmte Tests oder
-  eine Testsuite erfüllt haben.
-  haben.
+  eine Testreihe erfüllt haben.
 
   Hierfür verwendet monotone den Lua Hook ``accept_testresult_change``, der
   durch den monotone-Befehl *update* aufgerufen wird. Die
   Default-Implementierung liefert ``true``, wenn die Datei
   ``_MTN/wanted-testresults`` nicht existiert. Andernfalls sollte diese Datei
-  eine Liste von Schlüssel-IDs enthalten, die die Testresultate
+  eine Liste von Schlüssel-IDs enthalten, die die Testergebnisse
   repräsentieren. Dann liefert der Hook ``false``, wenn eine gelistete
   Schlüssel-ID sowohl in der alten als auch in der neuen Revision enthalten
   ist und in der alten Revision ``true`` ist und in der neuen ``false``,
   andernfalls liefert die Default-Implementierung ``true``.
 
-  Ein Testresultat kann mit dem monotone-Befehl *testresult* hinzugefügt
-  werden. Sinnvollerweise verwendet man für jeden Test bzw. jede Testsuite,
+  Ein Testergebnis kann mit dem monotone-Befehl *testresult* hinzugefügt
+  werden. Sinnvollerweise verwendet man für jeden Test bzw. jede Testreihe,
   die vermerkt werden soll, einen eigenen Schlüssel.

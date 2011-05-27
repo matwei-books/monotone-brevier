@@ -1,10 +1,10 @@
 
 .. vim: set sw=2 ts=2 tw=78 et si:
 
-A3 Workflow Schummelzettel
-==========================
+A3 Arbeitsablauf Spickzettel
+===============================
 
-Dieser Workflow geht von einem eigenen Zweig pro Fehlerbeseitigung / Ticket
+Dieser Arbeitsablauf geht von einem eigenen Zweig pro Fehlerbeseitigung / Ticket
 aus.
 
 Neuen Zweig auschecken

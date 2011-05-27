@@ -36,8 +36,8 @@ paar Rechte einräumen::
  EOT
 
 Damit wird dem Schlüssel mathias@weidner.in-bad-schmiedeberg.de erlaubt, alle
-Zweige in dem betreffenden Repository zu lesen, d.h. in ein anderes Repository
-zu kopieren (z.B. mit ``mtn pull``).
+Zweige in dem betreffenden Repository zu lesen, das heisst in ein anderes
+Repository zu kopieren (zum Beispiel mit ``mtn pull``).
 
 Außerdem brauche ich noch Schreibzugriff, damit ich meine Daten in das
 Repository schicken kann (``mtn push`` bzw. ``mtn sync``)::
@@ -76,7 +76,7 @@ beide Repositories auf den gleichen Stand bringen::
 
  $ mtn --db anderes/repository.mtn sync rechner.von.mathias "*"
  
-bzw.
+beziehungsweise
 
  $ mtn --db anderes/repository.mtn sync
 
@@ -105,10 +105,10 @@ nicht zu erreichen, ist immer noch der direkte Abgleich zwischen den
 Entwicklern möglich.
 
 Ein weiterer Vorteil eines zentralen Servers ist der, dass man zum
-Synchronisieren nur noch ``mtn sync`` eingeben muss und den Servernamen und
-Zweig weglassen kann, wenn die betreffenden Variablen in der Datenbank richtig
+Synchronisieren nur noch ``mtn sync`` eingeben muss und den Namen von Server und
+Zweig weglassen kann, wenn die betreffenden Variablen in der Datenbank passend
 eingestellt sind. Konkret sind das die Variablen ``database: default-server``
-und ``database: default-include-pattern``. Diese sehen ungefähr so aus::
+und ``database: default-include-pattern``. Diese sehen in etwa so aus::
 
  $ mtn list vars
  database: default-exclude-pattern 
@@ -131,7 +131,7 @@ enthält auch auf den Rechnern der Entwickler vorhanden sind. Bei einem Ausfall
 kann ein neues Repository jederzeit aus einem der anderen Repositories,
 welches alle Zweige und die letzten Änderungen enthält, neu aufgesetzt werden.
 Lediglich der private Schlüssel für den Server sollte an einem sicheren Ort
-verwahrt werden, damit beim Neuaufsetzen mit dem gleichen Schlüssel
+verwahrt werden, damit beim neuen Aufsetzen mit dem gleichen Schlüssel
 weitergearbeitet werden kann und die beteiligten Entwickler keine Meldung über
 geänderte Serverschlüssel bei der Synchronisation bekommen.
 
@@ -154,8 +154,9 @@ einfachen Download der Quellen freigeben. Das wird in
 Andere Transportwege
 --------------------
 
-Monotones Datenbanksynchronisation basiert auf einem Protokoll namens
-*netsync*. Normalerweise transportiert monotone dieses Protokoll über eine
+Die Synchronisation der Datenbanken von monotone basiert auf einem Protokoll
+namens *netsync*.
+Normalerweise transportiert monotone dieses Protokoll über eine
 einfache TCP-Verbindung. Das ist nicht der einzige Transportweg, über den
 monotone *netsync* verwenden kann. Es ist möglich dieses Protokoll über *SSH*
 oder irgendein Programm, das eine Full-Duplex-Verbindung aufbauen kann, zu
@@ -163,24 +164,25 @@ verwenden.
 
 Wenn monotone mit dem *pull*, *push* oder *sync* Befehl aufgerufen wird,
 reicht es das erste Argument an einen Lua-Hook weiter, der es in einen
-Verbindungsbefehl umwandeln soll. Wenn dieser Hook einen Verbindungsbefehl
-zurückliefert, startet monotone diesen Befehl lokal und spricht das *netsync*
+Befehl zur Verbindungsaufnahme umwandeln soll.
+Wenn dieser Hook einen Befehl
+zurückliefert, startet monotone diesen lokal und spricht das *netsync*
 Protokoll über die Standardeingabe und -ausgabe des entsprechenden Processes.
 
-Wenn der Lua-Hook keinen Verbindungsbefehl liefert, versucht monotone das
-erste Argument als TCP-Adresse zu interpretieren (ein Rechnername mit einer
+Wenn der Lua-Hook keinen Befehl liefert, versucht monotone das
+erste Argument als TCP-Adresse zu interpretieren (ein Name mit einer
 optionalen Portnummer), baut eine TCP-Verbindung dorthin auf und spricht
 *netsync* über diese Verbindung.
 
 Monotone versteht per Default drei URI-Schemata:
 
-- SSH-URIs in der Form ``ssh://[user@]hostname[:port]/pfad/zur/db.mtn``
+- SSH-URIs der Form ``ssh://[user@]hostname[:port]/pfad/zur/db.mtn``
 
   Hierbei wird monotone auf dem fremden Rechner via SSH aufgerufen und das
   *netsync* Protokoll über die Standardein- und -ausgabe verwendet.
 
-  Bei einer SSH-URI muss das Programm *ssh* lokal im Suchpfad für Programme zu
-  finden sein und das Program *mtn* auf dem entfernten Rechner.
+  Bei einer SSH-URI muss das Programm *ssh* lokal im Suchpfad für ausführbare
+  Programme zu finden sein und das Program *mtn* auf dem entfernten Rechner.
 
 - Datei-URIs in der Form ``file:/pfad/zur/db.mtn``
 
@@ -198,7 +200,7 @@ Monotone versteht per Default drei URI-Schemata:
   Protokoll darüber.
 
 Sowohl bei SSH-URIs als auch bei Datei-URIs wird die Datenbank gesperrt,
-d.h. man benötigt Schreibrechte
+das heisst man benötigt Schreibrechte
 auf die Datenbank, auch wenn man nur mit *pull* Daten holt und die Datenbank
 nicht dauerhaft modifiziert. Außerdem wird für diese beiden Transporte die
 Default-Authentisierung deaktiviert.

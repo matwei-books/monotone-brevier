@@ -7,8 +7,8 @@ Datensicherung
 Bei der Datensicherung sind zwei Dinge wesentlich. Zum einen die Daten selbst
 mit ihrer Historie, Verknüpfungen und Kommentaren. Zum anderen die Schlüssel,
 mit denen die Daten signiert wurden. Dazu kommen noch die Einstellungen im
-Verzeichnis *~/.monotone/*, wie z.B. read-permissions, write-permissions,
-Lua-Hooks, ...
+Verzeichnis *~/.monotone/*, wie zum Beispiel read-permissions,
+write-permissions, Lua-Hooks, ...
 
 Im Allgemeinen ist die Sicherung der Daten (nicht der Schlüssel) eher
 unkritisch, wenn mehrere Leute zusammenarbeiten und daher auch mehrere
@@ -35,7 +35,7 @@ der bereits von einem alten, verlorengegangenen Schlüssel genutzt wird.
 Da die Schlüssel weiterhin meistens über ihren Namen visuell identifiziert
 werden, gibt es das Konzept von "local names", die per Lua-Hook bestimmten
 Schlüssel gegeben werden können. Diese Namen werden dann statt dem
-ursprünglich vergebenen Schlüsselnamen angezeigt.
+ursprünglich vergebenen Namen des Schlüssels angezeigt.
 
 
 Lokale Datensicherung
@@ -69,8 +69,8 @@ Zur Wiederherstellung kopiere ich die Schlüssel und Einstellungen wieder nach
 Server::
 
  $ cp -a pfad/zum/backup/.monotone ~/.monotone
- $ mtn --db lokales_repository.mtn db init
- $ mtn --db lokales_repository.mtn pull remote.server "zweigmuster"
+ $ mtn --db lokale_db.mtn db init
+ $ mtn --db lokale_db.mtn pull remote.server "zweigmuster"
 
 Automatische Sicherung eines monotone-Servers
 ---------------------------------------------
@@ -88,7 +88,7 @@ monotone-Server ununterbrochen durchlaufen. Es ist auch nicht notwendig, das
 Backup-Repository auf dem gleichen Rechner wie den Server zu betreiben, da
 beide Repositories sowieso über Netz synchronisiert werden.
 
-Eine Alternative zu Sicherung der Serverdatenbank ohne zusätzliche
+Eine Alternative zu Sicherung der Server-Datenbank ohne zusätzliche
 Synchronisation gibt es, falls der monotone-Server über das Programm
 *usher* (siehe Anhang A2) gestartet wird.
 Usher könnte angewiesen werden, den Dienst zu stoppen und der DB-Lock würde
@@ -104,9 +104,9 @@ Schlüssel sind hierbei nicht für die Signatur wichtig, sondern für die
 Absicherung der Kommunikation. Wenn ich bei der Wiederherstellung einen neuen
 Serverschlüssel erzeugen muss, bekommen alle beteiligten eine Meldung, dass
 sich der Serverschlüssel geändert hat. Dann müssen sich von der Authentizität
-des neuen Serverschlüssels überzeugen, den alten verwerfen und den neuen
+des neuen Server-Schlüssels überzeugen, den alten verwerfen und den neuen
 akzeptieren.
 
-Zur Wiederherstellung gehe ich vor wie beim lokalen Repository, d.h. ich
+Zur Wiederherstellung gehe ich vor wie beim lokalen Repository, das heisst, ich
 kopiere das Repository und die Konfigurationsdaten an ihren Platz und arbeite
 mit dem Stand der letzten Sicherung weiter.

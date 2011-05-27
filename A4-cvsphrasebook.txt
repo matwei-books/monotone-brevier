@@ -1,7 +1,7 @@
 
 .. vim: set sw=2 ts=2 tw=78 et si:
 
-A4 CVS Schummelzettel
+A4 CVS Spickzettel
 =====================
 
 Dieser Anhang ist dem *CVS Phrase Book* aus dem monotone-Wiki entnommen. Er
@@ -116,10 +116,10 @@ oder
 Mit dem Revisions-Parameter verhält sich monotone ähnlich wie CVS. Ein
 Unterschied ist, dass man direkt von der gewählten Revision aus weiterarbeiten
 und mit *commit* einchecken kann. Das ist insbesondere dann nützlich, wenn man
-nach einer Aktualisierung feststellt, dass die Kopfversion eines Zweiges
+nach einer Aktualisierung feststellt, dass die Endversion eines Zweiges
 defekt ist. Dann kann man auf eine ältere, funktionierende Funktion
 zurückgehen und normal weiterarbeiten. Später kann man die eigene Arbeit dann
-mit der wieder funktionierenden Kopfversion zusammenführen.
+mit der wieder funktionierenden Endversion zusammenführen.
 
 Unterschiede ansehen
 --------------------

@@ -15,9 +15,9 @@ Prinzipiell kann man monotone bei Debian GNU/Linux mit dem Befehl ``apt-get``
 installieren. In der momentan stabilen Version von Debian (6.0 Squeeze) wird
 dann aber Version 0.48 von monotone installiert, in der aktuellen LTS-Version
 von Ubuntu (10.04 Lucid Lynx) gar 0.45, so dass ich hier die
-Installation aus den Programmquellen beschreibe.
+Installation aus den Quellprogrammen beschreibe.
 
-Zuerst müssen wir ein paar notwendige Programme und Bibiliotheken
+Zuerst müssen wir ein paar notwendige Programme und Bibliotheken
 installieren, die für die Übersetzung von monotone benötigt werden::
 
  $ sudo apt-get install autoconf automake bzip2 gettext g++   \
@@ -26,17 +26,17 @@ installieren, die für die Übersetzung von monotone benötigt werden::
                         liblua5.1-0-dev libidn11-dev          \
                         libgmp3-dev libbz2-dev stow texinfo
 
-Als nächstes holen wir uns die Programmquellen und entpacken diese::
+Als nächstes holen wir uns die Quellprogramme und entpacken diese::
 
  $ wget http://www.monotone.ca/downloads/1.0/monotone-1.0.tar.bz2
  $ tar xjf monotone-1.0.tar.bz2
 
-Wir begeben uns in das entpackte Verzeichnis mit den Programmquellen und
+Wir begeben uns in das entpackte Verzeichnis mit den Quellprogrammen und
 konfigurieren monotone für unseren Rechner mit ``configure``. Wenn wir nichts
 angeben, wird monotone nach */usr/local/bin* installiert. Ich installiere
-selbstkompilierte Software aber lieber nicht direkt dorthin, sondern gehe
+selbst kompilierte Software aber lieber nicht direkt dorthin, sondern gehe
 einen kleinen Umweg mit dem Programm ``stow``, der es mir erleichtert
-selbstkompilierte Software selektiv zu entfernen, oder zwischen verschiedenen
+selbst kompilierte Software selektiv zu entfernen, oder zwischen verschiedenen
 Versionen umzuschalten::
 
  $ cd monotone-1.0
@@ -63,7 +63,7 @@ vereinfacht.
    :scale: 25
    :align: center
 
-Zunächst akzeptieren wir die Lizenzerklärung (GPL, GNU General Public License)
+Zunächst akzeptieren wir die Lizenz (GPL, GNU General Public License)
 und dann geht es los.
 
 Wir wählen das Installationsverzeichnis und können hier noch nachschauen, ob
@@ -72,7 +72,8 @@ dort ausreichend Platz verfügbar ist.
 Dann können wir den Folder im Startmenü benennen, bzw. entscheiden, ob wir
 überhaupt einen wollen.
 
-Danach markieren wir, dass monotone zum Suchpfad hinzugefügt wird und
+Danach markieren wir, dass monotone zum Suchpfad für ausführbare Programme
+hinzugefügt wird und
 entscheiden, ob wir die Dokumentation gleich oder später (bzw. gar nicht)
 sehen wollen.
 

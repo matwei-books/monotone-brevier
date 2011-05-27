@@ -49,7 +49,7 @@ möglich::
  end
 
 Die alte Definition von *default_hook* ist über die Variable *old_hook* nur
-innerhalb des *do* Blocks verfügbar. Global, d.h. für monotone ist
+innerhalb des *do* Blocks verfügbar. Global, das heisst, für monotone ist
 *default_hook* jetzt in dieser Funktion definiert.
 
 Benutzerdefinierte Befehle
@@ -63,7 +63,7 @@ Standard-Lua zur Verfügung stehen. Eine dieser Funktionen ist::
 Diese Funktion fügt einen Befehl *name* zu den Benutzerbefehlen von monotone
 hinzu. Wenn dieser registrierte Befehl aufgerufen wird, wird monotone die mit
 *function* bereitgestellte Definition aufrufen. Diese Funktion würde
-üblicherweise ``mtn_automate`` (s.u.) verwenden, um den Aufruf
+üblicherweise ``mtn_automate`` (siehe unten) verwenden, um den Aufruf
 abzuarbeiten.  *params* ist eine Zeichenkette mit der Liste der Parameter
 für den Befehl. *abstract* ist eine kurze Beschreibung, *description* eine
 längere Beschreibung des Benutzerbefehls. Bei ``mtn help`` werden *params*,
@@ -85,7 +85,7 @@ Beachte, dass Tastatureingaben wie bei der
 ``--non-interactive`` Option von monotone deaktiviert sind.
 Aktionen, die Operationen mit
 passwortgeschützten Schlüsseln benötigen, werden daher nicht funktionieren, es
-sei denn, dass der ``get_passphrase`` Hook eingrichtet wurde.
+sei denn, dass der ``get_passphrase`` Hook eingerichtet wurde.
 
 Externe Programme
 -----------------
@@ -93,9 +93,9 @@ Externe Programme
 Einbetten der aktuellen Revision
 ................................
 
-Bei einigen Versionsverwaltungssystemen - z.B. RCS und CVS, gibt es
+Bei einigen Versionsverwaltungssystemen - zum Beispiel RCS und CVS - gibt es
 Schlüsselworte, die im Quelltext eingesetzt werden können und dann vom
-Versionsverwaltungssystem durch die entsprechenden Werte, wie z.B. die Version
+Versionsverwaltungssystem durch die entsprechenden Werte, wie die Version
 der Datei oder das Datum des Check in, ersetzt werden. So etwas gibt es bei
 monotone nicht, so dass man sich hier im Bedarfsfall mit einem Script behilft,
 das eine Datei automatisch generiert, die dann im Quelltext eingebunden wird.
@@ -133,12 +133,12 @@ Das Ergebnis ist auf Seite 3 diesen Textes zu sehen.
 
 Ich gebe hier die Basis- und die aktuelle Revision aus, so dass klar wird
 
-- auf welcher Revision im Repository der Text aufbaut (der Basisversion)
+- auf welcher Revision im Repository der Text aufbaut (der Basisrevision)
 - ob an dieser Revision Veränderungen vorgenommen wurden (dann sind Basis- und
   aktuelle Revision verschieden)
 
 Das Programm, das ich hier verwende, ist in Lua geschrieben. Prinzipiell
-sollte es möglich sein, das Programm so umzuschreiben, das es als Rcfile
+sollte es möglich sein, das Programm so zu schreiben, das es als Rcfile
 eingelesen werden kann und die Ausgabe durch einen benutzerdefinierten Befehl
 erfolgt. Der Vorteil wäre, das man keinen zusätzlichen Lua-Interpreter
 benötigt und statt dessen den in monotone vorhandenen verwendet. Das lasse ich

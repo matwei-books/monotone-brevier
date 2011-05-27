@@ -12,8 +12,8 @@ Grundlagen
 
 Monotone als Versionsverwaltungssystem hält für mich Zwischenstände
 von Dateien, die ich bearbeite, bereit. Da sind zum einen die aktuellen
-Versionen im Arbeitsbereich und die jeweils mit der Vorgänger- und
-Nachfolgerversion verketteten Versionen im Repository.
+Versionen im Arbeitsbereich und die jeweils mit dem Vorgänger und
+Nachfolgern verketteten Versionen im Repository.
 
 Das Repository ist dabei die Stelle, an der Buch geführt wird über alle von mir
 bestätigten Änderungen an den Dateien im Arbeitsbereich. Bei monotone ist das
@@ -23,8 +23,8 @@ Repository sondern mehrere, üblicherweise eins auf dem lokalen Rechner welches
 im Workspace referenziert wird und weitere Repositories auf anderen Rechnern,
 die mit dem lokalen abgeglichen werden.
 
-Eine Datei ist im Repository jeweils mit ihrer Vorgänger- und
-Nachfolgerversion (soweit vorhanden) verknüpft. Dabei ist es möglich, dass eine
+Eine Datei ist im Repository jeweils mit ihrem Vorgänger und
+Nachfolger (soweit vorhanden) verknüpft. Dabei ist es möglich, dass eine
 bestimmte Version keinen Vorgänger hat (es ist die erste eingecheckte Version
 dieser Datei), einen Vorgänger (Datei wurde ausgecheckt, geändert,
 eingecheckt) oder mehrere (die Version ist aus der Vereinigung verschiedener
@@ -80,8 +80,8 @@ Arbeitsbereich.
 Erst mit dem monotone-Kommando *pull* hole ich Daten aus einem entfernten
 Repository in das lokale und mit *push* schiebe ich Daten aus dem lokalen
 Repository in das entfernte, *sync* schließlich gleicht die Unterschiede
-zwischen lokalem und entfernten Repository in einem Aufruf aus, d.h. lokale
-Änderungen werden in das entfernte Repository übernommen und umgekehrt.
+zwischen lokalem und entfernten Repository in einem Aufruf aus, das heisst
+lokale Änderungen werden in das entfernte Repository übernommen und umgekehrt.
 
 Für *pull* wird kein Schlüssel benötigt, wenn der Server entsprechend
 konfiguriert ist. Damit ist ein anonymer Download möglich.

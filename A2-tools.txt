@@ -7,14 +7,15 @@ A2 Grafische Oberflächen und andere Programme
 diffuse
 -------
 
-Diffuse ist ein kleines und einfaches Text-Zusammenführ-Werkzeug geschrieben
-in Python. Mit Diffuse können Sie ganz einfach Änderungen in Ihren Quelltexten
+Diffuse ist ein kleines und einfaches Werkzeug zum Zusammenführen von Texten,
+geschrieben in Python.
+Mit Diffuse können Sie ganz einfach Änderungen in Ihren Quelltexten
 zusammenführen, bearbeiten und prüfen. Diffuse ist Freie Software.
 
 Die Homepage von diffuse ist http://diffuse.sourceforge.net/.
 
 Das Programm läuft auf allen Betriebssystemen, auf denen *Python* verfügbar
-ist (d.h. UNIX, Mac OS, MS Windows).
+ist (das heisst: UNIX, Mac OS, MS Windows).
 
 Guitone
 -------
@@ -48,12 +49,12 @@ Die Homepage der Open Source Version ist http://www.indefero.net/open-source/.
 
 **Wichtig!** auf der Homepage wird zur Zeit Version 1.0 zum Download
 angepriesen. Unterstützung für Monotone gibt es aber erst für Versionen ab
-1.1, die es auf der Downloadseite auch gibt.
+1.1, die es auf der Download-Seite auch gibt.
 
 KDiff3
 ------
 
-KDiff3 ist ein Vergleichs- und Zusammenführ-Programm wie *diffuse* und
+KDiff3 ist ein Vergleichs- und Zusammenführungs-Programm wie *diffuse* und
 *xxdiff*.
 
 Die Homepage von KDiff3 ist http://kdiff3.sourceforge.net/.
