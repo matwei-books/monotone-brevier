@@ -37,6 +37,19 @@ ist relativ einfach (Version 1.0rc5 auf Ubuntu)::
  $ sudo stow -d /usr/local/stow -v guitone-1.0rc5
  $ guitone
 
+Indefero
+--------
+
+Indefero ist im Grunde ein Klon von GoogleCode mit Support für verschiedene
+DRCS und seit Version 1.1 auch für monotone. Dieses scheint zur Zeit (2011)
+aktiver gepflegt zu werden als *viewmtn*.
+
+Die Homepage der Open Source Version ist http://www.indefero.net/open-source/.
+
+**Wichtig!** auf der Homepage wird zur Zeit Version 1.0 zum Download
+angepriesen. Unterstützung für Monotone gibt es aber erst für Versionen ab
+1.1, die es auf der Downloadseite auch gibt.
+
 KDiff3
 ------
 
