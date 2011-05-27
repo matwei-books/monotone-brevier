@@ -336,10 +336,12 @@ Zertifikate und Revisionen
 
 Jede im Repository abgelegte Version wird mit einer kryptographischen
 SHA1-Hash identifiziert, die sowohl den Inhalt als auch ihre ganze Abstammung
-repräsentiert. Diese SHA1-Hash wird Zertifikat (englisch kurz *cert*) genannt.
+repräsentiert. Ein Zertifikat ist bei Monotone eine RSA-Public-Key-Signatur
+über ein Tupel aus Revisions-ID, den Namen und den Wert des Zertifikatstyps.
 
 Die normalen Zertifikate, die mit allen Revisionen einhergehen sind für den
-Autor, den Zweig der Revision und das Änderungsprotokoll (*changelog*)
+Autor, den Zweig der Revision, das Änderungsprotokoll (*changelog*) sowie
+das Datum, welches automatisch hinzugefügt wird.
 
 Das Zweigzertifikat ist das wichtigste für die automatischen Operationen von
 monotone.
