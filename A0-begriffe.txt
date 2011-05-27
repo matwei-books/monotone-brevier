@@ -133,6 +133,16 @@ Schlüssel
 
   Als Verschlüsselungsverfahren verwendet monotone *RSA*.
 
+  In älteren monotone-Versionen wurden Schlüssel über ihrem Namen (der
+  E-Mail-Adresse) identifiziert. Es konnte immer nur ein Schlüssel mit einem
+  Namen in einer Datenbank vorhanden sein. In neueren Versionen werden
+  Schlüssel über ihren SHA1-Hash identifiziert. Damit ist es nun möglich,
+  mehrere Schlüsse mit demselben Namen in einer Datenbank zu haben. Das ist
+  insbesondere dann praktisch, wenn ein (privater) Schlüssel verloren
+  gegangen ist. Über eine Lua-Hook können Schlüsseln lokale Namen vergeben
+  werden, die anstelle des Schlüsselnamens angezeigt werden. Damit kann man
+  unterschiedliche Schlüssel mit dem gleichen Namen unterscheiden.
+
 Server
   Ein monotone-Prozess, der über das Netzwerk angesprochen werden kann. Das
   kann ein ständig laufender monotone-Server sein oder eine kurzzeitig mit
