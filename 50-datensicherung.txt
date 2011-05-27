@@ -28,6 +28,16 @@ Geht dieser Schlüssel verloren, kann man zwar einen neuen Schlüssel anlegen
 und dem neuen Schlüssel die entsprechenden Rechte vergeben, man muss aber
 dafür einen anderen Namen (dann eine andere E-Mail-Adresse) geben.
 
+In neueren monotone-Versionen werden Schlüssel nicht mehr über ihren Namen
+identifiziert, sondern über ihren Hash.
+Damit ist es auch möglich, einen Schlüssel mit einem Namen zu erzeugen,
+der bereits von einem alten, verlorengegangenen Schlüssel genutzt wird.
+Da die Schlüssel weiterhin meistens über ihren Namen visuell identifiziert
+werden, gibt es das Konzept von "local names", die per Lua-Hook bestimmten
+Schlüssel gegeben werden können. Diese Namen werden dann statt dem
+ursprünglich vergebenen Schlüsselnamen angezeigt.
+
+
 Lokale Datensicherung
 ---------------------
 
