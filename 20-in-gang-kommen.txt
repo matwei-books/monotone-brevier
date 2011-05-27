@@ -14,27 +14,48 @@ Ein lokales Repository anlegen
 Um Dateien mit monotone zu verwalten muß ich ein lokales
 Repository anlegen. Prinzipiell kann man ein Repository für mehrere oder alle
 Projekte verwenden, ich ziehe in den meisten Fällen ein Repository für ein
-Projekt vor. Das lokale Repository [#databaselocation]_ lege ich mit folgendem
+Projekt vor. Das lokale Repository lege ich mit folgendem
 Befehl an::
 
- $ mtn --db projekt.mtn db init
+ $ mtn --db /pfad/zum/projekt.mtn db init
 
-.. [#databaselocation] Die Datenbank könnte irgendwo abgelegt werden, bei mir
-   landen alle im Verzeichnis *~/A/monotone*.
+Alternativ kann ich bei neueren Versionen von monotone ein lokales Repository
+automatisch beim Klonen eines entfernten Repositorys mit dem  Befehl *clone* 
+anlegen::
+
+ $ mtn --db /pfad/zum/project.mtn clone server branch
 
 Hierbei ist *project.mtn* der Name der neuen Datenbankdatei, *server* die
-Adresse des entfernten Repository und *branchwildcard* die Beschreibung der
-Zweige, die ich laden will.
+Adresse des entfernten Repository und *branch* der Name des
+Zweiges, den ich laden will.
+
+Ich habe bei beiden Varianten den Pfad zur Projektdatenbank expliziert
+angegeben, weil es mir hier darum ging Möglichkeiten, ein lokales Repository
+[#databaselocation]_ anzulegen, aufzuzeigen.  Bei neueren monotone-Versionen
+ist es möglich, auf die Angabe der lokalen Datenbank zu
+verzichten. In diesem Fall verwendet monotone die Standarddatenbank
+*:default.mtn*. Neuere Versionen verwenden das Verzeichnis
+*$HOME/.monotone/databases* (UNIX) bzw. *%APPDATA%\\monotone\\databases* (MS
+Windows) für Datenbanken, deren Name mit **:** beginnt. Wird keine Datenbank
+angegeben, so wird die Standarddatenbank genommen.
+
+.. [#databaselocation] Die Datenbank könnte irgendwo abgelegt werden, bei mir
+   landeten früher meist alle im Verzeichnis *~/A/monotone*. Seitdem ich die
+   Notation *:datenbankname* kenne, lege ich immer mehr Datenbanken im
+   Verzeichnis *$HOME/.monotone/databases* ab.
 
 Persönliche Schlüssel erzeugen
 ------------------------------
 
-Mit meinen persönlichen Schlüsseln signiere ich alle Daten, die ich im
-Repository einspeichere sowie alle Tags die ich vergebe. Über diesen Schlüssel
+Mit meinen persönlichen Schlüsseln signiere ich die Daten, [#signiertedaten]_
+die ich im Repository einspeichere. Über diesen Schlüssel
 werden auch die Zugriffsrechte auf entfernte Repositories eingestellt::
 
-
  $ mtn genkey mathias@example.net
+
+.. [#signiertedaten] Vom Nutzer signiert werden die Zertifikate (author,
+   branch, changelog, date, suspend, tag, testresult, ...). Alle anderen
+   Daten sind unsigniert.
 
 Um das Kennwort für den Schlüssel nicht jedesmal eingeben zu müssen kann ich
 (unter UNIX, mit installiertem ssh_agent) den Schlüssel zur Verwaltung an
@@ -72,7 +93,8 @@ das er in andere Datenbanken mit ``mtn read`` eingelesen werden kann.
    ist üblicherweise im Verzeichnis *$HOME/.monotone* bzw. unter MS Windows
    in *%APPDATA%\\monotone* zu
    finden. Hier gibt es auch ein Unterverzeichnis *keys*, in dem die
-   monotone bekannten Schlüssel gespeichert sind.
+   monotone bekannten Schlüssel gespeichert sind, und das Unterverzeichnis
+   *databases*, in dem die von monotone verwalteten Datenbanken liegen.
 
 .. [#windowspassphrase] Soweit mir bekannt, ist das die einzige Möglichkeit
    unter MS Windows.
