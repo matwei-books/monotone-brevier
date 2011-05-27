@@ -13,57 +13,59 @@ E-Mail
 IRC
   irc.oftc.net #monotone
 
-http://www.monotone.ca/
+www.monotone.ca/
   Die Homepage von monotone (englisch), hier findet man fast alles, was man
   braucht.
 
-http://wiki.monotone.ca/
+wiki.monotone.ca/
   Das Wiki zu monotone. Von dort habe ich sehr viele Anregungen für diesen
   Text genommen. Einzelne Passagen sind direkte Übersetzungen von
   Wiki-Artikeln oder Teilen davon.
 
-http://guitone.thomaskeller.biz/
+guitone.thomaskeller.biz/
   Die Homepage von Guitone, einem grafischen Frontend für monotone, das
   insbesondere Anfängern den Einstieg erleichtern dürfte.
 
-http://diffuse.sourceforge.net/
+diffuse.sourceforge.net/
   Die Homepage von diffuse, einem Programm zum Vergleichen und Zusammenführen
   von Dateien.
 
-http://kdiff3.sourceforge.net/
+kdiff3.sourceforge.net/
   Die Homepage von KDiff3, einem Programm zum Vergleichen und Zusammenführen
   von Dateien.
 
-http://www.lua.org/
+www.lua.org/
   Die Homepage zur Programmiersprache *Lua*, mit der Anpassungen und
   Erweiterungen für monotone geschrieben werden können.
 
-http://furius.ca/xxdiff/
+furius.ca/xxdiff/
   Die Homepage von xxdiff, einem Programm zum Vergleichen und Zusammenführen
   von Dateien.
 
-http://oandrieu.nerim.net/monotone-viz/
+oandrieu.nerim.net/monotone-viz/
   Die Homepage von monotone-viz, einem Visualisierungsprogramm für
   Revisionsgraphen.
 
-http://nakedstartup.com/2010/04/simple-daily-git-workflow/
+nakedstartup.com/2010/04/simple-daily-git-workflow/
   Eine Beschreibung für einen möglichen Arbeitsablaufs mit *git*, die ich als
   Anregung für diesen Text verarbeitet habe.
 
-http://www.troyhunt.com/2011/05/10-commandments-of-good-source-control.html
+www.troyhunt.com/2011/05/10-commandments-of-good-source-control.html
   *The 10 commandments of good source control management* (englisch)
 
   Das Epigraph über dem Grundlagenkapitel ist von dieser Seite genommen. Auch
   die meisten der anderen Gebote gehören meiner Meinung nach zu den
   Grundprinzipien der Arbeit mit Versionsverwaltungssystemen.
 
-http://www.mail-archive.com/monotone-devel@nongnu.org/msg09319.html
+www.mail-archive.com/monotone-devel@nongnu.org/msg09319.html
+  Posting auf der E-Mail-Liste *monotone-devel*
+
   Re: [Monotone-devel] mtn automate get_current_revision_id - bug or feature?,
   *Nuno Lucas*
 
   Ein Python-Script, das ich als Vorlage für die Ermittlung von Basis- und
   aktueller Revision, wie im Vorspann angezeigt, genommen habe.
 
-http://weidner.in-bad-schmiedeberg.de/computer/rcs/monotone/
+weidner.in-bad-schmiedeberg.de/computer/rcs/monotone/
   Artikel auf meiner Homepage zu monotone, zum Teil Auszüge aus und
   Vorabversionen von diesem Text.
