@@ -85,14 +85,12 @@ Dort ist zur Zeit ein Archiv für Version 0.99 zu finden, dem das
 Verzeichnis mit der Dokumentation fehlt. Am besten synchronisiert man ein
 lokales Repository mit dem Projekt::
 
- $ mtn --db usher.db db init
- $ mtn --db usher.db pull webhost.mtn-host.prjek.net \*
- $ mtn --db usher.db list branches
- $ mtn --db usher.db \
-       --branch net.venge.monotone.contrib.usher \
-       co .
+ $ mtn --db :usher.mtn clone webhost.mtn-host.prjek.net \
+       net.venge.monotone.contrib.usher usher
+ $ cd usher
+ $ lynx usher/doc/documentation.html
 
-Dann ist es auch einfacher, eigene Änderungen zurück zu geben.
+Dann ist es auch einfacher, eigene Änderungen zurückzugeben.
 
 viewmtn
 -------
