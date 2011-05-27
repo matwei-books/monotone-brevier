@@ -88,6 +88,15 @@ monotone-Server ununterbrochen durchlaufen. Es ist auch nicht notwendig, das
 Backup-Repository auf dem gleichen Rechner wie den Server zu betreiben, da
 beide Repositories sowieso über Netz synchronisiert werden.
 
+Eine Alternative zu Sicherung der Serverdatenbank ohne zusätzliche
+Synchronisation gibt es, falls der monotone-Server über das Programm
+*usher* (siehe Anhang A2) gestartet wird.
+Usher könnte angewiesen werden, den Dienst zu stoppen und der DB-Lock würde
+aufgehoben werden. Für den Zeitraum der Datensicherung würden dann
+Client-Prozesse zwar trotzdem nicht auf die Datenbank zugreifen können,
+doch usher würde ihnen über eine dedizierte Fehlermeldung von der
+Nichtverfügbarkeit mitteilen.
+
 Wichtig ist, die Konfiguration und Schlüssel des monotone-Servers zu sichern.
 Diese finden sich bei einem monotone-Server auf Debian GNU/Linux meist im
 Verzeichnis */etc/monotone/* und in der Datei */etc/default/monotone*. Die
