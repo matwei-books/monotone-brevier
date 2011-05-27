@@ -43,9 +43,13 @@ Lokale Datensicherung
 
 Wenn ich nur lokal arbeite oder mich nur um mein lokales Repository kümmere,
 brauche ich die Datei mit dem privaten Repository, meine privaten Schlüssel
-und eventuell weitere Einstellungen aus *~/.monotone/* (dort befinden sich
+und eventuell weitere Einstellungen aus *$HOME/.monotone/* (dort befinden sich
 auch die Schlüssel). Wichtig ist, das zum Zeitpunkt der Sicherung das
-Repository nicht verwendet wird.
+Repository nicht verwendet wird. Wenn ich meine Datenbank in dem von Monotone
+standardmäßig verwendeten Verzeichnis abgelegt habe (das heißt, ich habe bei
+der Angabe der Datenbank immer ein **:** vorangestellt), reicht es das
+Verzeichnis *$HOME/.monotone* (*%APPDATA%\\monotone* bei MS Windows)
+komplett zu sichern. 
 
 Zur Wiederherstellung kopiere ich die Dateien wieder an ihren alten Platz und
 kann sofort beim Stand der letzten Sicherung weiterarbeiten.
