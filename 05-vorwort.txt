@@ -11,7 +11,7 @@ Versionsverwaltungssystem für das Projekt zu suchen. CVS und auch andere
 Systeme, mit einem zentralen Repository fielen aus, da wir für das
 Projekt keinen durchgängig laufenden Server zur Verfügung hatten. Ich
 hatte ohnehin schon seit einiger Zeit von verteilten Systemen für die
-Versionsverwaltung (DRCS) gehört. Das sollte der Einstieg werden. Ich bin tief
+Versionsverwaltung (DVCS) gehört. Das sollte der Einstieg werden. Ich bin tief
 verwurzelt in der UNIX-Welt und damit stand mir eigentlich eine große
 Palette zur Verfügung. Die anderen Mitarbeiter am Projekt arbeiteten
 jedoch mit MS-Windows, also war ein natives Windows-Programm Pflicht,

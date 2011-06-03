@@ -53,6 +53,11 @@ Datenbank
   Monotone verwendet als lokales Repository eine SQLite-Datenbank. Daher
   werden die Begriffe lokales Repository und Datenbank synonym verwendet.
 
+DVCS
+  Distributed Version Control System, verteilte Versionsverwaltung. Es gibt
+  kein zentrales Repository, welches die Änderungen verfolgt, sondern mehrere,
+  die untereinander synchronisiert werden.
+
 Fork, Gabelung
   Im Laufe der Entwicklung folgt normalerweise eine *Revision* auf die andere,
   wie die Perlen an einer Kette. Nun ist es möglich, dass ausgehend von einer
