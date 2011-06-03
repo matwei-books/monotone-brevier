@@ -4,14 +4,17 @@
 A1 Weiterführende Informationen
 ===============================
 
-Internet
---------
+E-Mail, Chat
+------------
 
 E-Mail
   http://lists.nongnu.org/mailman/listinfo/monotone-users
 
 IRC
   irc.oftc.net #monotone
+
+World Wide Web
+--------------
 
 www.monotone.ca/
   Die Homepage von monotone (englisch), hier findet man fast alles, was man
