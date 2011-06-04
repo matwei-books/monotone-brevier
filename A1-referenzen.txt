@@ -53,6 +53,13 @@ nakedstartup.com/2010/04/simple-daily-git-workflow/
   Eine Beschreibung für einen möglichen Arbeitsablaufs mit *git*, die ich als
   Anregung für diesen Text verarbeitet habe.
 
+`www.duden.de`_
+  Auf den Webseiten von *Duden online* gibt es die Möglichkeit,
+  Rechtschreibung und Grammatik überprüfen zu lassen. Alle im Text
+  verbliebenen Fehler gehen auf mich.
+
+.. _`www.duden.de`: http://www.duden.de/
+
 www.troyhunt.com/2011/05/10-commandments-of-good-source-control.html
   *The 10 commandments of good source control management* (englisch)
 
