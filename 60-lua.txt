@@ -78,7 +78,7 @@ auf. Das Ergebnis ist ein *pair* (Lua), das besteht aus einem Boolean
 (``true`` bei Erfolg) und einer Zeichenkette, die den Inhalt von ``stdout``
 des Aufrufs von ``automate command`` enthält.
 
-Diese Funktion ist nicht für den Gebrauch in normalen Lua-Hooks sondern eher
+Diese Funktion ist nicht für den Gebrauch in normalen Lua-Hooks, sondern eher
 für Lua-Funktionen, die mit ``register_command`` registriert wurden.
 
 Beachte, dass Tastatureingaben wie bei der
@@ -96,8 +96,8 @@ Einbetten der aktuellen Revision
 Bei einigen Versionsverwaltungssystemen - zum Beispiel RCS und CVS - gibt es
 Schlüsselworte, die im Quelltext eingesetzt werden können und dann vom
 Versionsverwaltungssystem durch die entsprechenden Werte, wie die Version
-der Datei oder das Datum des Check in, ersetzt werden. So etwas gibt es bei
-monotone nicht, so dass man sich hier im Bedarfsfall mit einem Script behilft,
+der Datei oder das Datum des Check-in, ersetzt werden. So etwas gibt es bei
+monotone nicht, sodass man sich hier im Bedarfsfall mit einem Script behilft,
 das eine Datei automatisch generiert, die dann im Quelltext eingebunden wird.
 
 So etwas habe ich bei diesem Text ebenfalls verwendet. Die Angaben zur Basis-
@@ -129,11 +129,12 @@ Anschließend wird die Datei *revision.txt* im Vorspann eingebunden::
 
  .. include:: revision.txt
 
-Das Ergebnis ist auf Seite 3 diesen Textes zu sehen.
+Das Ergebnis ist auf Seite 3 dieses Textes zu sehen.
 
-Ich gebe hier die Basis- und die aktuelle Revision aus, so dass klar wird
+Ich gebe hier die Basisrevision und die aktuelle Revision aus, sodass man
+erkennen kann,
 
-- auf welcher Revision im Repository der Text aufbaut (der Basisrevision)
+- auf welcher Basisrevision im Repository der Text aufbaut
 - ob an dieser Revision Veränderungen vorgenommen wurden (dann sind Basis- und
   aktuelle Revision verschieden)
 

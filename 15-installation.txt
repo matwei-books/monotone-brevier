@@ -14,7 +14,7 @@ Debian GNU/Linux und Ubuntu Linux
 Prinzipiell kann man monotone bei Debian GNU/Linux mit dem Befehl ``apt-get``
 installieren. In der momentan stabilen Version von Debian (6.0 Squeeze) wird
 dann aber Version 0.48 von monotone installiert, in der aktuellen LTS-Version
-von Ubuntu (10.04 Lucid Lynx) gar 0.45, so dass ich hier die
+von Ubuntu (10.04 Lucid Lynx) gar 0.45, sodass ich hier die
 Installation aus den Quellprogrammen beschreibe.
 
 Zuerst müssen wir ein paar notwendige Programme und Bibliotheken
@@ -26,7 +26,7 @@ installieren, die für die Übersetzung von monotone benötigt werden::
                         liblua5.1-0-dev libidn11-dev          \
                         libgmp3-dev libbz2-dev stow texinfo
 
-Als nächstes holen wir uns die Quellprogramme und entpacken diese::
+Als Nächstes holen wir uns die Quellprogramme und entpacken diese::
 
  $ wget http://www.monotone.ca/downloads/1.0/monotone-1.0.tar.bz2
  $ tar xjf monotone-1.0.tar.bz2

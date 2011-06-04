@@ -46,7 +46,7 @@ Oder ich nehme jedesmal ein frisches und checke den aktuellen Stand aus::
  $ mtn --db ticketnr.mtn pull remotehost --branch trunk
  $ mtn --db ticketnr.mtn co --branch trunk .
 
-Als nächstes stelle ich auf den neuen Zweig um::
+Als Nächstes stelle ich auf den neuen Zweig um::
 
  $ mtn cert h: branch trunk.ticketnr
  $ mtn update --branch trunk.ticketnr
@@ -63,25 +63,25 @@ Arbeit am Problem mit vielen Commits
  5. ``mtn commit -m "detaillierte Beschreibung"``
  6. wieder von vorn, bis das Problem gelöst ist
 
-Wenn alle Tests in dem neuen Zweig fehlerfrei durchlaufen, bin ich soweit, die
+Wenn alle Tests in dem neuen Zweig fehlerfrei durchlaufen, bin ich so weit, die
 Änderungen wieder in den Trunk-Zweig einzupflegen.
 
 Merge des neuen Zweigs mit Trunk
 ................................
 
-Je nachdem, wieviel Leute am Projekt mitarbeiten, ist die Wahrscheinlichkeit
+Je nachdem, wie viel Leute am Projekt mitarbeiten, ist die Wahrscheinlichkeit
 dafür, dass inzwischen andere Änderungen in trunk eingepflegt wurden hoch oder
-niedrig. Darum hole ich als erstes den aktuellen Stand von trunk in mein
+niedrig. Darum hole ich als Erstes den aktuellen Stand von trunk in mein
 lokales Repository und spiele etwaige Änderungen von trunk in meinen Zweig
 ein::
 
  $ mtn pull
  $ mtn propagate trunk trunk.ticketnr
 
-Damit habe ich die Chance mögliche Konflikte in meinem Zweig aufzulösen ohne
+Damit habe ich die Chance mögliche Konflikte in meinem Zweig aufzulösen, ohne
 den Trunk-Zweig mit Zwischenständen zu belasten.
 
-Ich lasse nochmal alle Tests durchlaufen. Bei Fehlern kehre ich zurück zur
+Ich lasse noch mal alle Tests durchlaufen. Bei Fehlern kehre ich zurück zur
 Arbeit am Problem in meinem Zweig. Ging alles gut, schiebe ich meine
 Änderungen in den Trunk-Zweig und veröffentliche sie [#mtnsync]_::
 
@@ -102,9 +102,9 @@ lokalen Repository mit::
 
  $ mtn merge trunk
 
-Dabei löse ich eventuell auftretende Konflikte und lasse nochmal alle Tests
+Dabei löse ich eventuell auftretende Konflikte und lasse noch mal alle Tests
 durchlaufen. Bei Problemen propagiere ich den letzten Stand des Trunk-Zweiges
-nochmal in meinen Problemzweig und kehre zurück zur Arbeit am Problem.
+noch mal in meinen Problemzweig und kehre zurück zur Arbeit am Problem.
 
 Ging alles gut, veröffentliche ich die Änderungen::
 
@@ -192,7 +192,7 @@ Konflikt-Typen
     *Umbenennen*. Da beim Entfernen eines Verzeichnisses auch alle Dateien mit
     entfernt werden müssen, ist es fast immer besser, das Verzeichnis temporär
     umzubenennen und die darin enthaltenen Dateien einzeln zu betrachten,
-    indem man sie zusammenführt umbenennt oder löscht. Schließlich kann man
+    indem man sie zusammenführt, umbenennt oder löscht. Schließlich kann man
     das temporäre Verzeichnis entfernen. Der monotone-Befehl *conflicts* kann
     hierbei aber nicht helfen, das muss man direkt tun.
 
@@ -232,12 +232,12 @@ Konflikt-Typen
   gelöscht wurde und in der anderen Revision Dateien oder Verzeichnisse dort
   neu angelegt oder dahin verschoben wurden.
 
-  Das kann einfach gelöst werden, indem man die verweisten Knoten aus dem
+  Das kann einfach gelöst werden, indem man die verwaisten Knoten aus dem
   gelöschten Verzeichnis woandershin verschiebt oder löscht.
 
   ``mtn conflicts`` kann hierbei helfen. Falls es sich jedoch bei dem
   verwaisten Knoten um ein Verzeichnis handelt und dieses gelöscht werden
-  soll, müssen erst der Inhalt des Verzeichnisses gelöscht werden, bevor ``mtn
+  soll, muss erst der Inhalt des Verzeichnisses gelöscht werden, bevor ``mtn
   conflicts`` aufgerufen wird.
 
 - Mehrere Namen
@@ -277,15 +277,15 @@ wahrscheinlich eingeführt wurde.
 Die Bisektion benötigt einen Arbeitsbereich ohne Änderungen. Sie startet
 indem Revisionen mit ``mtn bisect good -r rev_good`` und ``mtn bisect bad -r
 rev_bad`` markiert werden. Damit hat man die Menge der verdächtigen
-Revisionen eingegrenzt. Monotone wählt als nächstes die Revision in der Mitte
+Revisionen eingegrenzt. Monotone wählt als Nächstes die Revision in der Mitte
 zwischen der guten und der schlechten Revision aus und lädt diese in den
 Arbeitsbereich. Nachdem man diese Revision getestet hat, markiert man diese
 ebenfalls mit *good* bzw. *bad* (dabei braucht keine Revision mehr angegeben
 werden). Monotone halbiert im Arbeitsbereich automatisch den Bereich zwischen
-der zuletzt als *good* und der zuletzt als *bad* markierten Revision, so dass
+der zuletzt als *good* und der zuletzt als *bad* markierten Revision, sodass
 man auf schnellst möglichem Weg zu der Revision kommen kann, in der der Fehler
-zum ersten Mal auftrat. Kommt man auf dem Weg hierhin zu einer Revision die
-nicht testbar ist (zum Beispiel weil sie nicht compiliert werden kann),
+zum ersten Mal auftrat. Kommt man auf dem Weg hierhin zu einer Revision, die
+nicht testbar ist (zum Beispiel weil sie nicht kompiliert werden kann),
 überspringt man diese Revision mit ``mtn bisect skip``.
 
 Mit ``mtn bisect status`` kann man sich jederzeit den Status der Bisektion
@@ -294,7 +294,7 @@ ausgeben lassen.
 Zugriffsrechte
 --------------
 
-Bei monotone ist es viel wichtige, was aus einer einem Repository herauskommt,
+Bei monotone ist es viel wichtiger, was aus einem Repository herauskommt,
 als was hinein geht. Der Austausch über Netzwerk ist eine einfache Kommunikation
 von Fakten (Inhalt von Dateien und Revisionen) und Zusicherungen über deren
 Wert (die Zertifikate, mit denen diese signiert sind).
@@ -337,7 +337,7 @@ In monotone wird alles Vertrauen über Zertifikate gehandhabt.
 Zertifikate und Revisionen
 ..........................
 
-Jede im Repository abgelegte Version wird mit einer kryptographischen
+Jede im Repository abgelegte Version wird mit einer kryptografischen
 SHA1-Hash identifiziert, die sowohl den Inhalt als auch ihre ganze Abstammung
 repräsentiert. Ein Zertifikat ist bei Monotone eine RSA-Public-Key-Signatur
 über ein Tupel aus Revisions-ID, den Namen und den Wert des Zertifikatstyps.
@@ -386,7 +386,7 @@ Monotones Mechanismen zur Qualitätssicherung beruhen überwiegend auf der
 Einschränkung von Subgraphen der Revisionsgeschichte. Zwei
 Möglichkeiten gibt es, diese einzuschränken:
 
-- Durch Einschränken der Menge der vertrauenswürdigen Zweigzertifikate, kann
+- Durch Einschränken der Menge der vertrauenswürdigen Zweigzertifikate kann
   man fordern, dass festgelegte Gutachter jede Kante des Subgraphen evaluiert
   haben.
 

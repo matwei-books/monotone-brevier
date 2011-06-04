@@ -21,7 +21,7 @@ verfügbar. Wenn gerade das Repository mit dem letzten Stand verloren geht und
 dieser Stand noch nicht synchronisiert wurde, ist auch dieser verloren.
 
 Die Sicherung der Schlüssel ist aus dem Grunde wichtig, dass bei der normalen
-Arbeit zwar mit dem Namen des Schlüssel (üblicherweise eine E-Mail-Adresse)
+Arbeit zwar mit dem Namen des Schlüssels (üblicherweise eine E-Mail-Adresse)
 gearbeitet wird, monotone intern aber immer den Schlüssel selbst verwendet. Es
 kann daher in einer Datenbank immer nur einen Schlüssel mit einem Namen geben.
 Geht dieser Schlüssel verloren, kann man zwar einen neuen Schlüssel anlegen
@@ -31,7 +31,7 @@ dafür einen anderen Namen (dann eine andere E-Mail-Adresse) geben.
 In neueren monotone-Versionen werden Schlüssel nicht mehr über ihren Namen
 identifiziert, sondern über ihren Hash.
 Damit ist es auch möglich, einen Schlüssel mit einem Namen zu erzeugen,
-der bereits von einem alten, verlorengegangenen Schlüssel genutzt wird.
+der bereits von einem alten, verloren gegangenen Schlüssel genutzt wird.
 Da die Schlüssel weiterhin meistens über ihren Namen visuell identifiziert
 werden, gibt es das Konzept von "local names", die per Lua-Hook bestimmten
 Schlüssel gegeben werden können. Diese Namen werden dann statt dem
@@ -44,7 +44,7 @@ Lokale Datensicherung
 Wenn ich nur lokal arbeite oder mich nur um mein lokales Repository kümmere,
 brauche ich die Datei mit dem privaten Repository, meine privaten Schlüssel
 und eventuell weitere Einstellungen aus *$HOME/.monotone/* (dort befinden sich
-auch die Schlüssel). Wichtig ist, das zum Zeitpunkt der Sicherung das
+auch die Schlüssel). Wichtig ist, dass zum Zeitpunkt der Sicherung das
 Repository nicht verwendet wird. Wenn ich meine Datenbank in dem von Monotone
 standardmäßig verwendeten Verzeichnis abgelegt habe (das heißt, ich habe bei
 der Angabe der Datenbank immer ein **:** vorangestellt), reicht es das

@@ -18,10 +18,10 @@ Nachfolgern verketteten Versionen im Repository.
 Das Repository ist dabei die Stelle, an der Buch geführt wird über alle von mir
 bestätigten Änderungen an den Dateien im Arbeitsbereich. Bei monotone ist das
 Repository eine SQLite-Datenbank.
-Da monotone eine verteiltes Versionsverwaltungssystem ist, gibt es nicht nur ein
+Da monotone ein verteiltes Versionsverwaltungssystem ist, gibt es nicht nur ein
 Repository sondern mehrere, üblicherweise eins auf dem lokalen Rechner welches
-im Workspace referenziert wird und weitere Repositories auf anderen Rechnern,
-die mit dem lokalen abgeglichen werden.
+im Arbeitsbereich referenziert wird und weitere Repositories auf anderen
+Rechnern, die mit dem lokalen abgeglichen werden.
 
 Eine Datei ist im Repository jeweils mit ihrem Vorgänger und
 Nachfolger (soweit vorhanden) verknüpft. Dabei ist es möglich, dass eine
@@ -40,7 +40,7 @@ ebenfalls im Repository verwaltet. Das Manifest, welches seit Version 0.26
 Roster genannt wird, enthält den relativen Pfad, die zugehörige Version und
 noch weitere Informationen zu jeder erfassten Datei zu diesem Zeitpunkt.
 
-Alle im Repository verwalteten Daten werden mit kryptographischen Schlüsseln
+Alle im Repository verwalteten Daten werden mit kryptografischen Schlüsseln
 signiert und dadurch gegen Veränderung gesichert.
 
 Wo sind meine Daten
@@ -80,11 +80,11 @@ Arbeitsbereich.
 Erst mit dem monotone-Kommando *pull* hole ich Daten aus einem entfernten
 Repository in das lokale und mit *push* schiebe ich Daten aus dem lokalen
 Repository in das entfernte, *sync* schließlich gleicht die Unterschiede
-zwischen lokalem und entfernten Repository in einem Aufruf aus, das heißt
+zwischen lokalem und entfernten Repository in einem Aufruf aus, das heißt,
 lokale Änderungen werden in das entfernte Repository übernommen und umgekehrt.
 
 Für *pull* wird kein Schlüssel benötigt, wenn der Server entsprechend
 konfiguriert ist. Damit ist ein anonymer Download möglich.
 
-Schließlich gibt es noch das monotone-Kommando *genkey*, dass einen neuen
+Schließlich gibt es noch das monotone-Kommando *genkey*, das einen neuen
 Schlüssel erzeugt und diesen im Keystore ablegt.

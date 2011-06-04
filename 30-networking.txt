@@ -7,10 +7,10 @@ Verteilt über das Netz
 Vorbereiten
 -----------
 
-Alle im Repository abgelegten Daten werden mit kryptographischen Schlüsseln
+Alle im Repository abgelegten Daten werden mit kryptografischen Schlüsseln
 signiert. Das ist ein grundlegendes Element dieses Versionsverwaltungssystems.
 Wenn ich gemeinsam mit anderen arbeiten will, muss ich deren Schlüssel kennen
-und akzeptieren genauso wie sie meinen Schlüssel kennen und akzeptieren
+und akzeptieren genauso, wie sie meinen Schlüssel kennen und akzeptieren
 müssen. Der erste Schritt zur Zusammenarbeit ist daher der Austausch der
 Schlüssel::
 
@@ -27,7 +27,7 @@ gegenüber fremden Schlüsseln immer projektbezogen ist. Nun kennt monotone also
 die Schlüssel aller Beteiligten, das reicht aber noch nicht ganz.
 
 Damit der monotone-Server Daten, die mit anderen (wenn auch bekannten)
-Schlüsseln signiert wurden akzeptiert, muss ich diesen Schlüsseln noch ein
+Schlüsseln signiert wurden, akzeptiert, muss ich diesen Schlüsseln noch ein
 paar Rechte einräumen::
 
  $ cat >> ~/.monotone/read-permissions <<EOT
@@ -48,7 +48,7 @@ Repository schicken kann (``mtn push`` bzw. ``mtn sync``)::
 
 Bei den Schreibrechten wird nicht nach Zweig unterschieden.
 
-Damit haben haben wir die Vorbereitungen abgeschlossen und können einen
+Damit haben wir die Vorbereitungen abgeschlossen und können einen
 monotone Server starten, mit dem die anderen Mitarbeiter ihre Repositories
 synchronisieren können.
 
@@ -60,7 +60,7 @@ monotone-Repository abgleichen können, starte ich den Server wie folgt::
 
  $ mtn --db lokales/repository.mtn serve
 
-Damit lauscht monotone am TCP Port 4691 und bietet alles aus der Datenbank
+Damit lauscht monotone am TCP-Port 4691 und bietet alles aus der Datenbank
 ``lokales/repository.mtn`` entsprechend den in
 ``read-permissions`` und ``write-permissions`` eingestellten Regeln an.
 
@@ -69,7 +69,7 @@ Um sich Daten von diesem Server zu holen, gibt man ein::
  $ mtn --db anderes/repository.mtn pull rechner.von.mathias "*"
 
 Dabei kann man statt ``"*"`` auch direkt den Namen des Zweigs angeben oder ein
-geeignetes Muster, dass alle gewünschten Zweige erfasst.
+geeignetes Muster, das alle gewünschten Zweige erfasst.
 
 Wenn man schon einen eigenen, eventuell geänderten Stand hat, will man eher
 beide Repositories auf den gleichen Stand bringen::
@@ -116,7 +116,7 @@ und ``database: default-include-pattern``. Diese sehen in etwa so aus::
  database: default-server monotone.example.net
  known-servers: monotone.example.net b1c3782090a03536fc21f9f...
 
-Die Variable ``known-servers: monotone.example.net`` enthält den Schlüssel, für
+Die Variable ``known-servers: monotone.example.net`` enthält den Schlüssel für
 den monotone-Server. Dieser Schlüssel wird nicht für das Signieren der Dateien
 im Repository sondern nur für die Kommunikation mit dem Server verwendet.
 Falls sich der Schlüssel auf dem Server ändert, teilt mir das monotone bei der
@@ -127,7 +127,7 @@ Unter Debian GNU/Linux gibt es ein Paket ``monotone-server``, welches Scripts
 enthält, die das Aufsetzen eines monotone-Servers vereinfachen.
 
 Der Server benötigt keine eigene Datensicherung, da alle Versionen, die er
-enthält auch auf den Rechnern der Entwickler vorhanden sind. Bei einem Ausfall
+enthält, auch auf den Rechnern der Entwickler vorhanden sind. Bei einem Ausfall
 kann ein neues Repository jederzeit aus einem der anderen Repositories,
 welches alle Zweige und die letzten Änderungen enthält, neu aufgesetzt werden.
 Lediglich der private Schlüssel für den Server sollte an einem sicheren Ort
