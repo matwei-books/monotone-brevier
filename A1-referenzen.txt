@@ -55,8 +55,8 @@ nakedstartup.com/2010/04/simple-daily-git-workflow/
 
 `www.duden.de`_
   Auf den Webseiten von *Duden online* gibt es die Möglichkeit,
-  Rechtschreibung und Grammatik überprüfen zu lassen. Alle im Text
-  verbliebenen Fehler gehen auf mich.
+  Rechtschreibung und Grammatik überprüfen zu lassen. Davon habe ich ausgiebig
+  Gebrauch gemacht. Alle im Text verbliebenen Fehler gehen auf mich.
 
 .. _`www.duden.de`: http://www.duden.de/
 
