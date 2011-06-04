@@ -386,14 +386,14 @@ Monotones Mechanismen zur Qualitätssicherung beruhen überwiegend auf der
 Einschränkung von Subgraphen der Revisionsgeschichte. Zwei
 Möglichkeiten gibt es, diese einzuschränken:
 
-- Indem man die Menge der vertrauenswürdigen Zweigzertifikate einschränkt kann
-  man fordern, dass bestimmte Gutachter jede Kante des Subgraphen evaluiert
+- Durch Einschränken der Menge der vertrauenswürdigen Zweigzertifikate, kann
+  man fordern, dass festgelegte Gutachter jede Kante des Subgraphen evaluiert
   haben.
 
-  Hierfür verwendet monotone die Lua Hooks ``get_revision_cert_trust``,
-  ``get_manifest_cert_trust`` und ``get_file_cert_trust``. Ein Beispiel für
-  den ersten Hook ist im Abschnitt *Trust Evaluation Hooks* des Handbuches zu
-  finden. Dieser lässt sich leicht an die anderen beiden anpassen.
+  Hierfür verwendet monotone die Lua Hooks ``get_revision_cert_trust``.
+  Ein Beispiel für dessen Anpassung
+  ist im Abschnitt *Trust Evaluation Hooks* des Handbuches zu
+  finden.
 
   Die Gutachter können Ihre Bewertung bestimmter Revisionen mit
   den monotone-Befehlen *approve*, *disapprove*, *suspend* ausdrücken.
