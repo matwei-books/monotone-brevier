@@ -235,7 +235,7 @@ Homepage von monotone als "noch etwas unreif" bezeichnet, bei meinen Projekten
 funktionierte es immer recht gut. Das Importieren
 kann allerdings - insbesondere bei größeren Projekten - etwas länger dauern.
 Das ist dem Umstand geschuldet, dass CVS auf Basis von einzelnen Dateien
-arbeitet, das heisst alle
+arbeitet, das heißt alle
 Versionsinformationen sind immer nur an die betreffende Datei gebunden,
 während monotone mit Verzeichnisbäumen arbeitet. Um das Manifest für eine
 Revision zu erstellen vergleicht monotone daher das Commit-Datum und die

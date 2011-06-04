@@ -49,7 +49,7 @@ möglich::
  end
 
 Die alte Definition von *default_hook* ist über die Variable *old_hook* nur
-innerhalb des *do* Blocks verfügbar. Global, das heisst, für monotone ist
+innerhalb des *do* Blocks verfügbar. Global, das heißt, für monotone ist
 *default_hook* jetzt in dieser Funktion definiert.
 
 Benutzerdefinierte Befehle

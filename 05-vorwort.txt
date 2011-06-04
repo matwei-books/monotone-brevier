@@ -2,7 +2,7 @@ Vorwort
 =======
 
 Im Jahre 2007 arbeitete ich nach langer Zeit wieder an einer Hochschule in
-einem Forschungsprojekt. Was mir auffiel war, dass viele Mitarbeiter und
+einem Forschungsprojekt. Was mir auffiel, war, dass viele Mitarbeiter und
 auch Studenten der Sektion Informatik kaum Kenntnisse
 über die Verwendung von Versionsverwaltungssystemen (RCS) hatten. Da ich
 seit etlichen Jahren mit CVS und davor mit anderen Systemen gearbeitet
@@ -18,7 +18,7 @@ jedoch mit MS-Windows, also war ein natives Windows-Programm Pflicht,
 möglichst mit Installer. Da wir in Java entwickelten, kam uns entgegen,
 dass es auch ein Java-Projekt mit monotone gab, durch das wir monotone mit
 Eclipse und Ant verwenden konnten. So kam ich zu monotone, das ich
-seither schätzen gelernt habe. Im folgenden Jahr begann ich eine kleine
+seither schätzen gelernt habe. Im folgenden Jahr begann ich, eine kleine
 Anleitung für monotone zu schreiben. Diese blieb sehr lange liegen, bis
 ich 2011 genügend Zeit und Schwung hatte, es zu diesem Text auszubauen.
 
@@ -52,7 +52,7 @@ Das Kapitel *Tag für Tag* behandelt verschiedene Problemstellungen, die
 bei der täglichen Arbeit mit monotone vorkommen können.
 
 Das nächste Kapitel *Datensicherung* hätte auch gut in das vorige
-hinein gepasst. Ich habe es nur wegen der Wichtigkeit des Themas - ich
+hineingepasst. Ich habe es nur wegen der Wichtigkeit des Themas - ich
 arbeite seit mehr als zehn Jahren als Systemadministrator - als eigenes
 Kapitel herausgehoben.
 
@@ -77,23 +77,23 @@ Anhang 3 und 4 sind Kurzfassungen aus Themen in diesem Text.
 Zur Schreibweise
 ----------------
 
-Thomas Keller schrieb mir: `monotone sollte im Satz immer klein geschrieben
+Thomas Keller schrieb mir: `monotone sollte im Satz immer kleingeschrieben
 werden, lediglich am Satzanfang groß`.
 Daran halte ich mich hier. Das Programm selbst heißt ``mtn``.
 
 Für Programm-Beispiele und Eingaben auf der Kommandozeile verwende ich
 eine dicktengleiche Schrift. Diesen nehme ich auch im Fließtext, wenn ich
-Optionen literal, das heisst so wie es eingegeben werden könnte, verwende.
+Optionen wortgetreu, das heißt so, wie es eingegeben werden könnte, verwende.
 
 Ansonsten verwende ich einen *kursiven* Font für Hervorhebungen von
 Namen, auch von Parametern. So kann es vorkommen, das ich an einer Stelle
-vom monotone Befehl *sync* schreibe und an anderer ``mtn sync``.
+vom monotone-Befehl *sync* schreibe und an anderer ``mtn sync``.
 Beide Male ist das gleiche gemeint.
 
 Danksagung
 ----------
 
-Dieses Buch wäre nicht entstanden, wenn ich nicht soviele Leute
+Dieses Buch wäre nicht entstanden, wenn ich nicht so viele Leute
 getroffen hätten, die nicht nur keine Versionsverwaltung verwenden,
 sondern sich aktiv dagegen sträuben, *weil der Aufwand das zu
 Lernen nicht durch den Nutzen aufgewogen wird*. Da es mir schwerfällt,

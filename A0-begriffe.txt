@@ -197,7 +197,7 @@ Version
 
 Versionsgeschichte
   Die verschiedenen Versionen von Dateien und Verzeichnisbäumen selbst haben
-  keinen Bezug zueinander. Das heisst, man kann aus den SHA1-Hashes und den
+  keinen Bezug zueinander. Das heißt, man kann aus den SHA1-Hashes und den
   Manifesten nicht erkennen, welche Version von welcher anderen
   abgeleitet wurde. Um die komplette Versionsgeschichte zu erhalten, wird
   daher für jede Änderung eine *Revision* gepflegt. Diese enthält das neue

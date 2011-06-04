@@ -80,7 +80,7 @@ Arbeitsbereich.
 Erst mit dem monotone-Kommando *pull* hole ich Daten aus einem entfernten
 Repository in das lokale und mit *push* schiebe ich Daten aus dem lokalen
 Repository in das entfernte, *sync* schließlich gleicht die Unterschiede
-zwischen lokalem und entfernten Repository in einem Aufruf aus, das heisst
+zwischen lokalem und entfernten Repository in einem Aufruf aus, das heißt
 lokale Änderungen werden in das entfernte Repository übernommen und umgekehrt.
 
 Für *pull* wird kein Schlüssel benötigt, wenn der Server entsprechend

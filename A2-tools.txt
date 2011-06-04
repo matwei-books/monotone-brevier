@@ -15,7 +15,7 @@ zusammenführen, bearbeiten und prüfen. Diffuse ist Freie Software.
 Die Homepage von diffuse ist http://diffuse.sourceforge.net/.
 
 Das Programm läuft auf allen Betriebssystemen, auf denen *Python* verfügbar
-ist (das heisst: UNIX, Mac OS, MS Windows).
+ist (das heißt: UNIX, Mac OS, MS Windows).
 
 Guitone
 -------
