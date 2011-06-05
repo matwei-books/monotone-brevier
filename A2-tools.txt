@@ -10,7 +10,7 @@ diffuse
 Diffuse ist ein kleines und einfaches Werkzeug zum Zusammenführen von Texten,
 geschrieben in Python.
 Mit Diffuse können Sie ganz einfach Änderungen in Ihren Quelltexten
-zusammenführen, bearbeiten und prüfen. Diffuse ist Freie Software.
+zusammenführen, bearbeiten und prüfen. Diffuse ist freie Software.
 
 Die Homepage von diffuse ist http://diffuse.sourceforge.net/.
 
@@ -42,12 +42,12 @@ Indefero
 --------
 
 Indefero ist im Grunde ein Klon von GoogleCode mit Support für verschiedene
-DVCS und seit Version 1.1 auch für monotone. Dieses scheint zur Zeit (2011)
+DVCS und seit Version 1.1 auch für monotone. Dieses scheint zurzeit (2011)
 aktiver gepflegt zu werden als *viewmtn*.
 
 Die Homepage der Open Source Version ist http://www.indefero.net/open-source/.
 
-**Wichtig!** auf der Homepage wird zur Zeit Version 1.0 zum Download
+**Wichtig!** Auf der Homepage wird zur Zeit Version 1.0 zum Download
 angepriesen. Unterstützung für Monotone gibt es aber erst für Versionen ab
 1.1, die es auf der Download-Seite auch gibt.
 
@@ -95,7 +95,7 @@ zuständigen Server in einer Tabelle und leitet die Verbindung dann weiter.
 
 Die Homepage von usher ist http://mtn-host.prjek.net/projects/webhost/.
 
-Dort ist zur Zeit ein Archiv für Version 0.99 zu finden, dem das
+Dort ist zurzeit ein Archiv für Version 0.99 zu finden, dem das
 Verzeichnis mit der Dokumentation fehlt. Am besten synchronisiert man ein
 lokales Repository mit dem Projekt::
 
@@ -110,12 +110,12 @@ viewmtn
 -------
 
 Viewmtn ist ein Web-Interface für monotone. Unter http://mtn-view.1erlei.de/
-kann man eine öffentliche Installation finden um sich einen Eindruck davon zu
+kann man eine öffentliche Installation finden, um sich einen Eindruck davon zu
 verschaffen.
 
 Die Homepage von viewmtn ist http://viewmtn.1erlei.de/.
 
-Viewmtn ist in Python geschrieben und nutzt das web.py Framework. In der Datei
+Viewmtn ist in Python geschrieben und nutzt das web.py-Framework. In der Datei
 INSTALL ist beschrieben, wie man es aufsetzen kann.
 
 xxdiff

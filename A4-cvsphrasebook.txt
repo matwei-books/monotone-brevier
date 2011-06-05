@@ -23,7 +23,7 @@ monotone::
  $ mtn --db=/path/to/database.mtn \
        checkout --revision=fe37 wobbler
 
-Vor dem Checkout ist üblicherweise kein Arbeitsbereich vorhanden, so dass man
+Vor dem Checkout ist üblicherweise kein Arbeitsbereich vorhanden, sodass man
 die Datenbank bei monotone benennen muss. Beim Aufruf von monotone in einem
 Arbeitsbereich ist das nicht mehr notwendig.
 
@@ -173,7 +173,7 @@ monotone::
 
  $ mtn drop file
 
-Mit dem monotone-Befehl *drop* wird die Datei sowohl aus dem Dateisystem, als
+Mit dem monotone-Befehl *drop* wird die Datei sowohl aus dem Dateisystem als
 auch aus dem Manifest entfernt.
 
 Historie ansehen
@@ -220,6 +220,5 @@ monotone::
  $ mtn db init --db=/path/to/database.mtn
 
 Monotones lokales Repository ist eine einzelne Datenbankdatei, die nur von mir
-benutzt wird. Diese Datei kann irgendwo angelegt werden (bei mir meist in
-*~/A/monotone/* zum Wiederfinden) und braucht keine Lese- oder Schreibrechte
-für andere.
+benutzt wird. Diese Datei kann irgendwo angelegt werden 
+und braucht keine Lese- oder Schreibrechte für andere.
