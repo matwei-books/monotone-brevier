@@ -34,7 +34,7 @@ Bisektion, Zweiteilung
 
 Branch, Zweig
   Wenn in einer Versionsgeschichte eine *Gabelung* aufgetreten ist und man
-  beide Enden separat weiter bearbeiten will, kann man einen neuen Branch
+  beide Enden separat weiter bearbeiten will, kann man einen neuen Zweig
   starten indem man einer der beiden Revisionen mit der Option ``--branch``
   einen neuen Zweignamen zuweist.
 
@@ -44,7 +44,7 @@ Branchname, Zweigname
   Zwei verschiedene Projekte mit dem gleichen Namen können nicht in einer
   Datenbank gespeichert werden.
 
-  Als Standard für die Namensvergabe wird empfohlen den eigenen DNS-Namen
+  Als Standard für die Namensvergabe wird empfohlen, den eigenen DNS-Namen
   voranzustellen (zum Beispiel *net.mamawe.text.monotone-brevier*
   für diesen Text). Man fängt dabei mit dem letzten Domain-Bestandteil an und
   fügt je nach Bedarf weitere hinzu.
@@ -96,7 +96,7 @@ Manifest, Roster
   
 Merge, Zusammenführen
   Wenn in der Versionsgeschichte ein Fork aufgetreten ist, und die jeweils
-  letzten Revision wieder zusammengeführt werden sollen, nennt man das bei
+  letzten Revisionen wieder zusammengeführt werden sollen, nennt man das bei
   Versionsverwaltungssystemen *Merge*. Monotone führt dabei ein Paar von
   3-Wege-Zusammenführungen aus. Zum einen auf Verzeichnisebene um Differenzen
   im Verzeichnisbaum (zum Beispiel Umbenennungen) aufzulösen, zum anderen
@@ -112,7 +112,7 @@ Merge, Zusammenführen
   linken Seite berechnet. Erst dann werden die beiden Versionen verknüpft,
   wobei identische Änderungen ignoriert werden und widersprechende Änderungen
   zurückgewiesen werden. Falls es widersprechende Änderungen gab, werden diese
-  an eine benutzerdefinierte (Lua-)Funktion übergeben, die per Default den
+  an eine (Lua-) Funktion übergeben, deren Standardimplementation den
   Editor Emacs im Diff-Modus aufruft.
 
   Monotone unterscheidet den *Merge* innerhalb eines Zweiges, für den es
@@ -147,7 +147,7 @@ Schlüssel
   Schlüssel über ihren SHA1-Hash identifiziert. Damit ist es nun möglich,
   mehrere Schlüsse mit demselben Namen in einer Datenbank zu haben. Das ist
   insbesondere dann praktisch, wenn ein (privater) Schlüssel verloren
-  gegangen ist. Über eine Lua-Hook können Schlüsseln lokale Namen vergeben
+  gegangen ist. Über einen Lua-Hook können Schlüsseln lokale Namen vergeben
   werden, die anstelle des Namens des Schlüssels angezeigt werden.
   Damit kann man
   unterschiedliche Schlüssel mit dem gleichen Namen unterscheiden.
@@ -168,7 +168,7 @@ SHA1-Hash
   Hash erfordert.
 
 URI
-  Uniform Resource Identifier ist ein einheitlicher Bezeichner für Ressourcen
+  Uniform Resource Identifier ist ein einheitlicher Bezeichner für Ressourcen,
   mit dem diese unabhängig vom verwendeten Programm oder Betriebssystem
   benannt werden können. Ein URI besteht aus einem Schema, gefolgt von einem
   Doppelpunkt gefolgt von den näheren Angaben entsprechend der Schreibweise
@@ -185,7 +185,7 @@ Version
   Kindesversion genannt.
 
   Eine Dateiversion bezieht sich auf den Inhalt der Datei. Um die Dateiversion
-  eindeutig zu referenzieren wird mit der *SHA1* Funktion eine Folge von 20
+  eindeutig zu referenzieren, wird mit der *SHA1* Funktion eine Folge von 20
   Bytes (genannt Hash) erzeugt, die genau dieser speziellen Version zugeordnet
   ist.
 
@@ -201,17 +201,17 @@ Versionsgeschichte
   Manifesten nicht erkennen, welche Version von welcher anderen
   abgeleitet wurde. Um die komplette Versionsgeschichte zu erhalten, wird
   daher für jede Änderung eine *Revision* gepflegt. Diese enthält das neue
-  Manifest, die vorherige Revision, an die die aktuelle Anschließt und welche
-  Dateiänderungen im einzelnen vorgenommen wurden. Die *Revision* selbst ist
+  Manifest, die vorherige Revision, an die die aktuelle anschließt und welche
+  Dateiänderungen im Einzelnen vorgenommen wurden. Die *Revision* selbst ist
   auch eine Textdatei und wird deshalb ebenfalls über eine SHA1-Hash
   identifiziert.
 
 Zertifikat
   Jede Revision in monotone wird über eine SHA1-Hash identifiziert, die sowohl
   den Inhalt der Revision als auch ihre ganze Abstammung repräsentiert.
-  Wenn man weitere Aussagen zu einer Revision (zum Beispiel den Zeitpunkt der
-  Erstellung der Revision) treffen will, so sind diese zunächst unabhängig von
-  der Revision und leicht änderbar. Um diese zusätzlichen Aussagen zu sichern
+  Will man weitere Aussagen zu einer Revision (zum Beispiel den Zeitpunkt der
+  Erstellung der Revision) treffen, so sind diese zunächst unabhängig von
+  der Revision und leicht änderbar. Um diese zusätzlichen Aussagen zu sichern,
   fügt monotone einen Schlüssel und eine mit diesem Schlüssel erzeugte
   Signatur über die zusätzlichen Aussagen an. Diese 4 Elemente (die Revision,
   die zusätzliche Information, der Schlüssel und die Signatur) zusammen bilden

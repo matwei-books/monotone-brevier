@@ -50,7 +50,7 @@ oandrieu.nerim.net/monotone-viz/
   Revisionsgraphen.
 
 nakedstartup.com/2010/04/simple-daily-git-workflow/
-  Eine Beschreibung für einen möglichen Arbeitsablaufs mit *git*, die ich als
+  Eine Beschreibung für einen möglichen Arbeitsablauf mit *git*, die ich als
   Anregung für diesen Text verarbeitet habe.
 
 `www.duden.de`_
@@ -73,8 +73,8 @@ www.mail-archive.com/monotone-devel@nongnu.org/msg09319.html
   Re: [Monotone-devel] mtn automate get_current_revision_id - bug or feature?,
   *Nuno Lucas*
 
-  Ein Python-Script, das ich als Vorlage für die Ermittlung von Basis- und
-  aktueller Revision, wie im Vorspann angezeigt, genommen habe.
+  Ein Python-Script, das ich als Vorlage für die Ermittlung von Basisrevision
+  und aktueller Revision, wie im Vorspann angezeigt, genommen habe.
 
 weidner.in-bad-schmiedeberg.de/computer/rcs/monotone/
   Artikel auf meiner Homepage zu monotone, zum Teil Auszüge aus und
