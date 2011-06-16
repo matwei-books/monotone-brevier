@@ -69,9 +69,10 @@ ssh_agent übergeben::
 Anschließend brauche ich den monotone-Schlüssel nur noch einmal während der
 Sitzung eingeben.
 
-Alternativ (und weniger sicher) kann ich das Kennwort in einen Hook in der
-Datei *monotonerc* [#monotonerc]_ eintragen [#windowspassphrase]_::
+Unter MS Windows wird der ssh-agent von *putty* unterstützt.
 
+Alternativ (und weniger sicher) kann ich das Kennwort in einen Hook in der
+Datei *monotonerc* [#monotonerc]_ eintragen::
 
  $ mkdir ~/.monotone
  $ cat >> ~/.monotone/.monotonerc
@@ -80,7 +81,7 @@ Datei *monotonerc* [#monotonerc]_ eintragen [#windowspassphrase]_::
  end
  ^D
 
-Den öffentlichen Schlüssel benötige ich um Änderungen von anderen Entwicklern
+Den öffentlichen Schlüssel benötige ich, um Änderungen von anderen Entwicklern
 zu überprüfen und um Zugriffsrechte für Repositories festzulegen. Um an den
 öffentlichen Schlüssel zu kommen, gebe ich das Folgende ein::
 
@@ -95,9 +96,6 @@ dass er in andere Datenbanken mit ``mtn read`` eingelesen werden kann.
    finden. Hier gibt es auch ein Unterverzeichnis *keys*, in dem die
    monotone bekannten Schlüssel gespeichert sind, und das Unterverzeichnis
    *databases*, in dem die von monotone verwalteten Datenbanken liegen.
-
-.. [#windowspassphrase] Soweit mir bekannt, ist das die einzige Möglichkeit
-   unter MS Windows.
 
 Einen Arbeitsbereich anlegen
 ----------------------------

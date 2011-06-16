@@ -10,7 +10,7 @@ Vorbereiten
 Alle im Repository abgelegten Daten werden mit kryptografischen Schlüsseln
 signiert. Das ist ein grundlegendes Element dieses Versionsverwaltungssystems.
 Wenn ich gemeinsam mit anderen arbeiten will, muss ich deren Schlüssel kennen
-und akzeptieren genauso, wie sie meinen Schlüssel kennen und akzeptieren
+und akzeptieren, genauso, wie sie meinen Schlüssel kennen und akzeptieren
 müssen. Der erste Schritt zur Zusammenarbeit ist daher der Austausch der
 Schlüssel::
 
@@ -76,7 +76,7 @@ beide Repositories auf den gleichen Stand bringen::
 
  $ mtn --db anderes/repository.mtn sync rechner.von.mathias "*"
  
-beziehungsweise
+beziehungsweise::
 
  $ mtn --db anderes/repository.mtn sync
 
@@ -93,8 +93,8 @@ Die Anmerkungen wie zu ``mtn sync`` gelten auch hier.
 Zentraler Server
 ----------------
 
-Ein Grundprinzip von verteilten Versionsverwaltungssystemen wie monotone ist
-das, das ein zentraler Server nicht nötig ist.
+Ein Grundprinzip von verteilten Versionsverwaltungssystemen ist,
+dass ein zentraler Server nicht mehr nötig ist.
 
 Wenn mehrere Leute an einem Projekt arbeiten, insbesondere wenn die Mitarbeiter
 räumlich oder zeitlich getrennt sind, ist es trotzdem praktisch ein Repository

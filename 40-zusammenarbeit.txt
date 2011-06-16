@@ -298,7 +298,7 @@ Bei monotone ist es viel wichtiger, was aus einem Repository herauskommt,
 als was hinein geht. Der Austausch über Netzwerk ist eine einfache Kommunikation
 von Fakten (Inhalt von Dateien und Revisionen) und Zusicherungen über deren
 Wert (die Zertifikate, mit denen diese signiert sind).
-Diese Zusicherungen müssen nicht
+Diesen Zusicherungen muss nicht
 notwendigerweise geglaubt werden, im Abschnitt Vertrauensgrundlagen wird näher
 darauf eingegangen. Es gibt simple Möglichkeiten der Steuerung für den
 grundlegenden Zugriff auf die Datenbank, alles darüber hinausgehende sollte über

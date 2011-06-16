@@ -102,8 +102,9 @@ Diese finden sich bei einem monotone-Server auf Debian GNU/Linux meist im
 Verzeichnis */etc/monotone/* und in der Datei */etc/default/monotone*. Die
 Schlüssel sind hierbei nicht für die Signatur wichtig, sondern für die
 Absicherung der Kommunikation. Wenn ich bei der Wiederherstellung einen neuen
-Serverschlüssel erzeugen muss, bekommen alle beteiligten eine Meldung, dass
-sich der Serverschlüssel geändert hat. Dann müssen sich von der Authentizität
+Serverschlüssel erzeugen muss, bekommen alle Beteiligten eine Meldung, dass
+sich der Serverschlüssel geändert hat. Dann müssen sie sich von der
+Authentizität
 des neuen Server-Schlüssels überzeugen, den alten verwerfen und den neuen
 akzeptieren.
 

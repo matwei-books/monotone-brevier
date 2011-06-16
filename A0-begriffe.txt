@@ -39,8 +39,8 @@ Branch, Zweig
   einen neuen Zweignamen zuweist.
 
 Branchname, Zweigname
-  Der Name eines Zweiges sollte global eindeutig sein, da es ansonsten wenn
-  das Repository mit anderen geteilt wird zu Kollisionen im Namensraum kommt.
+  Der Name eines Zweiges sollte global eindeutig sein, da es ansonsten, wenn
+  das Repository mit anderen geteilt wird, zu Kollisionen im Namensraum kommt.
   Zwei verschiedene Projekte mit dem gleichen Namen können nicht in einer
   Datenbank gespeichert werden.
 
