@@ -103,4 +103,5 @@ Aufwand etwas verringert zu haben.
 
 Besonders dankbar bin ich für die Hinweise, die ich über die
 Mailingliste *monotone-users* bekommen habe. Insbesondere von Marc
-Lütolf und Thomas Keller.
+Lütolf und Thomas Keller. Weiterhin erhielt ich Korrekturen und
+Anregungen von Stefan Naumann.
