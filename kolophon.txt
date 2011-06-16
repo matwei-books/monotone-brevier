@@ -1,0 +1,33 @@
+
+.. vim: set sw=2 ts=2 tw=78 et si:
+
+.. raw:: latex
+
+   \newpage
+   \thispagestyle{empty}
+   \mbox{}
+   \newpage
+
+Kolophon
+........
+
+.. raw:: latex
+
+   \thispagestyle{empty}
+
+Dieses Buch ist mit Hilfe der Python Docutils entstanden. Die
+Druckversion wurde mit *rst2latex* in eine LaTeX-Eingabedatei übersetzt
+und anschließend mit *pdflatex* in das PDF-Format umgewandelt.
+
+Natürlich handelt das Buch nicht nur von *monotone*, der Text steht
+selbst unter Versionsverwaltung. Der Docutils-Quelltext für Seite 3 mit
+den Versionsinformationen ist direkt aus Monotone generiert. Wie, ist im
+Kapitel *Anpassungen und Erweiterungen* beschrieben.
+
+Die Maus auf dem Umschlag wurde ursprünglich von Graydon Hoare,
+dem initialen Autor von monotone, von
+einer Mausfotografie mit Inkscape in SVG gezeichnet und dann später durch
+Thomas Keller etwas nachbearbeitet.
+
+Den Umschlag selbst habe ich mit Hilfe eines Templates von Lulu und dem
+Programm Gimp erstellt.

@@ -14,6 +14,7 @@ SOURCES = 00-vorspann.txt \
 	  A2-tools.txt \
           A3-workflow.txt \
 	  A4-cvsphrasebook.txt \
+	  kolophon.txt \
 #
 IMAGES = img/version-tags.png \
  img/wo-sind-die-daten.png
