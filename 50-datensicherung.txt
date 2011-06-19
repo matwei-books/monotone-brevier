@@ -15,7 +15,7 @@ unkritisch, wenn mehrere Leute zusammenarbeiten und daher auch mehrere
 verteilte Repositories bestehen. Die letzte Revision der Daten erhält man
 immer automatisch, wenn man mit einem Repository synchronisiert, welches diese
 Revision enthält. Das sollte jedoch nicht als Freibrief verstanden werden, auf
-eine Datensicherung ganz zu verzichten. Wenn jeder sich darauf verlässt, das
+eine Datensicherung ganz zu verzichten. Wenn jeder sich darauf verlässt, dass
 sich jemand anders darum kümmert, ist im schlimmsten Fall keine Sicherung
 verfügbar. Wenn gerade das Repository mit dem letzten Stand verloren geht und
 dieser Stand noch nicht synchronisiert wurde, ist auch dieser verloren.
@@ -94,7 +94,7 @@ Synchronisation gibt es, falls der monotone-Server über das Programm
 Usher könnte angewiesen werden, den Dienst zu stoppen und der DB-Lock würde
 aufgehoben werden. Für den Zeitraum der Datensicherung würden dann
 Client-Prozesse zwar trotzdem nicht auf die Datenbank zugreifen können,
-doch usher würde ihnen über eine dedizierte Fehlermeldung von der
+doch usher würde ihnen über eine dedizierte Fehlermeldung die
 Nichtverfügbarkeit mitteilen.
 
 Wichtig ist, die Konfiguration und Schlüssel des monotone-Servers zu sichern.

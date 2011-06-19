@@ -165,7 +165,20 @@ SHA1-Hash
 
   Diese Hash wird meist als Folge von 40 Hexadezimalzahlen lesbar
   ausgegeben und auch so eingegeben, wenn ein Befehl die Angabe einer
-  Hash erfordert.
+  Hash erfordert. Dabei müssen nur soviele Stellen angegeben werden, wie nötig
+  sind, um die Hash eindeutig zu identifizieren.
+
+Standarddatenbank
+  In älteren Versionen von monotone war es notwendig, für alle Operationen,
+  die mit dem lokalen Repository zu tun hatten, den Pfad zur Datenbankdatei
+  mit der Option
+  *--db* anzugeben, wenn man sich nicht gerade in einem Arbeitsbereich befand.
+  Bei neueren Versionen von monotone gibt es die Konvention, dass die
+  Datenbank sich im Verzeichnis *$HOME/.monotone/databases/* befindet, wenn
+  dem Namen ein Doppelpunkt vorangestellt wird. Wenn man bei diesen Versionen
+  von monotone die Angabe der Datenbankdatei weglässt, so verwendet monotone
+  *:default.mtn* als Datenbank. Diese Datei nennt man darum auch
+  Standarddatenbank.
 
 URI
   Uniform Resource Identifier ist ein einheitlicher Bezeichner für Ressourcen,

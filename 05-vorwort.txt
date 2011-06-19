@@ -8,7 +8,7 @@ auch Studenten der Sektion Informatik kaum Kenntnisse
 seit etlichen Jahren mit CVS und davor mit anderen Systemen gearbeitet
 hatte, begann ich als erstes nach einem geeigneten
 Versionsverwaltungssystem für das Projekt zu suchen. CVS und auch andere
-Systeme, mit einem zentralen Repository fielen aus, da wir für das
+Systeme mit einem zentralen Repository fielen aus, da wir für das
 Projekt keinen durchgängig laufenden Server zur Verfügung hatten. Ich
 hatte ohnehin schon seit einiger Zeit von verteilten Systemen für die
 Versionsverwaltung (DVCS) gehört. Das sollte der Einstieg werden. Ich bin tief
@@ -17,7 +17,7 @@ Palette zur Verfügung. Die anderen Mitarbeiter am Projekt arbeiteten
 jedoch mit MS-Windows, also war ein natives Windows-Programm Pflicht,
 möglichst mit Installer. Da wir in Java entwickelten, kam uns entgegen,
 dass es auch ein Java-Projekt mit monotone gab, durch das wir monotone mit
-Eclipse und Ant verwenden konnten. So kam ich zu monotone, das ich
+Eclipse und Apache Ant verwenden konnten. So kam ich zu monotone, das ich
 seither schätzen gelernt habe. Im folgenden Jahr begann ich, eine kleine
 Anleitung für monotone zu schreiben. Diese blieb sehr lange liegen, bis
 ich 2011 genügend Zeit und Schwung hatte, es zu diesem Text auszubauen.

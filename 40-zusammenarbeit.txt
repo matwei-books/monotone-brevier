@@ -154,7 +154,7 @@ Konflikt-Typen
 
 - Konflikte im Inhalt von Dateien
 
-  Diese kommen allgemein am häufigsten vor. Sie treten zum Beispiel auf,
+  Diese kommen am häufigsten vor. Sie treten zum Beispiel auf,
   wenn in einer
   Datei unterschiedliche Änderungen gegenüber dem gemeinsamen Vorfahren 
   aufgetreten sind.  Bei Änderungen an verschiedenen Zeilen wird monotone

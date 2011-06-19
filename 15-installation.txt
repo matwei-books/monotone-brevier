@@ -58,9 +58,9 @@ Microsoft Windows
 Für Microsoft Windows gibt es einen Installer, der die Installation
 vereinfacht.
 
-.. image:: img/win-setup-1.png
+.. figure:: img/win-setup-1-grey.png
    :alt: Windows Installer
-   :scale: 25
+   :scale: 45
    :align: center
 
 Zunächst akzeptieren wir die Lizenz (GPL, GNU General Public License)
@@ -80,15 +80,15 @@ sehen wollen.
 Schließlich werden uns alle ausgewählten Optionen noch einmal angezeigt und
 dann geht es los.
 
-.. image:: img/win-setup-6.png
+.. figure:: img/win-setup-6-grey.png
    :alt: alle gesetzten Optionen
-   :scale: 25
+   :scale: 45
    :align: center
 
 Das folgende Dialogfenster zeigt uns, dass monotone auf dem
 Rechner installiert ist.
 
-.. image:: img/win-setup-7.png
+.. figure:: img/win-setup-7-grey.png
    :alt: Installation beendet
-   :scale: 25
+   :scale: 45
    :align: center

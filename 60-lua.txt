@@ -6,8 +6,10 @@ Anpassungen und Erweiterungen
 
 Monotone nutzt die Programmiersprache *Lua* für Anpassungen und Erweiterungen.
 
-Lua-Funktionen werden in *rcfiles* definiert, die bei jedem Lauf von monotone
-gelesen werden. Als *rcfiles* werden verwendet:
+Lua-Funktionen werden in *rcfiles* [#rcfiles]_ definiert, die bei jedem Lauf
+von monotone gelesen werden. Als *rcfiles* werden verwendet:
+
+.. [#rcfiles] siehe Anhang A0: Rcfiles
 
 - *~/.monotone/monotonerc* bzw. *%APPDATA%\\monotone\\monotonerc*
   (auf MS Windows)
@@ -18,8 +20,8 @@ gelesen werden. Als *rcfiles* werden verwendet:
   Kommandozeile angegeben werden
 
 Zuerst wird die Datei *~/.monotone/monotonerc*, dann
-*_MTN/monotonerc*, wenn vorhanden und schließlich die mit *--rcfile*
-angegebenen in der Reihenfolge der Kommandozeile geladen.
+*_MTN/monotonerc* und schließlich die mit *--rcfile*
+angegebenen Dateien in der Reihenfolge der Kommandozeile geladen.
 Spätere Definitionen überschreiben dabei frühere.
 
 Lua-Funktionen werden auf zwei Arten in monotone verwendet. Als *Hooks* und
@@ -36,8 +38,7 @@ Für andere Hooks gibt es keine Definitionen, stattdessen wird ein
 Default-Rückgabewert verwendet.
 
 Für eigene Definitionen kann es hilfreich sein, den Code der alten Definition
-zumindest teilweise zu verwenden. Das ist mit *Lua* mit folgendem Code
-möglich::
+zumindest teilweise zu verwenden. Das ist mit folgendem Code möglich::
 
  do
      local old_hook = default_hook
@@ -102,7 +103,6 @@ und aktuellen Revision werden durch folgendes Script generiert::
 
  
  --  revision.lua -- Monotone extension command "mtn revision"
- --  usage: mtn --rcfile revision.lua revision
 
  register_command(
      "revision", "",

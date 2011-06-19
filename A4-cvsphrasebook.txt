@@ -24,8 +24,13 @@ monotone::
        checkout --revision=fe37 wobbler
 
 Vor dem Checkout ist üblicherweise kein Arbeitsbereich vorhanden, sodass man
-die Datenbank bei monotone benennen muss. Beim Aufruf von monotone in einem
-Arbeitsbereich ist das nicht mehr notwendig.
+die Datenbank bei bei älteren Versinen von monotone benennen musste.
+Beim Aufruf von monotone in einem Arbeitsbereich war das nicht notwendig.
+Bei neueren Versionen von monotone
+wird ohne explizite Angabe der Datenbank die Standarddatenbank
+[#Standarddatenbank]_ verwendet.
+
+.. [#Standarddatenbank] siehe Anhang A0: Standarddatenbank
 
 Änderungen übergeben
 --------------------

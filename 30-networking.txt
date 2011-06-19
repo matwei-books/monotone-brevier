@@ -4,6 +4,11 @@
 Verteilt über das Netz
 ======================
 
+Im vorigen Kapitel haben wir uns mit der grundlegenden Arbeitsweise von
+monotone vertraut gemacht. Wir sind nun in der Lage, private Projekte
+unter Revisionsverwaltung zu stellen. Der nächste Schritt ist die Arbeit
+mit mehreren Repositories, die über das Netz synchronisiert werden.
+
 Vorbereiten
 -----------
 
@@ -35,7 +40,7 @@ paar Rechte einräumen::
  allow "mathias@example.net"
  EOT
 
-Damit wird dem Schlüssel mathias@weidner.in-bad-schmiedeberg.de erlaubt, alle
+Dadurch wird mir mit dem Schlüssel *mathias@example.net* erlaubt, alle
 Zweige in dem betreffenden Repository zu lesen, das heißt in ein anderes
 Repository zu kopieren (zum Beispiel mit ``mtn pull``).
 
@@ -145,11 +150,10 @@ einfachen Download der Quellen freigeben. Das wird in
  $ cat >> ~/.monotone/read-permissions <<EOT
  pattern "net.example"
  allow "*"
- continue "true"
-
- pattern "*"
- allow "mathias@example.net"
  EOT
+
+Damit können alle Zweige, die mit *net.example* beginnen, mit ``mtn pull``
+gelesen werden. Egal mit welchem Schlüssel.
 
 Andere Transportwege
 --------------------
@@ -174,7 +178,9 @@ erste Argument als TCP-Adresse zu interpretieren (ein Name mit einer
 optionalen Portnummer), baut eine TCP-Verbindung dorthin auf und spricht
 *netsync* über diese Verbindung.
 
-Monotone versteht per Default drei URI-Schemata:
+Monotone versteht per Default drei URI-Schemata [#URI]_:
+
+.. [#URI] siehe Anhang A0: URI
 
 - SSH-URIs der Form ``ssh://[user@]hostname[:port]/pfad/zur/db.mtn``
 

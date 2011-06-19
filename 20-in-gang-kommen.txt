@@ -107,11 +107,11 @@ Arbeitsbereich an::
 
  $ mkdir -p ~/P/projekt
  $ cd ~/P/projekt
- $ mtn --db ~/A/monotone/projekt.mtn \
+ $ mtn --db /pfad/zum/projekt.mtn \
        setup --branch projekt.branch
 
 Monotone kann nun im lokalen Repository
-*~/A/monotone/projekt.mtn* Dateien aus dem Verzeichnis *~/P/projekt/* im Zweig
+*/pfad/zum/projekt.mtn* Dateien aus dem Verzeichnis *~/P/projekt/* im Zweig
 *projekt.branch* verwalten. Von sich aus tut es das allerdings nicht. Damit
 monotone den aktuellen Stand einer Datei im lokalen Repository verwaltet, muss
 ich ihm die Datei vorher bekannt machen.
@@ -207,10 +207,10 @@ Wenn ich weiß, dass ich eine bestimmte Revision später wieder erkennen
 will, zum Beispiel weil ich diese Revision veröffentliche, dann
 markiere ich diese Revision mit einem *version tag*.
 
-.. image:: img/version-tags.png
+.. figure:: img/version-tags-grey.png
+   :align: left
    :alt: Versionsmarkierung
-   :scale: 50
-   :align: center
+   :scale: 75 %
 
 Um einen Stand zu markieren, bestätige ich die letzten Änderungen mit ``mtn
 commit``, informiere mich über die aktuelle Version mit ``mtn head`` und
