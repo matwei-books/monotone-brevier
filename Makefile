@@ -36,6 +36,7 @@ $(OUTNAME).pdf: $(OUTNAME).tex $(OUTNAME).out
 
 $(OUTNAME).out: $(OUTNAME).tex preamble.tex
 	pdflatex $<
+	pdflatex $<
 
 revision.txt: $(SOURCES) $(IMAGES) preamble.tex Makefile bin/revision.lua
 	mtn --rcfile lua/revision.lua revision > revision.txt
