@@ -35,8 +35,9 @@ angegeben, weil es mir hier darum ging, Möglichkeiten, ein lokales Repository
 ist es möglich, auf die Angabe der lokalen Datenbank zu
 verzichten. In diesem Fall verwendet monotone die Standarddatenbank
 *:default.mtn*. Neuere Versionen verwenden das Verzeichnis
-*$HOME/.monotone/databases* (UNIX) bzw. *%APPDATA%\\monotone\\databases* (MS
-Windows) für Datenbanken, deren Name mit **:** beginnt. Wird keine Datenbank
+*$HOME/.monotone/databases* beziehungsweise unter MS Windows
+*%APPDATA%\\monotone\\databases* für Datenbanken, deren Name
+mit einem Doppelpunkt (**:**) beginnt. Wird keine Datenbank
 angegeben, so wird die Standarddatenbank genommen.
 
 .. [#databaselocation] Die Datenbank könnte irgendwo abgelegt werden, bei mir
